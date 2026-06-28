@@ -1,6 +1,11 @@
 # JobUnify
 
-A job aggregator that pulls listings from Internshala, Unstop, Naukri and Indeed in one place.
+A job aggregator that pulls listings from Internshala, Unstop, Naukri and Indeed in one place — filtered for freshers.
+
+## 🔗 Live Demo
+
+- **Frontend:** https://job-unify.vercel.app
+- **Backend API:** https://jobunify.onrender.com
 
 ## Tech Stack
 
@@ -8,16 +13,17 @@ A job aggregator that pulls listings from Internshala, Unstop, Naukri and Indeed
 - **Backend:** Node.js + Express
 - **Database:** MongoDB Atlas
 - **Auth:** JWT + Google OAuth
-- **Scrapers:** Python (Playwright, Requests)
+- **Scrapers:** Python (Playwright, Requests, Adzuna API, JSearch API)
+- **Deployment:** Vercel (frontend) + Render (backend)
 
 ## Features
 
-- 🔍 Search jobs across multiple platforms in real-time
+- 🔍 Aggregates jobs from 4 platforms in one place
+- 🎯 Search by role, skill or company
 - 📌 Save/bookmark jobs to your personal list
-- 🔐 Secure authentication with JWT and Google OAuth
+- 🔐 Google OAuth + JWT authentication
+- 🔄 Auto-refreshes every 6 hours via Python scheduler
 - 👤 User profile with completion tracking
-- 🤖 Automated scrapers that refresh job listings every 6 hours
-- 📊 Live stats — total jobs and platforms tracked
 
 ## Project Structure
 
@@ -56,7 +62,7 @@ job/
 ```bash
 cd backend
 npm install
-cp .env.example .env   # fill in your secrets
+cp env.example .env   # fill in your secrets
 npm start
 ```
 
@@ -74,10 +80,12 @@ npx serve ./frontend -l 3000
 PORT=5000
 MONGO_URI=mongodb+srv://<user>:<pass>@cluster.mongodb.net/jobunify
 JWT_SECRET=your_jwt_secret
+JWT_EXPIRE=7d
 SESSION_SECRET=your_session_secret
 GOOGLE_CLIENT_ID=your_google_client_id
 GOOGLE_CLIENT_SECRET=your_google_client_secret
-JSEARCH_API_KEY=your_rapidapi_key
+RAPIDAPI_KEY=your_rapidapi_key
+CLIENT_URL=https://job-unify.vercel.app
 ```
 
 ## API Endpoints
