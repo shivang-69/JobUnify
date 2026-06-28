@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up — JobUnify</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="signup.css"/>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <a href="index.html" class="logo">Job<span>Unify</span></a>
+    <div class="nav-right">Already have an account? <a href="signin.html">Login</a></div>
+  </nav>
+
+  <!-- MAIN LAYOUT -->
+  <div class="page-wrapper">
+
+    <!-- LEFT PANEL -->
+    <div class="left-panel">
+      <div class="illustration">🎓</div>
+      <h2>On registering, you can</h2>
+      <ul class="benefits">
+        <li>
+          <span class="check">✔</span>
+          <span>Build your profile and let recruiters find you</span>
+        </li>
+        <li>
+          <span class="check">✔</span>
+          <span>Get job postings from 4 platforms delivered to you</span>
+        </li>
+        <li>
+          <span class="check">✔</span>
+          <span>Find internships, fresher jobs & campus drives</span>
+        </li>
+        <li>
+          <span class="check">✔</span>
+          <span>Track all your applications in one place</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- RIGHT FORM -->
+    <div class="form-panel">
+      <h1>Create your JobUnify profile</h1>
+      <p class="form-subtitle">Search & apply to jobs from India's top platforms</p>
+
+      <!-- FULL NAME -->
+      <div class="form-group">
+        <label>Full name <span class="required">*</span></label>
+        <input type="text" id="name" placeholder="What is your name?" />
+        <span class="error-msg" id="nameError"></span>
+      </div>
+
+      <!-- EMAIL -->
+      <div class="form-group">
+        <label>Email ID <span class="required">*</span></label>
+        <input type="email" id="email" placeholder="Tell us your Email ID" />
+        <p class="field-hint">We'll send relevant jobs and updates to this email</p>
+        <span class="error-msg" id="emailError"></span>
+      </div>
+
+      <!-- PASSWORD -->
+      <div class="form-group">
+        <label>Password <span class="required">*</span></label>
+        <div class="input-wrapper">
+          <input type="password" id="password" placeholder="Minimum 6 characters" />
+          <button class="toggle-eye" onclick="togglePassword('password', this)">👁</button>
+        </div>
+        <p class="field-hint">This helps your account stay protected</p>
+        <span class="error-msg" id="passwordError"></span>
+      </div>
+
+      <!-- MOBILE -->
+      <div class="form-group">
+        <label>Mobile number <span class="required">*</span></label>
+        <div class="mobile-wrapper">
+          <span class="country-code">+91</span>
+          <input type="tel" id="mobile" placeholder="Enter your mobile number" maxlength="10" />
+        </div>
+        <p class="field-hint">Recruiters will contact you on this number</p>
+        <span class="error-msg" id="mobileError"></span>
+      </div>
+
+      <!-- WORK STATUS -->
+      <div class="form-group">
+        <label>Work status <span class="required">*</span></label>
+        <div class="work-status">
+          <div class="status-card" id="card-experienced" onclick="selectStatus('experienced')">
+            <div class="status-info">
+              <div class="status-title">I'm experienced</div>
+              <div class="status-desc">I have work experience (excluding internships)</div>
+            </div>
+            <div class="status-icon">💼</div>
+          </div>
+          <div class="status-card" id="card-fresher" onclick="selectStatus('fresher')">
+            <div class="status-info">
+              <div class="status-title">I'm a fresher</div>
+              <div class="status-desc">I am a student / Haven't worked after graduation</div>
+            </div>
+            <div class="status-icon">🎒</div>
+          </div>
+        </div>
+        <span class="error-msg" id="statusError"></span>
+      </div>
+
+      <!-- TERMS -->
+      <div class="checkbox-row">
+        <input type="checkbox" id="updates" />
+        <label for="updates">Send me important job updates via SMS, email & WhatsApp</label>
+      </div>
+
+      <p class="terms-text">
+        By clicking Register, you agree to the
+        <a href="#">Terms and Conditions</a> &
+        <a href="#">Privacy Policy</a> of JobUnify
+      </p>
+
+      <button class="register-btn" onclick="handleSignup()">Register now</button>
+
+      <!-- GOOGLE -->
+      <div class="divider"><span>Or</span></div>
+      <button class="google-btn" onclick="handleGoogle()">
+        <img src="https://www.svgrepo.com/show/475656/google-color.svg" width="18" alt="Google"/>
+        Continue with Google
+      </button>
+
+    </div>
+  </div>
+
+  <script src="signup.js"></script>
+</body>
+</html>

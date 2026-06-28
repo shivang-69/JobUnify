@@ -1,0 +1,7 @@
+node_modules/
+.env
+*.log
+__pycache__/
+*.pyc
+scrapers/indeed_jobs.json
+scrapers/naukri_jobs.json

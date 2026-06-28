@@ -1,0 +1,534 @@
+/* ─────────────────────────────────────────────
+   JobUnify — profile.css
+   ───────────────────────────────────────────── */
+
+:root {
+  --bg: #0a0a0f;
+  --surface: #13131a;
+  --accent: #6c63ff;
+  --accent-hover: #5b52e6;
+  --accent2: #a78bfa;
+  --border: #2a2a3a;
+  --muted: #8888aa;
+  --text: #c0c0d8;
+  --white: #ffffff;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Page Layout */
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+/* Right Main Column */
+.right-column {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-width: 0;
+}
+
+/* Profile Cards */
+.profile-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--white);
+  margin-top: 0;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Edit & Add Buttons */
+.edit-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.edit-btn:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--white);
+}
+
+.add-outline-btn {
+  border: 1px solid var(--accent);
+  color: var(--accent2);
+  background: transparent;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.add-outline-btn:hover {
+  background: var(--accent);
+  color: var(--white);
+}
+
+/* 1. Header Card Design */
+.header-card-layout {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.profile-avatar-large {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  color: var(--white);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 15px rgba(108, 99, 255, 0.3);
+}
+
+.header-card-details h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--white);
+  margin: 0 0 6px 0;
+}
+
+.college-info {
+  font-size: 14px;
+  color: var(--accent2);
+  margin: 0 0 8px 0;
+}
+
+.meta-row {
+  font-size: 12px;
+  color: var(--muted);
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+.email-badge-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0;
+  font-size: 13px;
+}
+
+.verified-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(108, 99, 255, 0.15);
+  color: var(--accent2);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* 2. Preferences Card */
+.pref-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.pref-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  color: var(--muted);
+  letter-spacing: 0.5px;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.pref-value {
+  font-size: 14px;
+  color: var(--white);
+  font-weight: 500;
+}
+
+/* Key Skills Pills */
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.skill-pill {
+  border: 1px solid var(--accent);
+  color: var(--accent2);
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(108, 99, 255, 0.05);
+}
+
+.skill-pill .remove-skill {
+  background: transparent;
+  border: none;
+  color: var(--accent2);
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+
+.skill-input-row {
+  display: flex;
+  gap: 10px;
+  max-width: 400px;
+}
+
+.skill-input-row input {
+  flex: 1;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 8px 12px;
+  color: var(--white);
+  font-size: 13px;
+}
+
+.skill-input-row input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+/* Cards lists (Education, Internships, Projects, Certifications) */
+.card-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 1px solid var(--border);
+  padding: 16px 0;
+  gap: 16px;
+}
+
+.card-list-item:first-child {
+  padding-top: 0;
+}
+
+.card-list-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.card-list-item h4 {
+  font-size: 15px;
+  color: var(--white);
+  font-weight: 600;
+  margin: 0 0 6px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.card-list-item p {
+  font-size: 13px;
+  color: var(--text);
+  margin: 0 0 6px 0;
+}
+
+.meta-line {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.desc-line {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.5;
+  margin-top: 8px;
+  white-space: pre-line;
+}
+
+.item-actions {
+  display: flex;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.item-edit-btn {
+  background: transparent;
+  border: none;
+  color: var(--accent2);
+  font-size: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  padding: 2px;
+}
+
+.item-delete-btn {
+  background: transparent;
+  border: none;
+  color: #f87171;
+  font-size: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  padding: 2px;
+}
+
+.proj-tags-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.proj-tag {
+  background: rgba(108, 99, 255, 0.08);
+  border: 1px solid rgba(108, 99, 255, 0.2);
+  color: var(--text);
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.proj-link-anchor {
+  color: var(--accent2);
+  display: inline-flex;
+  align-items: center;
+  transition: color 0.2s;
+}
+
+.proj-link-anchor:hover {
+  color: var(--white);
+}
+
+/* Profile Summary */
+.textarea-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+textarea#bio-textarea {
+  width: 100%;
+  height: 120px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px;
+  color: var(--white);
+  font-family: inherit;
+  font-size: 14px;
+  resize: none;
+  box-sizing: border-box;
+}
+
+textarea#bio-textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.char-count-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* Empty State styling */
+.empty-state {
+  font-size: 13px;
+  color: var(--muted);
+  padding: 16px 0;
+  text-align: left;
+}
+
+/* Modals Overlay */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(4px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal.active {
+  display: flex;
+}
+
+/* Modal Content Box */
+.modal-content {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  width: 560px;
+  max-width: 90%;
+  padding: 32px;
+  position: relative;
+  max-height: 85vh;
+  overflow-y: auto;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.55);
+  box-sizing: border-box;
+}
+
+.modal-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--white);
+  margin-top: 0;
+  margin-bottom: 24px;
+}
+
+.close-modal-btn {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  font-size: 24px;
+  cursor: pointer;
+  transition: color 0.2s;
+  line-height: 1;
+}
+
+.close-modal-btn:hover {
+  color: var(--white);
+}
+
+/* Modal Forms styling */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  background: #0a0a0f;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px 16px;
+  color: var(--white);
+  font-size: 14px;
+  font-family: inherit;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.form-row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/* Modal Actions and Buttons */
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.cancel-modal-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.cancel-modal-btn:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--white);
+}
+
+.submit-modal-btn {
+  background: var(--accent);
+  color: var(--white);
+  border: none;
+  border-radius: 8px;
+  padding: 10px 24px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.submit-modal-btn:hover {
+  background: var(--accent-hover);
+}
+
+

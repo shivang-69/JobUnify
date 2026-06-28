@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Profile — JobUnify</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .profile-wrap {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+      min-height: 70vh;
+    }
+    .profile-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+    .profile-card {
+      background: var(--panel-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 30px;
+      backdrop-filter: blur(16px);
+    }
+    .card-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 24px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding-bottom: 12px;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .form-control {
+      width: 100%;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 16px;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      box-sizing: border-box;
+    }
+    .form-control:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.15);
+    }
+    select.form-control {
+      appearance: none;
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%239ca3af' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+      background-size: 16px;
+      padding-right: 40px;
+      cursor: pointer;
+    }
+    select.form-control option {
+      background: #0f0f23;
+      color: #fff;
+    }
+    .save-btn {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+    }
+    .save-btn:hover {
+      background: #5b54db;
+    }
+    .save-btn:active {
+      transform: scale(0.98);
+    }
+    .msg {
+      margin-top: 15px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+    .msg.success {
+      color: #10b981;
+    }
+    .msg.error {
+      color: #ef4444;
+    }
+
+    /* Tags Input Styling */
+    .tags-input-container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 8px 12px;
+      min-height: 46px;
+      box-sizing: border-box;
+    }
+    .tags-input-container:focus-within {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.15);
+    }
+    .tags-input-container input {
+      border: none;
+      background: none;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      outline: none;
+      flex-grow: 1;
+      min-width: 100px;
+      padding: 4px 0;
+    }
+    .skill-tag {
+      background: rgba(108, 99, 255, 0.15);
+      color: #c0c0d8;
+      border: 1px solid rgba(108, 99, 255, 0.3);
+      border-radius: 6px;
+      padding: 4px 8px;
+      font-size: 12px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .skill-tag span {
+      cursor: pointer;
+      color: var(--muted);
+      font-weight: 700;
+    }
+    .skill-tag span:hover {
+      color: #ff8888;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="logo" onclick="window.location.href='index.html'" style="cursor:pointer">Job<span>Unify</span></div>
+    <div class="nav-links">
+      <a href="signup.html" id="signupNavBtn"><button class="nav-btn">Sign Up Free</button></a>
+      <div class="avatar-wrap" id="avatarWrap" style="display:none">
+        <div class="avatar" id="avatarBtn" onclick="toggleDropdown(event)" title="Open menu">S</div>
+
+        <!-- PROFILE DROPDOWN -->
+        <div class="profile-dropdown" id="profileDropdown">
+          <div class="dropdown-header">
+            <div class="dropdown-avatar-header" id="sidebar-avatar">S</div>
+            <div class="user-text-details">
+              <div class="dropdown-username-header" id="sidebar-name">User</div>
+              <div class="dropdown-completion-header">
+                Profile <span id="profile-completion-bar">0%</span> complete
+              </div>
+            </div>
+          </div>
+
+          <div class="dropdown-divider"></div>
+
+          <nav class="dropdown-menu">
+            <a href="profile.html" class="dropdown-item active">
+              <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+              <span>Profile</span>
+            </a>
+            <a href="saved-jobs.html" class="dropdown-item">
+              <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+              <span>Saved Jobs</span>
+            </a>
+            <a href="settings.html" class="dropdown-item">
+              <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51(1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+              <span>Settings</span>
+            </a>
+          </nav>
+
+          <div class="dropdown-divider"></div>
+
+          <a href="#" onclick="logout(event)" class="dropdown-item dropdown-signout">
+            <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+            <span>Sign out</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PROFILE WRAPPER -->
+  <div class="profile-wrap">
+    <div class="profile-grid">
+      
+      
+      <!-- SECTION 2: Professional Profile -->
+      <div class="profile-card">
+        <div class="card-title">Professional Profile</div>
+        <form id="professionalForm" onsubmit="updateProfessional(event)">
+          <!-- Education Details -->
+          <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap:16px;">
+            <div class="form-group">
+              <label for="degree">Degree</label>
+              <input type="text" id="degree" class="form-control" placeholder="e.g. B.Tech" />
+            </div>
+            <div class="form-group">
+              <label for="college">College Name</label>
+              <input type="text" id="college" class="form-control" placeholder="e.g. IIT Delhi" />
+            </div>
+            <div class="form-group">
+              <label for="gradYear">Graduation Year</label>
+              <input type="text" id="gradYear" class="form-control" placeholder="e.g. 2024" />
+            </div>
+          </div>
+
+          <!-- Skills tags input -->
+          <div class="form-group">
+            <label>Skills (Type skill and press Enter)</label>
+            <div class="tags-input-container" id="tagsInputContainer">
+              <div id="skillsList" style="display:flex; flex-wrap:wrap; gap:8px;"></div>
+              <input type="text" id="skillInputField" placeholder="Add skill..." onkeydown="handleSkillAdd(event)" />
+            </div>
+          </div>
+
+          <!-- Experience Level Dropdown -->
+          <div class="form-group">
+            <label for="experienceLevel">Experience Level</label>
+            <select id="experienceLevel" class="form-control">
+              <option value="Fresher">Fresher</option>
+              <option value="1-2 years">1-2 Years</option>
+              <option value="3-5 years">3-5 Years</option>
+            </select>
+          </div>
+
+          <!-- Resume Link -->
+          <div class="form-group">
+            <label for="resumeLink">Resume Link</label>
+            <input type="url" id="resumeLink" class="form-control" placeholder="e.g. Google Drive or DropBox URL" />
+          </div>
+
+          <!-- Preferences -->
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px;">
+            <div class="form-group">
+              <label for="preferredJobType">Preferred Job Type</label>
+              <select id="preferredJobType" class="form-control">
+                <option value="">Any</option>
+                <option value="fulltime">Full-time Job</option>
+                <option value="internship">Internship</option>
+                <option value="remote">Remote Work</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="preferredLocations">Preferred Locations (Comma-separated)</label>
+              <input type="text" id="preferredLocations" class="form-control" placeholder="e.g. Remote, Bangalore, Noida" />
+            </div>
+          </div>
+
+          <button type="submit" class="save-btn">Save Professional Profile</button>
+          <div id="professionalMsg" class="msg"></div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    let skillsArray = [];
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const token = localStorage.getItem("jobunify_token");
+      if (!token) {
+        window.location.href = "signin.html";
+        return;
+      }
+
+      setupUserSidebar();
+      loadProfileData();
+    });
+
+    async function setupUserSidebar() {
+      const userStr = localStorage.getItem("jobunify_user");
+      if (userStr) {
+        const user = JSON.parse(userStr);
+        document.getElementById("signupNavBtn").style.display = "none";
+        document.getElementById("avatarWrap").style.display = "block";
+
+        const initial = (user.name || "U")[0].toUpperCase();
+        document.getElementById("avatarBtn").textContent = initial;
+        document.getElementById("sidebar-avatar").textContent = initial;
+        document.getElementById("sidebar-name").textContent = user.name || "User";
+        
+        const completion = user.profileCompletion || 0;
+        document.getElementById("profile-completion-bar").textContent = `${completion}%`;
+      }
+      
+      // Async Sync
+      const token = localStorage.getItem("jobunify_token");
+      if (!token) return;
+      try {
+        const res = await fetch("http://localhost:5000/api/profile", {
+          headers: { "Authorization": `Bearer ${token}` }
+        });
+        const data = await res.json();
+        if (data.success && data.user) {
+          const userObj = {
+            id: data.user.id,
+            name: data.user.name,
+            email: data.user.email,
+            profileCompletion: data.user.profileCompletion || 0
+          };
+          localStorage.setItem("jobunify_user", JSON.stringify(userObj));
+          
+          document.getElementById("profile-completion-bar").textContent = `${userObj.profileCompletion}%`;
+          const initial = (userObj.name || "U")[0].toUpperCase();
+          document.getElementById("avatarBtn").textContent = initial;
+          document.getElementById("sidebar-avatar").textContent = initial;
+          document.getElementById("sidebar-name").textContent = userObj.name || "User";
+        }
+      } catch (err) {
+        console.error(err);
+      }
+    }
+
+    async function loadProfileData() {
+      const token = localStorage.getItem("jobunify_token");
+      try {
+        const res = await fetch("http://localhost:5000/api/profile", {
+          headers: { "Authorization": `Bearer ${token}` }
+        });
+        const data = await res.json();
+        
+        if (data.success && data.user) {
+          // Account Details
+          document.getElementById("fullName").value = data.user.name || "";
+          document.getElementById("emailAddr").value = data.user.email || "";
+          
+          // Professional Profile
+          document.getElementById("degree").value = data.user.degree || "";
+          document.getElementById("college").value = data.user.college || "";
+          document.getElementById("gradYear").value = data.user.gradYear || "";
+          
+          skillsArray = data.user.skills || [];
+          renderSkills();
+
+          document.getElementById("experienceLevel").value = data.user.experienceLevel || "Fresher";
+          document.getElementById("resumeLink").value = data.user.resumeLink || "";
+          document.getElementById("preferredJobType").value = data.user.preferredJobType || "";
+          
+          if (data.user.preferredLocations && Array.isArray(data.user.preferredLocations)) {
+            document.getElementById("preferredLocations").value = data.user.preferredLocations.join(", ");
+          } else {
+            document.getElementById("preferredLocations").value = "";
+          }
+        }
+      } catch (err) {
+        console.error(err);
+      }
+    }
+
+    function handleSkillAdd(event) {
+      if (event.key === 'Enter') {
+        event.preventDefault();
+        const input = event.target;
+        const value = input.value.trim();
+        if (value && !skillsArray.includes(value)) {
+          skillsArray.push(value);
+          renderSkills();
+        }
+        input.value = "";
+      }
+    }
+
+    function removeSkill(skill) {
+      skillsArray = skillsArray.filter(s => s !== skill);
+      renderSkills();
+    }
+
+    function renderSkills() {
+      const container = document.getElementById("skillsList");
+      container.innerHTML = skillsArray.map(skill => `
+        <div class="skill-tag">
+          ${skill}
+          <span onclick="removeSkill('${skill}')">×</span>
+        </div>
+      `).join("");
+    }
+
+    async function updateAccount(e) {
+      e.preventDefault();
+      const token = localStorage.getItem("jobunify_token");
+      const name = document.getElementById("fullName").value;
+      const email = document.getElementById("emailAddr").value;
+      const msgEl = document.getElementById("accountMsg");
+
+      msgEl.className = "msg";
+      msgEl.textContent = "Updating...";
+
+      try {
+        const res = await fetch("http://localhost:5000/api/profile", {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`
+          },
+          body: JSON.stringify({ name, email })
+        });
+        const data = await res.json();
+
+        if (data.success) {
+          msgEl.className = "msg success";
+          msgEl.textContent = "Account details updated successfully!";
+          
+          // Sync local storage
+          const userStr = localStorage.getItem("jobunify_user");
+          if (userStr) {
+            const user = JSON.parse(userStr);
+            user.name = name;
+            user.email = email;
+            localStorage.setItem("jobunify_user", JSON.stringify(user));
+            setupUserSidebar();
+          }
+        } else {
+          msgEl.className = "msg error";
+          msgEl.textContent = data.message || "Failed to update profile details.";
+        }
+      } catch (err) {
+        msgEl.className = "msg error";
+        msgEl.textContent = "Connection error.";
+      }
+    }
+
+    async function changePassword(e) {
+      e.preventDefault();
+      const token = localStorage.getItem("jobunify_token");
+      const currentPassword = document.getElementById("currentPassword").value;
+      const newPassword = document.getElementById("newPassword").value;
+      const confirmNewPassword = document.getElementById("confirmNewPassword").value;
+      const msgEl = document.getElementById("passwordMsg");
+
+      msgEl.className = "msg";
+
+      if (newPassword !== confirmNewPassword) {
+        msgEl.className = "msg error";
+        msgEl.textContent = "New passwords do not match.";
+        return;
+      }
+
+      msgEl.textContent = "Updating password...";
+
+      try {
+        const res = await fetch("http://localhost:5000/api/profile", {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`
+          },
+          body: JSON.stringify({ currentPassword, newPassword })
+        });
+        const data = await res.json();
+
+        if (data.success) {
+          msgEl.className = "msg success";
+          msgEl.textContent = "Password changed successfully!";
+          document.getElementById("currentPassword").value = "";
+          document.getElementById("newPassword").value = "";
+          document.getElementById("confirmNewPassword").value = "";
+        } else {
+          msgEl.className = "msg error";
+          msgEl.textContent = data.message || "Failed to change password.";
+        }
+      } catch (err) {
+        msgEl.className = "msg error";
+        msgEl.textContent = "Connection error.";
+      }
+    }
+
+    async function updateProfessional(e) {
+      e.preventDefault();
+      const token = localStorage.getItem("jobunify_token");
+      const degree = document.getElementById("degree").value;
+      const college = document.getElementById("college").value;
+      const gradYear = document.getElementById("gradYear").value;
+      const experienceLevel = document.getElementById("experienceLevel").value;
+      const resumeLink = document.getElementById("resumeLink").value;
+      const preferredJobType = document.getElementById("preferredJobType").value;
+      const locationsRaw = document.getElementById("preferredLocations").value;
+      const msgEl = document.getElementById("professionalMsg");
+
+      msgEl.className = "msg";
+      msgEl.textContent = "Updating professional profile...";
+
+      const preferredLocations = locationsRaw
+        .split(",")
+        .map(loc => loc.trim())
+        .filter(Boolean);
+
+      try {
+        const res = await fetch("http://localhost:5000/api/profile", {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`
+          },
+          body: JSON.stringify({ 
+            degree, 
+            college, 
+            gradYear, 
+            experienceLevel, 
+            resumeLink, 
+            preferredJobType, 
+            preferredLocations,
+            skills: skillsArray
+          })
+        });
+        const data = await res.json();
+
+        if (data.success) {
+          msgEl.className = "msg success";
+          msgEl.textContent = "Professional profile updated successfully!";
+          
+          // Sync local storage
+          const userStr = localStorage.getItem("jobunify_user");
+          if (userStr && data.user) {
+            const user = JSON.parse(userStr);
+            user.profileCompletion = data.user.profileCompletion || 50;
+            localStorage.setItem("jobunify_user", JSON.stringify(user));
+            setupUserSidebar();
+          }
+        } else {
+          msgEl.className = "msg error";
+          msgEl.textContent = data.message || "Failed to update professional profile.";
+        }
+      } catch (err) {
+        msgEl.className = "msg error";
+        msgEl.textContent = "Connection error.";
+      }
+    }
+
+    function toggleDropdown(event) {
+      event.stopPropagation();
+      document.getElementById('profileDropdown').classList.toggle('active');
+    }
+
+    function logout(event) {
+      event.preventDefault();
+      localStorage.removeItem("jobunify_token");
+      localStorage.removeItem("jobunify_user");
+      window.location.href = "signin.html";
+    }
+
+    document.addEventListener("click", () => {
+      const dropdown = document.getElementById('profileDropdown');
+      if (dropdown) dropdown.classList.remove('active');
+    });
+  </script>
+</body>
+</html>

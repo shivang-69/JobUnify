@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>JobUnify — All Jobs, One Place</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="logo">Job<span>Unify</span></div>
+    <div class="nav-links">
+      <a href="signup.html"><button class="nav-btn">Sign Up Free</button></a>
+      <div class="avatar-wrap">
+        <div class="avatar" id="avatarBtn" onclick="toggleDropdown(event)" title="Open menu">S</div>
+
+        <!-- PROFILE DROPDOWN -->
+        <div class="profile-dropdown" id="profileDropdown">
+
+          <div class="dropdown-header">
+            <div class="dropdown-avatar-header" id="sidebar-avatar">S</div>
+            <div class="user-text-details">
+              <div class="dropdown-username-header" id="sidebar-name">shivang-69</div>
+              <div class="dropdown-completion-header">
+                Profile <span id="profile-completion-bar">33%</span> complete
+              </div>
+            </div>
+          </div>
+
+          <div class="dropdown-divider"></div>
+
+          <nav class="dropdown-menu">
+            <a href="profile.html" class="dropdown-item">
+              <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+              <span>Profile</span>
+            </a>
+            <a href="saved-jobs.html" class="dropdown-item">
+              <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+              <span>Saved Jobs</span>
+            </a>
+            <a href="settings.html" class="dropdown-item">
+              <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+              <span>Settings</span>
+            </a>
+          </nav>
+
+          <div class="dropdown-divider"></div>
+
+          <a href="#" onclick="logout(event)" class="dropdown-item dropdown-signout">
+            <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+            <span>Sign out</span>
+          </a>
+
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="heroSection">
+    <div class="hero-badge">✦ 4 Platforms · One Search</div>
+    <h1>Every student job,<br/><span>right here.</span></h1>
+    <p>Stop switching tabs. We pull jobs from Internshala, Unstop, Naukri & Indeed — filtered for freshers.</p>
+
+    <div class="platforms">
+      <div class="platform-pill"><div class="dot" style="background:#22c55e"></div>Internshala</div>
+      <div class="platform-pill"><div class="dot" style="background:#f97316"></div>Unstop</div>
+      <div class="platform-pill"><div class="dot" style="background:#38bdf8"></div>Naukri</div>
+      <div class="platform-pill"><div class="dot" style="background:#f472b6"></div>Indeed</div>
+    </div>
+
+    <div class="search-wrapper">
+      <input type="text" id="searchInput" placeholder="Search by role, skill, or company..." />
+      <button class="search-btn" onclick="heroSearch()">Search</button>
+    </div>
+  </section>
+
+  <!-- STATS -->
+   <div class="stats" id="statsSection">
+    <div class="stat">
+      <div class="stat-num" id="stat-jobs-today">1<span>K+</span></div>
+      <div class="stat-label">Jobs Today</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" id="stat-platforms">4</div>
+      <div class="stat-label">Platforms</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">0</div>
+      <div class="stat-label">Duplicates</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">6<span>hr</span></div>
+      <div class="stat-label">Refresh Rate</div>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <main class="main">
+
+    <div class="filters">
+      <span class="filter-label">Filter:</span>
+      <button class="filter-btn active" onclick="setFilter('all', this)">All</button>
+      <button class="filter-btn" onclick="setFilter('Internshala', this)">Internshala</button>
+      <button class="filter-btn" onclick="setFilter('Unstop', this)">Unstop</button>
+      <button class="filter-btn" onclick="setFilter('Naukri', this)">Naukri</button>
+      <button class="filter-btn" onclick="setFilter('Indeed', this)">Indeed</button>
+      <button class="filter-btn" onclick="setFilter('saved', this)" id="saved-filter-btn">Saved Jobs</button>
+      <select class="filter-select" id="locationFilter" onchange="filterJobs()">
+        <option value="">All Locations</option>
+        <option>Remote</option>
+        <option>Delhi</option>
+        <option>Bangalore</option>
+        <option>Mumbai</option>
+        <option>Hyderabad</option>
+        <option>Pune</option>
+      </select>
+      
+    </div>
+<div id="searchContainer" class="search-wrapper hidden">
+  <input type="text" id="searchBar" placeholder="Search jobs by title, company, location, skills..." />
+  <button class="search-btn" id="searchBtn">Search</button>
+</div>
+
+    <div class="section-header">
+      <div class="section-title">Latest Opportunities</div>
+      <div class="job-count" id="jobCount">Loading...</div>
+    </div>
+
+    <div class="job-grid" id="jobGrid">
+      <div class="loading">
+        <div class="spinner"></div>
+        <div>Fetching jobs from all platforms...</div>
+      </div>
+    </div>
+
+    <div style="text-align:center; margin-top:32px">
+      <button id="loadMoreBtn" 
+        onclick="loadMore()" 
+        class="filter-btn" 
+        style="padding:12px 32px; display:none">
+        Load more jobs
+      </button>
+    </div>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

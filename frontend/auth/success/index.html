@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Authenticating... — JobUnify</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg: #0a0a16;
+      --panel-bg: rgba(20, 20, 35, 0.7);
+      --border: rgba(108, 99, 255, 0.2);
+      --accent: #6c63ff;
+      --text: #f3f4f6;
+      --muted: #9ca3af;
+    }
+    
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    /* Animated background gradient */
+    body::before {
+      content: "";
+      position: absolute;
+      width: 150%;
+      height: 150%;
+      background: radial-gradient(circle, rgba(108, 99, 255, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
+      top: -25%;
+      left: -25%;
+      z-index: -1;
+      animation: drift 20s infinite alternate linear;
+    }
+
+    @keyframes drift {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .card {
+      background: var(--panel-bg);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 40px;
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      backdrop-filter: blur(16px);
+      transform: translateY(20px);
+      opacity: 0;
+      animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes slideUp {
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    .spinner {
+      width: 50px;
+      height: 50px;
+      border: 3px solid rgba(108, 99, 255, 0.1);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      margin: 0 auto 24px;
+      animation: spin 1s infinite linear;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    h2 {
+      font-size: 20px;
+      font-weight: 600;
+      margin: 0 0 8px;
+    }
+
+    p {
+      color: var(--muted);
+      font-size: 14px;
+      margin: 0;
+    }
+
+    .error-container {
+      display: none;
+      color: #ef4444;
+    }
+
+    .error-container button {
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 500;
+      cursor: pointer;
+      margin-top: 16px;
+      transition: background 0.2s;
+    }
+
+    .error-container button:hover {
+      background: #5b54db;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <div class="logo">Job<span>Unify</span></div>
+    
+    <div id="loader">
+      <div class="spinner"></div>
+      <h2>Signing in with Google</h2>
+      <p>Securing your session, please wait...</p>
+    </div>
+
+    <div id="errorBox" class="error-container">
+      <h2>Sign In Failed</h2>
+      <p id="errorMsg">Could not retrieve user details.</p>
+      <button onclick="window.location.href='/signin.html'">Go to Sign In</button>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", async () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const token = urlParams.get("token");
+
+      if (!token) {
+        showError("Authentication token is missing.");
+        return;
+      }
+
+      try {
+        // Fetch user profile using the token
+        const res = await fetch("http://localhost:5000/api/auth/me", {
+          headers: {
+            "Authorization": `Bearer ${token}`
+          }
+        });
+        
+        if (!res.ok) {
+          throw new Error("Failed to verify user session with backend");
+        }
+
+        const data = await res.json();
+        
+        if (data.success && data.user) {
+          // Sync with profile stats logic mapping fields correctly
+          const userObj = {
+            id: data.user._id,
+            name: data.user.name,
+            email: data.user.email,
+            workStatus: data.user.workStatus || "fresher",
+            college: data.user.college || "",
+            profileCompletion: data.user.profileCompletion || 25
+          };
+          
+          // Compute profile completion if missing from server
+          if (!data.user.profileCompletion && data.user.skills) {
+            // Fallback calculation matching UserSchema method
+            const fields = [
+              data.user.name,
+              data.user.email,
+              data.user.mobile,
+              data.user.workStatus,
+              data.user.college,
+              data.user.location,
+              data.user.bio,
+              data.user.skills && data.user.skills.length > 0,
+              data.user.education && data.user.education.length > 0,
+              data.user.projects && data.user.projects.length > 0,
+              data.user.internships && data.user.internships.length > 0,
+              data.user.certifications && data.user.certifications.length > 0
+            ];
+            const filled = fields.filter(val => val !== undefined && val !== null && val !== "" && val !== false).length;
+            userObj.profileCompletion = Math.round((filled / fields.length) * 100);
+          }
+
+          localStorage.setItem("jobunify_token", token);
+          localStorage.setItem("jobunify_user", JSON.stringify(userObj));
+          
+          // Successful redirect
+          setTimeout(() => {
+            window.location.href = "/index.html";
+          }, 800);
+        } else {
+          showError("Invalid user session returned.");
+        }
+      } catch (err) {
+        showError(err.message);
+      }
+    });
+
+    function showError(msg) {
+      document.getElementById("loader").style.display = "none";
+      const errorBox = document.getElementById("errorBox");
+      errorBox.style.display = "block";
+      document.getElementById("errorMsg").textContent = msg;
+    }
+  </script>
+</body>
+</html>
