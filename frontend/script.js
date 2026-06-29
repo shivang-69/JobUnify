@@ -29,9 +29,9 @@ async function fetchJobs(page = 1, append = false) {
   const isSavedView = (activeSource === 'saved');
 
   if (isSavedView) {
-    url = `http://localhost:5000/api/saved`;
+    url = `${API_BASE_URL}/api/saved`;
   } else {
-    url = `http://localhost:5000/api/jobs?page=${page}&limit=250`;
+    url = `${API_BASE_URL}/api/jobs?page=${page}&limit=250`;
     if (activeSource !== 'all') url += `&source=${activeSource}`;
     if (location) url += `&location=${location}`;
     if (type) url += `&type=${type}`;
@@ -116,7 +116,7 @@ function performSearch() {
     fetchJobs(1);
     return;
   }
-  fetch(`http://localhost:5000/api/jobs/search?q=${encodeURIComponent(query)}`)
+  fetch(`${API_BASE_URL}/api/jobs/search?q=${encodeURIComponent(query)}`)
     .then(res => res.json())
     .then(data => {
       const jobs = data.jobs || [];
@@ -137,7 +137,7 @@ function heroSearch() {
   }
   const query = document.getElementById('searchInput')?.value.trim();
   if (!query) return;
-  fetch(`http://localhost:5000/api/jobs/search?q=${encodeURIComponent(query)}`)
+  fetch(`${API_BASE_URL}/api/jobs/search?q=${encodeURIComponent(query)}`)
     .then(res => res.json())
     .then(data => {
       const jobs = data.jobs || [];
@@ -172,7 +172,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function setFilter(source, btn) {
   const query = document.getElementById('searchBar')?.value.trim();
   if (!query) return;
-  fetch(`http://localhost:5000/api/jobs/search?q=${encodeURIComponent(query)}`)
+  fetch(`${API_BASE_URL}/api/jobs/search?q=${encodeURIComponent(query)}`)
     .then(res => res.json())
     .then(data => {
       const jobs = data.jobs || [];
@@ -279,7 +279,7 @@ async function updateStats() {
   if (!jobsTodayEl && !platformsEl) return;
 
   try {
-    const res = await fetch('http://localhost:5000/api/jobs/count');
+    const res = await fetch(`${API_BASE_URL}/api/jobs/count`);
     const data = await res.json();
 
     if (jobsTodayEl) {
@@ -305,7 +305,7 @@ async function fetchSavedJobs() {
   const token = localStorage.getItem("jobunify_token");
   if (!token) return;
   try {
-    const res = await fetch("http://localhost:5000/api/saved", {
+    const res = await fetch(`${API_BASE_URL}/api/saved`, {
       headers: {
         "Authorization": `Bearer ${token}`
       }
@@ -330,7 +330,7 @@ async function toggleSaveJob(event, jobId) {
 
   const isSaved = savedJobIds.includes(jobId);
   const method = isSaved ? "DELETE" : "POST";
-  const url = `http://localhost:5000/api/saved/${jobId}`;
+  const url = `${API_BASE_URL}/api/saved/${jobId}`;
 
   try {
     const res = await fetch(url, {
@@ -470,7 +470,7 @@ async function syncUserProfile() {
   const token = localStorage.getItem("jobunify_token");
   if (!token) return;
   try {
-    const res = await fetch("http://localhost:5000/api/profile", {
+    const res = await fetch(`${API_BASE_URL}/api/profile`, {
       headers: { "Authorization": `Bearer ${token}` }
     });
     const data = await res.json();

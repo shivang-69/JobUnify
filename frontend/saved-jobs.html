@@ -125,6 +125,7 @@
     </div>
   </div>
 
+  <script src="config.js"></script>
   <script>
     let savedJobs = [];
 
@@ -159,7 +160,7 @@
       const token = localStorage.getItem("jobunify_token");
       if (!token) return;
       try {
-        const res = await fetch("http://localhost:5000/api/profile", {
+        const res = await fetch(`${API_BASE_URL}/api/profile`, {
           headers: { "Authorization": `Bearer ${token}` }
         });
         const data = await res.json();
@@ -188,7 +189,7 @@
       const grid = document.getElementById("jobGrid");
 
       try {
-        const res = await fetch("http://localhost:5000/api/saved", {
+        const res = await fetch(`${API_BASE_URL}/api/saved`, {
           headers: {
             "Authorization": `Bearer ${token}`
           }
@@ -281,7 +282,7 @@
       const token = localStorage.getItem("jobunify_token");
       
       try {
-        const res = await fetch(`http://localhost:5000/api/saved/${jobId}`, {
+        const res = await fetch(`${API_BASE_URL}/api/saved/${jobId}`, {
           method: "DELETE",
           headers: {
             "Authorization": `Bearer ${token}`

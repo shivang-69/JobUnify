@@ -276,6 +276,7 @@
     </div>
   </div>
 
+  <script src="config.js"></script>
   <script>
     let skillsArray = [];
 
@@ -310,7 +311,7 @@
       const token = localStorage.getItem("jobunify_token");
       if (!token) return;
       try {
-        const res = await fetch("http://localhost:5000/api/profile", {
+        const res = await fetch(`${API_BASE_URL}/api/profile`, {
           headers: { "Authorization": `Bearer ${token}` }
         });
         const data = await res.json();
@@ -337,7 +338,7 @@
     async function loadProfileData() {
       const token = localStorage.getItem("jobunify_token");
       try {
-        const res = await fetch("http://localhost:5000/api/profile", {
+        const res = await fetch(`${API_BASE_URL}/api/profile`, {
           headers: { "Authorization": `Bearer ${token}` }
         });
         const data = await res.json();
@@ -409,7 +410,7 @@
       msgEl.textContent = "Updating...";
 
       try {
-        const res = await fetch("http://localhost:5000/api/profile", {
+        const res = await fetch(`${API_BASE_URL}/api/profile`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
@@ -461,7 +462,7 @@
       msgEl.textContent = "Updating password...";
 
       try {
-        const res = await fetch("http://localhost:5000/api/profile", {
+        const res = await fetch(`${API_BASE_URL}/api/profile`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
@@ -508,7 +509,7 @@
         .filter(Boolean);
 
       try {
-        const res = await fetch("http://localhost:5000/api/profile", {
+        const res = await fetch(`${API_BASE_URL}/api/profile`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",

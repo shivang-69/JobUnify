@@ -114,7 +114,7 @@ function handleSignup() {
   let apiErrorEl = document.getElementById('apiError');
   if (apiErrorEl) apiErrorEl.textContent = '';
 
-  fetch('http://localhost:5000/api/auth/signup', {
+  fetch(`${API_BASE_URL}/api/auth/signup`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -159,7 +159,7 @@ function handleSignup() {
 
 // ── Google auth ──
 function handleGoogle() {
-  window.location.href = 'http://localhost:5000/api/auth/google';
+  window.location.href = `${API_BASE_URL}/api/auth/google`;
 }
 
 // ── Submit on Enter ──

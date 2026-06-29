@@ -253,6 +253,7 @@
     </div>
   </div>
 
+  <script src="config.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const token = localStorage.getItem("jobunify_token");
@@ -285,7 +286,7 @@
       const token = localStorage.getItem("jobunify_token");
       if (!token) return;
       try {
-        const res = await fetch("http://localhost:5000/api/profile", {
+        const res = await fetch(`${API_BASE_URL}/api/profile`, {
           headers: { "Authorization": `Bearer ${token}` }
         });
         const data = await res.json();
@@ -312,7 +313,7 @@
     async function loadSettingsData() {
       const token = localStorage.getItem("jobunify_token");
       try {
-        const res = await fetch("http://localhost:5000/api/profile", {
+        const res = await fetch(`${API_BASE_URL}/api/profile`, {
           headers: { "Authorization": `Bearer ${token}` }
         });
         const data = await res.json();
@@ -337,7 +338,7 @@
       try {
           const name = document.getElementById("fullName").value;
           const email = document.getElementById("emailAddr").value;
-          const res = await fetch("http://localhost:5000/api/profile", {
+          const res = await fetch(`${API_BASE_URL}/api/profile`, {
             method: "PUT",
             headers: {
               "Content-Type": "application/json",
@@ -385,7 +386,7 @@
         }
 
         try {
-            const res = await fetch("http://localhost:5000/api/profile", {
+            const res = await fetch(`${API_BASE_URL}/api/profile`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",

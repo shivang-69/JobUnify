@@ -66,7 +66,7 @@ function handleSignin() {
   let apiErrorEl = document.getElementById('apiError');
   if (apiErrorEl) apiErrorEl.textContent = '';
 
-  fetch('http://localhost:5000/api/auth/signin', {
+  fetch(`${API_BASE_URL}/api/auth/signin`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -107,7 +107,7 @@ function handleSignin() {
 }
 
 function handleGoogle() {
-  window.location.href = 'http://localhost:5000/api/auth/google';
+  window.location.href = `${API_BASE_URL}/api/auth/google`;
 }
 
 document.addEventListener('keydown', e => {

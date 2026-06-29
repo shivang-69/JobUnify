@@ -144,6 +144,7 @@
     </div>
   </div>
 
+  <script src="../../config.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", async () => {
       const urlParams = new URLSearchParams(window.location.search);
@@ -156,7 +157,7 @@
 
       try {
         // Fetch user profile using the token
-        const res = await fetch("http://localhost:5000/api/auth/me", {
+        const res = await fetch(`${API_BASE_URL}/api/auth/me`, {
           headers: {
             "Authorization": `Bearer ${token}`
           }
