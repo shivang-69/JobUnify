@@ -257,7 +257,7 @@ function buildJobCard(job) {
         <div class="stipend">
           ${job.stipend || job.salary || 'Not disclosed'}
         </div>
-          ${job.job_url ? `<a href="${job.job_url}" target="_blank" class="apply-btn">Apply →</a>` : `<button class="apply-btn" disabled>Not Available</button>`}
+          ${job.job_url ? `<a href="#" onclick="handleApply(event, '${job.job_url}')" class="apply-btn">Apply →</a>` : `<button class="apply-btn" disabled>Not Available</button>`}
       </div>
     </div>
   `;
@@ -557,4 +557,19 @@ function logout(event) {
   localStorage.removeItem("jobunify_token");
   localStorage.removeItem("jobunify_user");
   window.location.href = "signin.html";
+}
+
+// Gated Apply functionality: require user to be logged in
+function handleApply(event, url) {
+  if (event) event.preventDefault();
+  const token = localStorage.getItem("jobunify_token");
+  console.log("[Apply Clicked] User detected as logged in:", !!token, "Token found:", token ? "Yes" : "No");
+  if (token) {
+    console.log("[Apply Success] Opening job URL:", url);
+    window.open(url, "_blank");
+  } else {
+    console.log("[Apply Blocked] No token found. Redirecting to signin.html");
+    alert("Please login to apply");
+    window.location.href = "signin.html";
+  }
 }
