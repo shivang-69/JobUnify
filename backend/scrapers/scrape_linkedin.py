@@ -25,7 +25,7 @@ def scrape():
     )
     all_jobs = []
     page = 1
-    while True:
+    while page <= 10:
         headers = {
             "User-Agent": random.choice(USER_AGENTS),
             "Accept-Language": "en-US,en;q=0.9",
@@ -38,19 +38,21 @@ def scrape():
                 print(f"LinkedIn HTTP {resp.status_code}, stopping")
                 break
             soup = BeautifulSoup(resp.text, "html.parser")
-            cards = soup.select("li.result-card")
+            cards = soup.select(".jobs-search__results-list li")
             if not cards:
                 print("No job cards found – finished")
                 break
             for card in cards:
-                title_el = card.select_one("h3.result-card__title")
-                company_el = card.select_one("h4.result-card__subtitle")
-                loc_el = card.select_one("span.job-result-card__location")
-                link_el = card.select_one("a.result-card__full-card-link")
+                title_el = card.select_one("h3.base-search-card__title")
+                company_el = card.select_one(".base-search-card__subtitle") or card.select_one("h4.base-search-card__subtitle")
+                loc_el = card.select_one(".job-search-card__location")
+                link_el = card.select_one("a.base-card__full-link")
                 title = title_el.get_text(strip=True) if title_el else "N/A"
                 company = company_el.get_text(strip=True) if company_el else "N/A"
                 location = loc_el.get_text(strip=True) if loc_el else "N/A"
                 job_url = link_el["href"] if link_el and link_el.has_attr("href") else ""
+                if job_url:
+                    job_url = job_url.split("?")[0]
                 job_data = {
                     "title": title,
                     "company": company,

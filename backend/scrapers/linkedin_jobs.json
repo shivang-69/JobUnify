@@ -1,1 +1,4802 @@
-[]
+[
+  {
+    "title": "Software Engineer",
+    "company": "Teradata",
+    "location": "Hyderabad, Telangana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-teradata-4326661453",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:02.909445"
+  },
+  {
+    "title": "EKS Engineer",
+    "company": "Infosys",
+    "location": "Bengaluru East, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/eks-engineer-at-infosys-4410805206",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:02.965032"
+  },
+  {
+    "title": "Executive - Python",
+    "company": "KPMG India",
+    "location": "Mumbai, Maharashtra, India",
+    "job_url": "https://in.linkedin.com/jobs/view/executive-python-at-kpmg-india-4440003232",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:03.024505"
+  },
+  {
+    "title": "Software Developer",
+    "company": "Scoutit",
+    "location": "Bengaluru Rural District, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-at-scoutit-4439154558",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:03.084054"
+  },
+  {
+    "title": "Software Development Engineer",
+    "company": "Adobe",
+    "location": "Bengaluru East, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-development-engineer-at-adobe-4439168169",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:03.144668"
+  },
+  {
+    "title": "Software Engineer -Backend",
+    "company": "Modulr",
+    "location": "Pune Division, Maharashtra, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-backend-at-modulr-4220088070",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:03.207938"
+  },
+  {
+    "title": "XR Software Engineer (All Levels - Multiple Positions)",
+    "company": "Qualcomm",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/xr-software-engineer-all-levels-multiple-positions-at-qualcomm-4380453154",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:03.258333"
+  },
+  {
+    "title": "Software Developer",
+    "company": "Scoutit",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-at-scoutit-4439169168",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:03.323712"
+  },
+  {
+    "title": "Software Developer",
+    "company": "Scoutit",
+    "location": "Bangalore Rural, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-at-scoutit-4439163273",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:03.395770"
+  },
+  {
+    "title": "DE-RCE-CCAR-Fullstack-FE-GDSN02",
+    "company": "EY",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/de-rce-ccar-fullstack-fe-gdsn02-at-ey-4408868408",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:03.450904"
+  },
+  {
+    "title": "Software Development Engineer II",
+    "company": "GreyOrange",
+    "location": "Gurugram, Haryana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-development-engineer-ii-at-greyorange-4346590086",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:03.504254"
+  },
+  {
+    "title": "Software Developer",
+    "company": "Scoutit",
+    "location": "Bengaluru South, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-at-scoutit-4439168152",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:03.563698"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "Appinventiv",
+    "location": "Noida, Uttar Pradesh, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-appinventiv-4437245486",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:03.624478"
+  },
+  {
+    "title": "Software Developer",
+    "company": "Scoutit",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-at-scoutit-4439149962",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:03.676818"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "CXO Inc",
+    "location": "Hyderabad, Telangana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-cxo-inc-4437240341",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:03.733760"
+  },
+  {
+    "title": "Senior Software Engineer- Backend",
+    "company": "Roku",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/senior-software-engineer-backend-at-roku-4439782254",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:03.794031"
+  },
+  {
+    "title": "Full Stack Engineer",
+    "company": "Codeyoung",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/full-stack-engineer-at-codeyoung-4440008304",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:03.849019"
+  },
+  {
+    "title": "Software Dev Engineer 2",
+    "company": "Amazon",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-dev-engineer-2-at-amazon-4412452972",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:03.907064"
+  },
+  {
+    "title": "Junior Software Developer",
+    "company": "avua",
+    "location": "India",
+    "job_url": "https://in.linkedin.com/jobs/view/junior-software-developer-at-avua-4439765454",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:03.968467"
+  },
+  {
+    "title": "Software Developer",
+    "company": "Scoutit",
+    "location": "India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-at-scoutit-4439157289",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:04.039014"
+  },
+  {
+    "title": "Python/Python GenAI",
+    "company": "Infosys",
+    "location": "Bengaluru East, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/python-python-genai-at-infosys-4439100513",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:04.099055"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "Virtusa",
+    "location": "Andhra Pradesh, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-virtusa-4428916775",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:04.415901"
+  },
+  {
+    "title": "SDE",
+    "company": "Scoutit",
+    "location": "India",
+    "job_url": "https://in.linkedin.com/jobs/view/sde-at-scoutit-4439170116",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:04.613769"
+  },
+  {
+    "title": "SDE II, EU GIL Installments",
+    "company": "Amazon",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/sde-ii-eu-gil-installments-at-amazon-4420988665",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:04.768009"
+  },
+  {
+    "title": "Software Engineer, C++",
+    "company": "Autodesk",
+    "location": "Pune Division, Maharashtra, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-c%2B%2B-at-autodesk-4430375715",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:04.818248"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "Leapwork",
+    "location": "Gurugram, Haryana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-leapwork-4399897962",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:04.872613"
+  },
+  {
+    "title": "Senior Software Engineer",
+    "company": "Microsoft",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/senior-software-engineer-at-microsoft-4403035850",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:04.934188"
+  },
+  {
+    "title": "Software Engineer 1",
+    "company": "CME Group",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-1-at-cme-group-4440026042",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:04.993684"
+  },
+  {
+    "title": "Software Engineer - Confluent",
+    "company": "IBM",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-confluent-at-ibm-4437253640",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:05.043434"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "RiVirtual Inc",
+    "location": "Hyderabad, Telangana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-rivirtual-inc-4437234508",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:05.094228"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "Scoutit",
+    "location": "Bengaluru Rural District, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-scoutit-4439150815",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:05.148882"
+  },
+  {
+    "title": "Software Developer",
+    "company": "Scoutit",
+    "location": "Bengaluru East, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-at-scoutit-4439162343",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:05.209766"
+  },
+  {
+    "title": "Software Developer",
+    "company": "Scoutit",
+    "location": "Bengaluru North, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-at-scoutit-4439161343",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:05.259989"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "Scoutit",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-scoutit-4439166220",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:05.308905"
+  },
+  {
+    "title": "Full Stack Engineer - AI Platform",
+    "company": "Teradata",
+    "location": "Hyderabad, Telangana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/full-stack-engineer-ai-platform-at-teradata-4372980335",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:05.360048"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "Scoutit",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-scoutit-4439163262",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:05.410244"
+  },
+  {
+    "title": "SDE 1",
+    "company": "GTMfund",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/sde-1-at-gtmfund-4439768982",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:05.464799"
+  },
+  {
+    "title": "Staff Software Engineer",
+    "company": "Intuit",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/staff-software-engineer-at-intuit-4439151065",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:05.523679"
+  },
+  {
+    "title": "SDE - I",
+    "company": "GTMfund",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/sde-i-at-gtmfund-4439770954",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:05.585254"
+  },
+  {
+    "title": "Software Engineer - Backend",
+    "company": "CoverForce",
+    "location": "India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-backend-at-coverforce-4350752081",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:05.652730"
+  },
+  {
+    "title": "Front-End Developer",
+    "company": "Peepul Agri",
+    "location": "Hyderabad, Telangana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/front-end-developer-at-peepul-agri-4437251198",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:05.699937"
+  },
+  {
+    "title": "Software Engineer II",
+    "company": "PDI Technologies",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-ii-at-pdi-technologies-4410898624",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:05.751038"
+  },
+  {
+    "title": "Software Development Engineer (Backend) - SDE II",
+    "company": "Purplle.com",
+    "location": "Mumbai, Maharashtra, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-development-engineer-backend-sde-ii-at-purplle-com-4437241974",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:05.803998"
+  },
+  {
+    "title": "UI Developer with React JS",
+    "company": "IQVIA",
+    "location": "Kochi, Kerala, India",
+    "job_url": "https://in.linkedin.com/jobs/view/ui-developer-with-react-js-at-iqvia-4439174037",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:05.857679"
+  },
+  {
+    "title": "Software Intern",
+    "company": "Purehire AI",
+    "location": "Greater Hyderabad Area",
+    "job_url": "https://in.linkedin.com/jobs/view/software-intern-at-purehire-ai-4437263786",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:05.904910"
+  },
+  {
+    "title": "Software Development Engineer III",
+    "company": "Tesco Bengaluru",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-development-engineer-iii-at-tesco-bengaluru-4439161129",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:05.958015"
+  },
+  {
+    "title": "Full Stack Software Engineer",
+    "company": "Scoutit",
+    "location": "Gurugram, Haryana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/full-stack-software-engineer-at-scoutit-4439154556",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:06.007748"
+  },
+  {
+    "title": "MERN Stack Developer",
+    "company": "Wipro",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/mern-stack-developer-at-wipro-4440013659",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:06.063400"
+  },
+  {
+    "title": "Software Developer II",
+    "company": "FedEx ACC",
+    "location": "Hyderabad, Telangana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-ii-at-fedex-acc-4402702417",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:06.115543"
+  },
+  {
+    "title": "Software Development Engineer II , Amazon Pay",
+    "company": "Amazon",
+    "location": "Greater Hyderabad Area",
+    "job_url": "https://in.linkedin.com/jobs/view/software-development-engineer-ii-amazon-pay-at-amazon-4403545746",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:06.168666"
+  },
+  {
+    "title": "GenAI Developer",
+    "company": "Infosys",
+    "location": "Bengaluru East, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/genai-developer-at-infosys-4439105200",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:06.229048"
+  },
+  {
+    "title": "Frontend Software Engineer",
+    "company": "Jobgether",
+    "location": "India",
+    "job_url": "https://in.linkedin.com/jobs/view/frontend-software-engineer-at-jobgether-4439130522",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:06.294465"
+  },
+  {
+    "title": "Software Developer II",
+    "company": "FedEx ACC",
+    "location": "Hyderabad, Telangana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-ii-at-fedex-acc-4402388504",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:06.360624"
+  },
+  {
+    "title": "Software Developer",
+    "company": "Adani Enterprises Limited",
+    "location": "Ahmedabad, Gujarat, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-at-adani-enterprises-limited-4440010830",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:06.414150"
+  },
+  {
+    "title": "SDE - 2 - Backend",
+    "company": "GTMfund",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/sde-2-backend-at-gtmfund-4439779580",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:06.470430"
+  },
+  {
+    "title": "Software Development Engineer - Backend (Node.js+Typescript)",
+    "company": "eDataBae",
+    "location": "India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-development-engineer-backend-node-js%2Btypescript-at-edatabae-4439155214",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:06.524534"
+  },
+  {
+    "title": "Full Stack Software Engineer",
+    "company": "Scoutit",
+    "location": "Delhi, India",
+    "job_url": "https://in.linkedin.com/jobs/view/full-stack-software-engineer-at-scoutit-4439151717",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:06.590795"
+  },
+  {
+    "title": "Software Developer, India",
+    "company": "AlgoSec",
+    "location": "New Delhi, Delhi, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-india-at-algosec-4439772594",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:06.650001"
+  },
+  {
+    "title": "Software Engr I",
+    "company": "Honeywell Aerospace",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engr-i-at-honeywell-aerospace-4440014751",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:06.699821"
+  },
+  {
+    "title": "Informatica Developer",
+    "company": "Infosys",
+    "location": "Bengaluru East, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/informatica-developer-at-infosys-4430315501",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:06.758998"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "Teradata",
+    "location": "Hyderabad, Telangana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-teradata-4326661453",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:11.280517"
+  },
+  {
+    "title": "EKS Engineer",
+    "company": "Infosys",
+    "location": "Bengaluru East, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/eks-engineer-at-infosys-4410805206",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:11.333793"
+  },
+  {
+    "title": "Executive - Python",
+    "company": "KPMG India",
+    "location": "Mumbai, Maharashtra, India",
+    "job_url": "https://in.linkedin.com/jobs/view/executive-python-at-kpmg-india-4440003232",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:11.388347"
+  },
+  {
+    "title": "Software Developer",
+    "company": "Scoutit",
+    "location": "Bengaluru Rural District, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-at-scoutit-4439154558",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:11.435033"
+  },
+  {
+    "title": "Software Development Engineer",
+    "company": "Adobe",
+    "location": "Bengaluru East, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-development-engineer-at-adobe-4439168169",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:11.493312"
+  },
+  {
+    "title": "Software Engineer -Backend",
+    "company": "Modulr",
+    "location": "Pune Division, Maharashtra, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-backend-at-modulr-4220088070",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:11.549792"
+  },
+  {
+    "title": "XR Software Engineer (All Levels - Multiple Positions)",
+    "company": "Qualcomm",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/xr-software-engineer-all-levels-multiple-positions-at-qualcomm-4380453154",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:11.599028"
+  },
+  {
+    "title": "Software Developer",
+    "company": "Scoutit",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-at-scoutit-4439169168",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:11.655066"
+  },
+  {
+    "title": "Software Developer",
+    "company": "Scoutit",
+    "location": "Bangalore Rural, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-at-scoutit-4439163273",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:11.706003"
+  },
+  {
+    "title": "DE-RCE-CCAR-Fullstack-FE-GDSN02",
+    "company": "EY",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/de-rce-ccar-fullstack-fe-gdsn02-at-ey-4408868408",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:11.754218"
+  },
+  {
+    "title": "Software Development Engineer II",
+    "company": "GreyOrange",
+    "location": "Gurugram, Haryana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-development-engineer-ii-at-greyorange-4346590086",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:11.809338"
+  },
+  {
+    "title": "Software Developer",
+    "company": "Scoutit",
+    "location": "Bengaluru South, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-at-scoutit-4439168152",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:11.867389"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "Appinventiv",
+    "location": "Noida, Uttar Pradesh, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-appinventiv-4437245486",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:11.913849"
+  },
+  {
+    "title": "Software Developer",
+    "company": "Scoutit",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-at-scoutit-4439149962",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:11.958982"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "CXO Inc",
+    "location": "Hyderabad, Telangana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-cxo-inc-4437240341",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:12.017663"
+  },
+  {
+    "title": "Senior Software Engineer- Backend",
+    "company": "Roku",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/senior-software-engineer-backend-at-roku-4439782254",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:12.078683"
+  },
+  {
+    "title": "Full Stack Engineer",
+    "company": "Codeyoung",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/full-stack-engineer-at-codeyoung-4440008304",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:12.135476"
+  },
+  {
+    "title": "Software Dev Engineer 2",
+    "company": "Amazon",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-dev-engineer-2-at-amazon-4412452972",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:12.189351"
+  },
+  {
+    "title": "Junior Software Developer",
+    "company": "avua",
+    "location": "India",
+    "job_url": "https://in.linkedin.com/jobs/view/junior-software-developer-at-avua-4439765454",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:12.260408"
+  },
+  {
+    "title": "Software Developer",
+    "company": "Scoutit",
+    "location": "India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-at-scoutit-4439157289",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:12.310132"
+  },
+  {
+    "title": "Python/Python GenAI",
+    "company": "Infosys",
+    "location": "Bengaluru East, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/python-python-genai-at-infosys-4439100513",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:12.359425"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "Virtusa",
+    "location": "Andhra Pradesh, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-virtusa-4428916775",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:12.426700"
+  },
+  {
+    "title": "SDE",
+    "company": "Scoutit",
+    "location": "India",
+    "job_url": "https://in.linkedin.com/jobs/view/sde-at-scoutit-4439170116",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:12.475442"
+  },
+  {
+    "title": "SDE II, EU GIL Installments",
+    "company": "Amazon",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/sde-ii-eu-gil-installments-at-amazon-4420988665",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:12.534624"
+  },
+  {
+    "title": "Software Engineer, C++",
+    "company": "Autodesk",
+    "location": "Pune Division, Maharashtra, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-c%2B%2B-at-autodesk-4430375715",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:12.591028"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "Leapwork",
+    "location": "Gurugram, Haryana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-leapwork-4399897962",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:12.649509"
+  },
+  {
+    "title": "Senior Software Engineer",
+    "company": "Microsoft",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/senior-software-engineer-at-microsoft-4403035850",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:12.708051"
+  },
+  {
+    "title": "Software Engineer 1",
+    "company": "CME Group",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-1-at-cme-group-4440026042",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:12.758253"
+  },
+  {
+    "title": "Software Engineer - Confluent",
+    "company": "IBM",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-confluent-at-ibm-4437253640",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:12.813984"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "RiVirtual Inc",
+    "location": "Hyderabad, Telangana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-rivirtual-inc-4437234508",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:12.865865"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "Scoutit",
+    "location": "Bengaluru Rural District, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-scoutit-4439150815",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:12.924155"
+  },
+  {
+    "title": "Software Developer",
+    "company": "Scoutit",
+    "location": "Bengaluru East, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-at-scoutit-4439162343",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:12.977992"
+  },
+  {
+    "title": "Software Developer",
+    "company": "Scoutit",
+    "location": "Bengaluru North, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-at-scoutit-4439161343",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:13.029725"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "Scoutit",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-scoutit-4439166220",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:13.089830"
+  },
+  {
+    "title": "Full Stack Engineer - AI Platform",
+    "company": "Teradata",
+    "location": "Hyderabad, Telangana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/full-stack-engineer-ai-platform-at-teradata-4372980335",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:13.161519"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "Scoutit",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-scoutit-4439163262",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:13.223437"
+  },
+  {
+    "title": "SDE 1",
+    "company": "GTMfund",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/sde-1-at-gtmfund-4439768982",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:13.283166"
+  },
+  {
+    "title": "Staff Software Engineer",
+    "company": "Intuit",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/staff-software-engineer-at-intuit-4439151065",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:13.348748"
+  },
+  {
+    "title": "SDE - I",
+    "company": "GTMfund",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/sde-i-at-gtmfund-4439770954",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:13.407618"
+  },
+  {
+    "title": "Software Engineer - Backend",
+    "company": "CoverForce",
+    "location": "India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-backend-at-coverforce-4350752081",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:13.455107"
+  },
+  {
+    "title": "Front-End Developer",
+    "company": "Peepul Agri",
+    "location": "Hyderabad, Telangana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/front-end-developer-at-peepul-agri-4437251198",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:13.506360"
+  },
+  {
+    "title": "Software Engineer II",
+    "company": "PDI Technologies",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-ii-at-pdi-technologies-4410898624",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:13.555605"
+  },
+  {
+    "title": "Software Development Engineer (Backend) - SDE II",
+    "company": "Purplle.com",
+    "location": "Mumbai, Maharashtra, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-development-engineer-backend-sde-ii-at-purplle-com-4437241974",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:13.605961"
+  },
+  {
+    "title": "UI Developer with React JS",
+    "company": "IQVIA",
+    "location": "Kochi, Kerala, India",
+    "job_url": "https://in.linkedin.com/jobs/view/ui-developer-with-react-js-at-iqvia-4439174037",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:13.657506"
+  },
+  {
+    "title": "Software Intern",
+    "company": "Purehire AI",
+    "location": "Greater Hyderabad Area",
+    "job_url": "https://in.linkedin.com/jobs/view/software-intern-at-purehire-ai-4437263786",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:13.710586"
+  },
+  {
+    "title": "Software Development Engineer III",
+    "company": "Tesco Bengaluru",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-development-engineer-iii-at-tesco-bengaluru-4439161129",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:13.758680"
+  },
+  {
+    "title": "Full Stack Software Engineer",
+    "company": "Scoutit",
+    "location": "Gurugram, Haryana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/full-stack-software-engineer-at-scoutit-4439154556",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:13.822574"
+  },
+  {
+    "title": "MERN Stack Developer",
+    "company": "Wipro",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/mern-stack-developer-at-wipro-4440013659",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:13.874470"
+  },
+  {
+    "title": "Software Developer II",
+    "company": "FedEx ACC",
+    "location": "Hyderabad, Telangana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-ii-at-fedex-acc-4402702417",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:13.928811"
+  },
+  {
+    "title": "Software Development Engineer II , Amazon Pay",
+    "company": "Amazon",
+    "location": "Greater Hyderabad Area",
+    "job_url": "https://in.linkedin.com/jobs/view/software-development-engineer-ii-amazon-pay-at-amazon-4403545746",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:13.987325"
+  },
+  {
+    "title": "GenAI Developer",
+    "company": "Infosys",
+    "location": "Bengaluru East, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/genai-developer-at-infosys-4439105200",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:14.041733"
+  },
+  {
+    "title": "Frontend Software Engineer",
+    "company": "Jobgether",
+    "location": "India",
+    "job_url": "https://in.linkedin.com/jobs/view/frontend-software-engineer-at-jobgether-4439130522",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:14.105000"
+  },
+  {
+    "title": "Software Developer II",
+    "company": "FedEx ACC",
+    "location": "Hyderabad, Telangana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-ii-at-fedex-acc-4402388504",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:14.179317"
+  },
+  {
+    "title": "Software Developer",
+    "company": "Adani Enterprises Limited",
+    "location": "Ahmedabad, Gujarat, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-at-adani-enterprises-limited-4440010830",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:14.238326"
+  },
+  {
+    "title": "SDE - 2 - Backend",
+    "company": "GTMfund",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/sde-2-backend-at-gtmfund-4439779580",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:14.299395"
+  },
+  {
+    "title": "Software Development Engineer - Backend (Node.js+Typescript)",
+    "company": "eDataBae",
+    "location": "India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-development-engineer-backend-node-js%2Btypescript-at-edatabae-4439155214",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:14.358347"
+  },
+  {
+    "title": "Full Stack Software Engineer",
+    "company": "Scoutit",
+    "location": "Delhi, India",
+    "job_url": "https://in.linkedin.com/jobs/view/full-stack-software-engineer-at-scoutit-4439151717",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:14.420569"
+  },
+  {
+    "title": "Software Developer, India",
+    "company": "AlgoSec",
+    "location": "New Delhi, Delhi, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-india-at-algosec-4439772594",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:14.484041"
+  },
+  {
+    "title": "Software Engr I",
+    "company": "Honeywell Aerospace",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engr-i-at-honeywell-aerospace-4440014751",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:14.543753"
+  },
+  {
+    "title": "Informatica Developer",
+    "company": "Infosys",
+    "location": "Bengaluru East, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/informatica-developer-at-infosys-4430315501",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:14.589652"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "Teradata",
+    "location": "Hyderabad, Telangana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-teradata-4326661453",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:19.107403"
+  },
+  {
+    "title": "EKS Engineer",
+    "company": "Infosys",
+    "location": "Bengaluru East, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/eks-engineer-at-infosys-4410805206",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:19.165703"
+  },
+  {
+    "title": "Software Development Engineer",
+    "company": "Adobe",
+    "location": "Bengaluru East, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-development-engineer-at-adobe-4439168169",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:19.230176"
+  },
+  {
+    "title": "Executive - Python",
+    "company": "KPMG India",
+    "location": "Mumbai, Maharashtra, India",
+    "job_url": "https://in.linkedin.com/jobs/view/executive-python-at-kpmg-india-4440003232",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:19.284436"
+  },
+  {
+    "title": "Software Engineer -Backend",
+    "company": "Modulr",
+    "location": "Pune Division, Maharashtra, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-backend-at-modulr-4220088070",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:19.350995"
+  },
+  {
+    "title": "Software Developer",
+    "company": "Scoutit",
+    "location": "Bengaluru Rural District, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-at-scoutit-4439154558",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:19.412548"
+  },
+  {
+    "title": "XR Software Engineer (All Levels - Multiple Positions)",
+    "company": "Qualcomm",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/xr-software-engineer-all-levels-multiple-positions-at-qualcomm-4380453154",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:19.460158"
+  },
+  {
+    "title": "Software Developer",
+    "company": "Scoutit",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-at-scoutit-4439169168",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:19.509798"
+  },
+  {
+    "title": "DE-RCE-CCAR-Fullstack-FE-GDSN02",
+    "company": "EY",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/de-rce-ccar-fullstack-fe-gdsn02-at-ey-4408868408",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:19.559974"
+  },
+  {
+    "title": "Software Developer",
+    "company": "Scoutit",
+    "location": "Bangalore Rural, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-at-scoutit-4439163273",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:19.609303"
+  },
+  {
+    "title": "Software Development Engineer II",
+    "company": "GreyOrange",
+    "location": "Gurugram, Haryana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-development-engineer-ii-at-greyorange-4346590086",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:19.671636"
+  },
+  {
+    "title": "Software Developer",
+    "company": "Scoutit",
+    "location": "Bengaluru South, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-at-scoutit-4439168152",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:19.725672"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "Appinventiv",
+    "location": "Noida, Uttar Pradesh, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-appinventiv-4437245486",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:19.786735"
+  },
+  {
+    "title": "Software Developer",
+    "company": "Scoutit",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-at-scoutit-4439149962",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:19.850026"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "CXO Inc",
+    "location": "Hyderabad, Telangana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-cxo-inc-4437240341",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:19.899954"
+  },
+  {
+    "title": "Senior Software Engineer- Backend",
+    "company": "Roku",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/senior-software-engineer-backend-at-roku-4439782254",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:19.950213"
+  },
+  {
+    "title": "Full Stack Engineer",
+    "company": "Codeyoung",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/full-stack-engineer-at-codeyoung-4440008304",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:19.999426"
+  },
+  {
+    "title": "Software Dev Engineer 2",
+    "company": "Amazon",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-dev-engineer-2-at-amazon-4412452972",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:20.058436"
+  },
+  {
+    "title": "Junior Software Developer",
+    "company": "avua",
+    "location": "India",
+    "job_url": "https://in.linkedin.com/jobs/view/junior-software-developer-at-avua-4439765454",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:20.115287"
+  },
+  {
+    "title": "Software Developer",
+    "company": "Scoutit",
+    "location": "India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-at-scoutit-4439157289",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:20.165342"
+  },
+  {
+    "title": "Python/Python GenAI",
+    "company": "Infosys",
+    "location": "Bengaluru East, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/python-python-genai-at-infosys-4439100513",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:20.214601"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "Virtusa",
+    "location": "Andhra Pradesh, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-virtusa-4428916775",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:20.264927"
+  },
+  {
+    "title": "SDE",
+    "company": "Scoutit",
+    "location": "India",
+    "job_url": "https://in.linkedin.com/jobs/view/sde-at-scoutit-4439170116",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:20.314710"
+  },
+  {
+    "title": "SDE II, EU GIL Installments",
+    "company": "Amazon",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/sde-ii-eu-gil-installments-at-amazon-4420988665",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:20.374972"
+  },
+  {
+    "title": "Software Engineer, C++",
+    "company": "Autodesk",
+    "location": "Pune Division, Maharashtra, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-c%2B%2B-at-autodesk-4430375715",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:20.425286"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "Leapwork",
+    "location": "Gurugram, Haryana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-leapwork-4399897962",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:20.475981"
+  },
+  {
+    "title": "Senior Software Engineer",
+    "company": "Microsoft",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/senior-software-engineer-at-microsoft-4403035850",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:20.527582"
+  },
+  {
+    "title": "Software Engineer 1",
+    "company": "CME Group",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-1-at-cme-group-4440026042",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:20.579278"
+  },
+  {
+    "title": "Software Engineer - Confluent",
+    "company": "IBM",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-confluent-at-ibm-4437253640",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:20.637241"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "RiVirtual Inc",
+    "location": "Hyderabad, Telangana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-rivirtual-inc-4437234508",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:20.685964"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "Scoutit",
+    "location": "Bengaluru Rural District, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-scoutit-4439150815",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:20.733173"
+  },
+  {
+    "title": "Software Developer",
+    "company": "Scoutit",
+    "location": "Bengaluru East, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-at-scoutit-4439162343",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:20.783034"
+  },
+  {
+    "title": "Software Developer",
+    "company": "Scoutit",
+    "location": "Bengaluru North, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-at-scoutit-4439161343",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:20.831416"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "Scoutit",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-scoutit-4439166220",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:20.888493"
+  },
+  {
+    "title": "Full Stack Engineer - AI Platform",
+    "company": "Teradata",
+    "location": "Hyderabad, Telangana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/full-stack-engineer-ai-platform-at-teradata-4372980335",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:20.947563"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "Scoutit",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-scoutit-4439163262",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:21.004493"
+  },
+  {
+    "title": "SDE 1",
+    "company": "GTMfund",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/sde-1-at-gtmfund-4439768982",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:21.058294"
+  },
+  {
+    "title": "Staff Software Engineer",
+    "company": "Intuit",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/staff-software-engineer-at-intuit-4439151065",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:21.124693"
+  },
+  {
+    "title": "SDE - I",
+    "company": "GTMfund",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/sde-i-at-gtmfund-4439770954",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:21.174129"
+  },
+  {
+    "title": "Software Engineer - Backend",
+    "company": "CoverForce",
+    "location": "India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-backend-at-coverforce-4350752081",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:21.227274"
+  },
+  {
+    "title": "Front-End Developer",
+    "company": "Peepul Agri",
+    "location": "Hyderabad, Telangana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/front-end-developer-at-peepul-agri-4437251198",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:21.282824"
+  },
+  {
+    "title": "Software Development Engineer (Backend) - SDE II",
+    "company": "Purplle.com",
+    "location": "Mumbai, Maharashtra, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-development-engineer-backend-sde-ii-at-purplle-com-4437241974",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:21.340291"
+  },
+  {
+    "title": "Software Engineer II",
+    "company": "PDI Technologies",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-ii-at-pdi-technologies-4410898624",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:21.394820"
+  },
+  {
+    "title": "UI Developer with React JS",
+    "company": "IQVIA",
+    "location": "Kochi, Kerala, India",
+    "job_url": "https://in.linkedin.com/jobs/view/ui-developer-with-react-js-at-iqvia-4439174037",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:21.457246"
+  },
+  {
+    "title": "Software Intern",
+    "company": "Purehire AI",
+    "location": "Greater Hyderabad Area",
+    "job_url": "https://in.linkedin.com/jobs/view/software-intern-at-purehire-ai-4437263786",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:21.530139"
+  },
+  {
+    "title": "MERN Stack Developer",
+    "company": "Wipro",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/mern-stack-developer-at-wipro-4440013659",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:21.589170"
+  },
+  {
+    "title": "Full Stack Software Engineer",
+    "company": "Scoutit",
+    "location": "Gurugram, Haryana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/full-stack-software-engineer-at-scoutit-4439154556",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:21.648100"
+  },
+  {
+    "title": "Software Development Engineer III",
+    "company": "Tesco Bengaluru",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-development-engineer-iii-at-tesco-bengaluru-4439161129",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:21.708815"
+  },
+  {
+    "title": "Software Developer II",
+    "company": "FedEx ACC",
+    "location": "Hyderabad, Telangana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-ii-at-fedex-acc-4402702417",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:21.758553"
+  },
+  {
+    "title": "Software Development Engineer II , Amazon Pay",
+    "company": "Amazon",
+    "location": "Greater Hyderabad Area",
+    "job_url": "https://in.linkedin.com/jobs/view/software-development-engineer-ii-amazon-pay-at-amazon-4403545746",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:21.813756"
+  },
+  {
+    "title": "GenAI Developer",
+    "company": "Infosys",
+    "location": "Bengaluru East, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/genai-developer-at-infosys-4439105200",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:21.865946"
+  },
+  {
+    "title": "Frontend Software Engineer",
+    "company": "Jobgether",
+    "location": "India",
+    "job_url": "https://in.linkedin.com/jobs/view/frontend-software-engineer-at-jobgether-4439130522",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:21.931964"
+  },
+  {
+    "title": "Software Developer II",
+    "company": "FedEx ACC",
+    "location": "Hyderabad, Telangana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-ii-at-fedex-acc-4402388504",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:21.986036"
+  },
+  {
+    "title": "Software Developer",
+    "company": "Adani Enterprises Limited",
+    "location": "Ahmedabad, Gujarat, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-at-adani-enterprises-limited-4440010830",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:22.033521"
+  },
+  {
+    "title": "SDE - 2 - Backend",
+    "company": "GTMfund",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/sde-2-backend-at-gtmfund-4439779580",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:22.093276"
+  },
+  {
+    "title": "Software Development Engineer - Backend (Node.js+Typescript)",
+    "company": "eDataBae",
+    "location": "India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-development-engineer-backend-node-js%2Btypescript-at-edatabae-4439155214",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:22.157787"
+  },
+  {
+    "title": "Full Stack Software Engineer",
+    "company": "Scoutit",
+    "location": "Delhi, India",
+    "job_url": "https://in.linkedin.com/jobs/view/full-stack-software-engineer-at-scoutit-4439151717",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:22.208263"
+  },
+  {
+    "title": "Software Developer, India",
+    "company": "AlgoSec",
+    "location": "New Delhi, Delhi, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-india-at-algosec-4439772594",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:22.263585"
+  },
+  {
+    "title": "Software Engr I",
+    "company": "Honeywell Aerospace",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engr-i-at-honeywell-aerospace-4440014751",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:22.318817"
+  },
+  {
+    "title": "Informatica Developer",
+    "company": "Infosys",
+    "location": "Bengaluru East, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/informatica-developer-at-infosys-4430315501",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:22.374955"
+  },
+  {
+    "title": "DEVELOPER L3",
+    "company": "Wipro",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/developer-l3-at-wipro-4439105669",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:26.780375"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "Megan Soft Inc",
+    "location": "Greater Chennai Area",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-megan-soft-inc-4440004602",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:26.834199"
+  },
+  {
+    "title": "Big Data Developer",
+    "company": "Tata Consultancy Services",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/big-data-developer-at-tata-consultancy-services-4440024503",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:26.888868"
+  },
+  {
+    "title": "Backend Developer, India",
+    "company": "AlgoSec",
+    "location": "New Delhi, Delhi, India",
+    "job_url": "https://in.linkedin.com/jobs/view/backend-developer-india-at-algosec-4439770632",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:26.943894"
+  },
+  {
+    "title": "Full Stack Engineer",
+    "company": "Talentgigs",
+    "location": "Coimbatore, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/full-stack-engineer-at-talentgigs-4439129702",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:26.998625"
+  },
+  {
+    "title": "Node js",
+    "company": "Tata Consultancy Services",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/node-js-at-tata-consultancy-services-4439142123",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:27.058566"
+  },
+  {
+    "title": "Back-end Software Development Engineering Engineer 2",
+    "company": "Megan Soft Inc",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/back-end-software-development-engineering-engineer-2-at-megan-soft-inc-4440002027",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:27.114792"
+  },
+  {
+    "title": "Full Stack Engineer",
+    "company": "HCLTech",
+    "location": "Lucknow, Uttar Pradesh, India",
+    "job_url": "https://in.linkedin.com/jobs/view/full-stack-engineer-at-hcltech-4437272604",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:27.174875"
+  },
+  {
+    "title": "Full Stack Engineer",
+    "company": "NxtWave (Hiring for a Client)",
+    "location": "Gurugram, Haryana, India",
+    "job_url": "",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:27.237638"
+  },
+  {
+    "title": "PCC Developer",
+    "company": "NAB",
+    "location": "Gurugram, Haryana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/pcc-developer-at-nab-4437242287",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:27.284995"
+  },
+  {
+    "title": "Java Developer, India",
+    "company": "AlgoSec",
+    "location": "New Delhi, Delhi, India",
+    "job_url": "https://in.linkedin.com/jobs/view/java-developer-india-at-algosec-4439768699",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:27.333490"
+  },
+  {
+    "title": "Python Developer",
+    "company": "iZOOlogic",
+    "location": "Jaipur, Rajasthan, India",
+    "job_url": "https://in.linkedin.com/jobs/view/python-developer-at-izoologic-4439160409",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:27.392607"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "Aara Tech Private Limited",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-aara-tech-private-limited-4439128488",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:27.441335"
+  },
+  {
+    "title": "DEVELOPER L3",
+    "company": "Wipro",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/developer-l3-at-wipro-4439772264",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:27.489179"
+  },
+  {
+    "title": "Senior Software Engineer",
+    "company": "Capgemini",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/senior-software-engineer-at-capgemini-4437167347",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:27.544294"
+  },
+  {
+    "title": "Java AI Developer",
+    "company": "Infosys",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/java-ai-developer-at-infosys-4439112571",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:27.603062"
+  },
+  {
+    "title": "WTX Developer",
+    "company": "Coforge",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/wtx-developer-at-coforge-4437240310",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:27.663371"
+  },
+  {
+    "title": "Software Engineer (Systems) 3",
+    "company": "SANMINA-SCI TECHNOLOGY INDIA PRIVATE LIMITED",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-systems-3-at-sanmina-sci-technology-india-private-limited-4437262710",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:27.719091"
+  },
+  {
+    "title": "Full Stack Developer",
+    "company": "SourceFuse",
+    "location": "Mohali district, India",
+    "job_url": "https://in.linkedin.com/jobs/view/full-stack-developer-at-sourcefuse-4427497854",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:27.786935"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "Leapwork",
+    "location": "Gurugram, Haryana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-leapwork-4399897962",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:27.845226"
+  },
+  {
+    "title": "Python React Developer",
+    "company": "Coforge",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/python-react-developer-at-coforge-4437259458",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:27.913501"
+  },
+  {
+    "title": "Blockchain Developer",
+    "company": "Websultanate Software Technologies Pvt Ltd",
+    "location": "Lucknow, Uttar Pradesh, India",
+    "job_url": "https://in.linkedin.com/jobs/view/blockchain-developer-at-websultanate-software-technologies-pvt-ltd-4439149611",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:27.977905"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "PassFort - A Moody's Company",
+    "location": "Gurugram, Haryana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-passfort-a-moody-s-company-4437237832",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:28.037846"
+  },
+  {
+    "title": "Developer III - Software Engineering",
+    "company": "UST",
+    "location": "Coimbatore, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/developer-iii-software-engineering-at-ust-4361423994",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:28.092932"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "SourcingXPress",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-sourcingxpress-4438625985",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:28.155675"
+  },
+  {
+    "title": "System Engineer",
+    "company": "Astra Space.ai",
+    "location": "Bhopal, Madhya Pradesh, India",
+    "job_url": "https://in.linkedin.com/jobs/view/system-engineer-at-astra-space-ai-4439139287",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:28.217667"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "Cyient",
+    "location": "Noida, Uttar Pradesh, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-cyient-4437263725",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:28.278849"
+  },
+  {
+    "title": "Principal Engineer",
+    "company": "Priority",
+    "location": "Chandigarh, Chandigarh, India",
+    "job_url": "https://in.linkedin.com/jobs/view/principal-engineer-at-priority-4439196812",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:28.358255"
+  },
+  {
+    "title": "Full Stack Engineer (React, Node, MongoDB)",
+    "company": "Talentgigs",
+    "location": "Coimbatore, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/full-stack-engineer-react-node-mongodb-at-talentgigs-4439131691",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:28.413350"
+  },
+  {
+    "title": "Lead Software Engineer",
+    "company": "Capgemini",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/lead-software-engineer-at-capgemini-4437173205",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:28.463857"
+  },
+  {
+    "title": "We're looking for a passionate MERN Stack Developer to join our team and build scalable web applications.",
+    "company": "Creanaya Marketing",
+    "location": "New Delhi, Delhi, India",
+    "job_url": "",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:28.519364"
+  },
+  {
+    "title": "Python Developer",
+    "company": "Adroit India",
+    "location": "Hyderabad, Telangana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/python-developer-at-adroit-india-4437240344",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:28.608776"
+  },
+  {
+    "title": "Software Development Engineer 4",
+    "company": "Adobe",
+    "location": "Noida, Uttar Pradesh, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-development-engineer-4-at-adobe-4439149973",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:28.682229"
+  },
+  {
+    "title": "Full Stack Developer (Founding Engineer)",
+    "company": "Koa Care",
+    "location": "Guwahati, Assam, India",
+    "job_url": "https://in.linkedin.com/jobs/view/full-stack-developer-founding-engineer-at-koa-care-4437262071",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:28.728975"
+  },
+  {
+    "title": "WTX Developer",
+    "company": "BNP Paribas",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/wtx-developer-at-bnp-paribas-4439752469",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:28.795751"
+  },
+  {
+    "title": "Python Developer",
+    "company": "Pi One Technologies (π 1)",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/python-developer-at-pi-one-technologies-%CF%80-1-4439752195",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:28.848530"
+  },
+  {
+    "title": "Software Engineer (IV) - Premium Engineer III",
+    "company": "TekWissen India",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-iv-premium-engineer-iii-at-tekwissen-india-4429792964",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:28.913377"
+  },
+  {
+    "title": "Software Development Engineer",
+    "company": "Adobe",
+    "location": "Bengaluru East, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-development-engineer-at-adobe-4439168169",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:28.983357"
+  },
+  {
+    "title": "Software Engineer (III) - Core Engineer II",
+    "company": "TekWissen India",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-iii-core-engineer-ii-at-tekwissen-india-4429793933",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:29.048167"
+  },
+  {
+    "title": "Calypso Developer",
+    "company": "BNP Paribas",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/calypso-developer-at-bnp-paribas-4439734806",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:29.106241"
+  },
+  {
+    "title": "Application Developer- C, C++ Developer",
+    "company": "Fujitsu",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/application-developer-c-c%2B%2B-developer-at-fujitsu-4440006982",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:29.163534"
+  },
+  {
+    "title": "Software Developer 4",
+    "company": "Oracle",
+    "location": "Noida, Uttar Pradesh, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-4-at-oracle-4409680345",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:29.247620"
+  },
+  {
+    "title": "Software Development Engineer, CAM",
+    "company": "Amazon",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-development-engineer-cam-at-amazon-4371888495",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:29.318678"
+  },
+  {
+    "title": "Software Engineer III",
+    "company": "PDI Technologies",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-iii-at-pdi-technologies-4405090267",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:29.382412"
+  },
+  {
+    "title": "Consultant",
+    "company": "Symali",
+    "location": "India",
+    "job_url": "https://in.linkedin.com/jobs/view/consultant-at-symali-4439410094",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:29.438497"
+  },
+  {
+    "title": "Software Engineer II",
+    "company": "PDI Technologies",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-ii-at-pdi-technologies-4410898624",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:29.505816"
+  },
+  {
+    "title": "Python Developer",
+    "company": "Allime Tech Solutions",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/python-developer-at-allime-tech-solutions-4440009688",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:29.566108"
+  },
+  {
+    "title": "Intermediate Fullstack Engineer - Data Products",
+    "company": "GitLab",
+    "location": "Greater Delhi Area",
+    "job_url": "https://in.linkedin.com/jobs/view/intermediate-fullstack-engineer-data-products-at-gitlab-4440010950",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:29.633576"
+  },
+  {
+    "title": "Software Development Engineer II",
+    "company": "GreyOrange",
+    "location": "Gurugram, Haryana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-development-engineer-ii-at-greyorange-4346590086",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:29.693494"
+  },
+  {
+    "title": "Full Stack Engineer",
+    "company": "True Tech Professionals",
+    "location": "Gurugram, Haryana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/full-stack-engineer-at-true-tech-professionals-4439147698",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:29.754007"
+  },
+  {
+    "title": "Full Stack Developer - Assistant Vice President",
+    "company": "Citi",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/full-stack-developer-assistant-vice-president-at-citi-4411705463",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:29.835548"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "LevelShift",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-levelshift-4439798033",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:29.899378"
+  },
+  {
+    "title": "Full Stack Developer II",
+    "company": "FedEx",
+    "location": "Greater Hyderabad Area",
+    "job_url": "https://in.linkedin.com/jobs/view/full-stack-developer-ii-at-fedex-4402937810",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:30.086270"
+  },
+  {
+    "title": "Python Developer",
+    "company": "Infosys",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/python-developer-at-infosys-4438987994",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:30.142992"
+  },
+  {
+    "title": "Software Developer for AI Products - Americas",
+    "company": "Linde@India",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-for-ai-products-americas-at-linde%40india-4439797774",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:30.205766"
+  },
+  {
+    "title": "SDE2, Stores TA",
+    "company": "Amazon",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/sde2-stores-ta-at-amazon-4332063652",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:30.259703"
+  },
+  {
+    "title": "Senior Full Stack Engineer",
+    "company": "RunLoyal: Pet Software",
+    "location": "Coimbatore, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/senior-full-stack-engineer-at-runloyal-pet-software-4439156309",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:30.327616"
+  },
+  {
+    "title": "Full Stack Engineer",
+    "company": "Fidelity Investments",
+    "location": "Bengaluru East, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/full-stack-engineer-at-fidelity-investments-4440023708",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:30.379306"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "AMETEK",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-ametek-4371490772",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:30.537457"
+  },
+  {
+    "title": "Research Engineer",
+    "company": "Duruper",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/research-engineer-at-duruper-4437248259",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:30.596808"
+  },
+  {
+    "title": "DEVELOPER L3",
+    "company": "Wipro",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/developer-l3-at-wipro-4439105669",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:35.320251"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "Megan Soft Inc",
+    "location": "Greater Chennai Area",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-megan-soft-inc-4440004602",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:35.383507"
+  },
+  {
+    "title": "Big Data Developer",
+    "company": "Tata Consultancy Services",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/big-data-developer-at-tata-consultancy-services-4440024503",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:35.433608"
+  },
+  {
+    "title": "Backend Developer, India",
+    "company": "AlgoSec",
+    "location": "New Delhi, Delhi, India",
+    "job_url": "https://in.linkedin.com/jobs/view/backend-developer-india-at-algosec-4439770632",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:35.482884"
+  },
+  {
+    "title": "Full Stack Engineer",
+    "company": "Talentgigs",
+    "location": "Coimbatore, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/full-stack-engineer-at-talentgigs-4439129702",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:35.532989"
+  },
+  {
+    "title": "Node js",
+    "company": "Tata Consultancy Services",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/node-js-at-tata-consultancy-services-4439142123",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:35.597719"
+  },
+  {
+    "title": "Back-end Software Development Engineering Engineer 2",
+    "company": "Megan Soft Inc",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/back-end-software-development-engineering-engineer-2-at-megan-soft-inc-4440002027",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:35.647945"
+  },
+  {
+    "title": "Full Stack Engineer",
+    "company": "HCLTech",
+    "location": "Lucknow, Uttar Pradesh, India",
+    "job_url": "https://in.linkedin.com/jobs/view/full-stack-engineer-at-hcltech-4437272604",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:35.708067"
+  },
+  {
+    "title": "Full Stack Engineer",
+    "company": "NxtWave (Hiring for a Client)",
+    "location": "Gurugram, Haryana, India",
+    "job_url": "",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:35.757889"
+  },
+  {
+    "title": "PCC Developer",
+    "company": "NAB",
+    "location": "Gurugram, Haryana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/pcc-developer-at-nab-4437242287",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:35.803563"
+  },
+  {
+    "title": "Java Developer, India",
+    "company": "AlgoSec",
+    "location": "New Delhi, Delhi, India",
+    "job_url": "https://in.linkedin.com/jobs/view/java-developer-india-at-algosec-4439768699",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:35.857700"
+  },
+  {
+    "title": "Python Developer",
+    "company": "iZOOlogic",
+    "location": "Jaipur, Rajasthan, India",
+    "job_url": "https://in.linkedin.com/jobs/view/python-developer-at-izoologic-4439160409",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:35.903926"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "Aara Tech Private Limited",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-aara-tech-private-limited-4439128488",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:35.957947"
+  },
+  {
+    "title": "DEVELOPER L3",
+    "company": "Wipro",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/developer-l3-at-wipro-4439772264",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:36.003247"
+  },
+  {
+    "title": "Senior Software Engineer",
+    "company": "Capgemini",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/senior-software-engineer-at-capgemini-4437167347",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:36.056936"
+  },
+  {
+    "title": "Java AI Developer",
+    "company": "Infosys",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/java-ai-developer-at-infosys-4439112571",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:36.109822"
+  },
+  {
+    "title": "WTX Developer",
+    "company": "Coforge",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/wtx-developer-at-coforge-4437240310",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:36.168259"
+  },
+  {
+    "title": "Software Engineer (Systems) 3",
+    "company": "SANMINA-SCI TECHNOLOGY INDIA PRIVATE LIMITED",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-systems-3-at-sanmina-sci-technology-india-private-limited-4437262710",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:36.216711"
+  },
+  {
+    "title": "Full Stack Developer",
+    "company": "SourceFuse",
+    "location": "Mohali district, India",
+    "job_url": "https://in.linkedin.com/jobs/view/full-stack-developer-at-sourcefuse-4427497854",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:36.264897"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "Leapwork",
+    "location": "Gurugram, Haryana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-leapwork-4399897962",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:36.313873"
+  },
+  {
+    "title": "Python React Developer",
+    "company": "Coforge",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/python-react-developer-at-coforge-4437259458",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:36.364750"
+  },
+  {
+    "title": "Blockchain Developer",
+    "company": "Websultanate Software Technologies Pvt Ltd",
+    "location": "Lucknow, Uttar Pradesh, India",
+    "job_url": "https://in.linkedin.com/jobs/view/blockchain-developer-at-websultanate-software-technologies-pvt-ltd-4439149611",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:36.424206"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "PassFort - A Moody's Company",
+    "location": "Gurugram, Haryana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-passfort-a-moody-s-company-4437237832",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:36.488720"
+  },
+  {
+    "title": "Developer III - Software Engineering",
+    "company": "UST",
+    "location": "Coimbatore, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/developer-iii-software-engineering-at-ust-4361423994",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:36.547239"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "SourcingXPress",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-sourcingxpress-4438625985",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:36.596367"
+  },
+  {
+    "title": "System Engineer",
+    "company": "Astra Space.ai",
+    "location": "Bhopal, Madhya Pradesh, India",
+    "job_url": "https://in.linkedin.com/jobs/view/system-engineer-at-astra-space-ai-4439139287",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:36.664416"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "Cyient",
+    "location": "Noida, Uttar Pradesh, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-cyient-4437263725",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:36.738052"
+  },
+  {
+    "title": "Principal Engineer",
+    "company": "Priority",
+    "location": "Chandigarh, Chandigarh, India",
+    "job_url": "https://in.linkedin.com/jobs/view/principal-engineer-at-priority-4439196812",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:36.794578"
+  },
+  {
+    "title": "Full Stack Engineer (React, Node, MongoDB)",
+    "company": "Talentgigs",
+    "location": "Coimbatore, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/full-stack-engineer-react-node-mongodb-at-talentgigs-4439131691",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:36.848935"
+  },
+  {
+    "title": "Lead Software Engineer",
+    "company": "Capgemini",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/lead-software-engineer-at-capgemini-4437173205",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:36.908169"
+  },
+  {
+    "title": "We're looking for a passionate MERN Stack Developer to join our team and build scalable web applications.",
+    "company": "Creanaya Marketing",
+    "location": "New Delhi, Delhi, India",
+    "job_url": "",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:36.971751"
+  },
+  {
+    "title": "Python Developer",
+    "company": "Adroit India",
+    "location": "Hyderabad, Telangana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/python-developer-at-adroit-india-4437240344",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:37.029758"
+  },
+  {
+    "title": "Software Development Engineer 4",
+    "company": "Adobe",
+    "location": "Noida, Uttar Pradesh, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-development-engineer-4-at-adobe-4439149973",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:37.078216"
+  },
+  {
+    "title": "Full Stack Developer (Founding Engineer)",
+    "company": "Koa Care",
+    "location": "Guwahati, Assam, India",
+    "job_url": "https://in.linkedin.com/jobs/view/full-stack-developer-founding-engineer-at-koa-care-4437262071",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:37.133182"
+  },
+  {
+    "title": "WTX Developer",
+    "company": "BNP Paribas",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/wtx-developer-at-bnp-paribas-4439752469",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:37.198813"
+  },
+  {
+    "title": "Python Developer",
+    "company": "Pi One Technologies (π 1)",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/python-developer-at-pi-one-technologies-%CF%80-1-4439752195",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:37.264464"
+  },
+  {
+    "title": "Software Engineer (IV) - Premium Engineer III",
+    "company": "TekWissen India",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-iv-premium-engineer-iii-at-tekwissen-india-4429792964",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:37.340096"
+  },
+  {
+    "title": "Software Development Engineer",
+    "company": "Adobe",
+    "location": "Bengaluru East, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-development-engineer-at-adobe-4439168169",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:37.397511"
+  },
+  {
+    "title": "Software Engineer (III) - Core Engineer II",
+    "company": "TekWissen India",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-iii-core-engineer-ii-at-tekwissen-india-4429793933",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:37.464943"
+  },
+  {
+    "title": "Calypso Developer",
+    "company": "BNP Paribas",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/calypso-developer-at-bnp-paribas-4439734806",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:37.528752"
+  },
+  {
+    "title": "Application Developer- C, C++ Developer",
+    "company": "Fujitsu",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/application-developer-c-c%2B%2B-developer-at-fujitsu-4440006982",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:37.602993"
+  },
+  {
+    "title": "Software Developer 4",
+    "company": "Oracle",
+    "location": "Noida, Uttar Pradesh, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-4-at-oracle-4409680345",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:37.658921"
+  },
+  {
+    "title": "Software Development Engineer, CAM",
+    "company": "Amazon",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-development-engineer-cam-at-amazon-4371888495",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:37.721304"
+  },
+  {
+    "title": "Software Engineer III",
+    "company": "PDI Technologies",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-iii-at-pdi-technologies-4405090267",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:37.778230"
+  },
+  {
+    "title": "Consultant",
+    "company": "Symali",
+    "location": "India",
+    "job_url": "https://in.linkedin.com/jobs/view/consultant-at-symali-4439410094",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:37.853862"
+  },
+  {
+    "title": "Software Engineer II",
+    "company": "PDI Technologies",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-ii-at-pdi-technologies-4410898624",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:37.918823"
+  },
+  {
+    "title": "Python Developer",
+    "company": "Allime Tech Solutions",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/python-developer-at-allime-tech-solutions-4440009688",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:37.974257"
+  },
+  {
+    "title": "Intermediate Fullstack Engineer - Data Products",
+    "company": "GitLab",
+    "location": "Greater Delhi Area",
+    "job_url": "https://in.linkedin.com/jobs/view/intermediate-fullstack-engineer-data-products-at-gitlab-4440010950",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:38.030699"
+  },
+  {
+    "title": "Software Development Engineer II",
+    "company": "GreyOrange",
+    "location": "Gurugram, Haryana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-development-engineer-ii-at-greyorange-4346590086",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:38.102197"
+  },
+  {
+    "title": "Full Stack Engineer",
+    "company": "True Tech Professionals",
+    "location": "Gurugram, Haryana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/full-stack-engineer-at-true-tech-professionals-4439147698",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:38.170225"
+  },
+  {
+    "title": "Full Stack Developer - Assistant Vice President",
+    "company": "Citi",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/full-stack-developer-assistant-vice-president-at-citi-4411705463",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:38.225251"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "LevelShift",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-levelshift-4439798033",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:38.274203"
+  },
+  {
+    "title": "Full Stack Developer II",
+    "company": "FedEx",
+    "location": "Greater Hyderabad Area",
+    "job_url": "https://in.linkedin.com/jobs/view/full-stack-developer-ii-at-fedex-4402937810",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:38.329481"
+  },
+  {
+    "title": "Python Developer",
+    "company": "Infosys",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/python-developer-at-infosys-4438987994",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:38.386933"
+  },
+  {
+    "title": "Software Developer for AI Products - Americas",
+    "company": "Linde@India",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-for-ai-products-americas-at-linde%40india-4439797774",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:38.458325"
+  },
+  {
+    "title": "SDE2, Stores TA",
+    "company": "Amazon",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/sde2-stores-ta-at-amazon-4332063652",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:38.519158"
+  },
+  {
+    "title": "Senior Full Stack Engineer",
+    "company": "RunLoyal: Pet Software",
+    "location": "Coimbatore, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/senior-full-stack-engineer-at-runloyal-pet-software-4439156309",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:38.575560"
+  },
+  {
+    "title": "Full Stack Engineer",
+    "company": "Fidelity Investments",
+    "location": "Bengaluru East, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/full-stack-engineer-at-fidelity-investments-4440023708",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:38.626754"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "AMETEK",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-ametek-4371490772",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:38.675826"
+  },
+  {
+    "title": "Research Engineer",
+    "company": "Duruper",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/research-engineer-at-duruper-4437248259",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:38.728883"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "Teradata",
+    "location": "Hyderabad, Telangana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-teradata-4326661453",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:43.410262"
+  },
+  {
+    "title": "EKS Engineer",
+    "company": "Infosys",
+    "location": "Bengaluru East, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/eks-engineer-at-infosys-4410805206",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:43.704205"
+  },
+  {
+    "title": "Software Development Engineer",
+    "company": "Adobe",
+    "location": "Bengaluru East, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-development-engineer-at-adobe-4439168169",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:43.772812"
+  },
+  {
+    "title": "Executive - Python",
+    "company": "KPMG India",
+    "location": "Mumbai, Maharashtra, India",
+    "job_url": "https://in.linkedin.com/jobs/view/executive-python-at-kpmg-india-4440003232",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:43.820472"
+  },
+  {
+    "title": "Software Engineer -Backend",
+    "company": "Modulr",
+    "location": "Pune Division, Maharashtra, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-backend-at-modulr-4220088070",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:43.906231"
+  },
+  {
+    "title": "Software Developer",
+    "company": "Scoutit",
+    "location": "Bengaluru Rural District, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-at-scoutit-4439154558",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:43.954301"
+  },
+  {
+    "title": "XR Software Engineer (All Levels - Multiple Positions)",
+    "company": "Qualcomm",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/xr-software-engineer-all-levels-multiple-positions-at-qualcomm-4380453154",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:44.008693"
+  },
+  {
+    "title": "Software Developer",
+    "company": "Scoutit",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-at-scoutit-4439169168",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:44.060989"
+  },
+  {
+    "title": "DE-RCE-CCAR-Fullstack-FE-GDSN02",
+    "company": "EY",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/de-rce-ccar-fullstack-fe-gdsn02-at-ey-4408868408",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:44.112264"
+  },
+  {
+    "title": "Software Developer",
+    "company": "Scoutit",
+    "location": "Bangalore Rural, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-at-scoutit-4439163273",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:44.178556"
+  },
+  {
+    "title": "Software Development Engineer II",
+    "company": "GreyOrange",
+    "location": "Gurugram, Haryana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-development-engineer-ii-at-greyorange-4346590086",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:44.239550"
+  },
+  {
+    "title": "Software Developer",
+    "company": "Scoutit",
+    "location": "Bengaluru South, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-at-scoutit-4439168152",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:44.302297"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "Appinventiv",
+    "location": "Noida, Uttar Pradesh, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-appinventiv-4437245486",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:44.368193"
+  },
+  {
+    "title": "Software Developer",
+    "company": "Scoutit",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-at-scoutit-4439149962",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:44.429676"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "CXO Inc",
+    "location": "Hyderabad, Telangana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-cxo-inc-4437240341",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:44.487159"
+  },
+  {
+    "title": "Senior Software Engineer- Backend",
+    "company": "Roku",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/senior-software-engineer-backend-at-roku-4439782254",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:44.539130"
+  },
+  {
+    "title": "Full Stack Engineer",
+    "company": "Codeyoung",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/full-stack-engineer-at-codeyoung-4440008304",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:44.594169"
+  },
+  {
+    "title": "Software Dev Engineer 2",
+    "company": "Amazon",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-dev-engineer-2-at-amazon-4412452972",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:44.642705"
+  },
+  {
+    "title": "Junior Software Developer",
+    "company": "avua",
+    "location": "India",
+    "job_url": "https://in.linkedin.com/jobs/view/junior-software-developer-at-avua-4439765454",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:44.693141"
+  },
+  {
+    "title": "Software Developer",
+    "company": "Scoutit",
+    "location": "India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-at-scoutit-4439157289",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:44.747579"
+  },
+  {
+    "title": "Python/Python GenAI",
+    "company": "Infosys",
+    "location": "Bengaluru East, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/python-python-genai-at-infosys-4439100513",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:44.810035"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "Virtusa",
+    "location": "Andhra Pradesh, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-virtusa-4428916775",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:44.860364"
+  },
+  {
+    "title": "SDE",
+    "company": "Scoutit",
+    "location": "India",
+    "job_url": "https://in.linkedin.com/jobs/view/sde-at-scoutit-4439170116",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:44.909851"
+  },
+  {
+    "title": "SDE II, EU GIL Installments",
+    "company": "Amazon",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/sde-ii-eu-gil-installments-at-amazon-4420988665",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:44.958541"
+  },
+  {
+    "title": "Software Engineer, C++",
+    "company": "Autodesk",
+    "location": "Pune Division, Maharashtra, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-c%2B%2B-at-autodesk-4430375715",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:45.025014"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "Leapwork",
+    "location": "Gurugram, Haryana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-leapwork-4399897962",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:45.076860"
+  },
+  {
+    "title": "Senior Software Engineer",
+    "company": "Microsoft",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/senior-software-engineer-at-microsoft-4403035850",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:45.129565"
+  },
+  {
+    "title": "Software Engineer 1",
+    "company": "CME Group",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-1-at-cme-group-4440026042",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:45.191529"
+  },
+  {
+    "title": "Software Engineer - Confluent",
+    "company": "IBM",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-confluent-at-ibm-4437253640",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:45.260204"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "RiVirtual Inc",
+    "location": "Hyderabad, Telangana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-rivirtual-inc-4437234508",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:45.313005"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "Scoutit",
+    "location": "Bengaluru Rural District, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-scoutit-4439150815",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:45.375910"
+  },
+  {
+    "title": "Software Developer",
+    "company": "Scoutit",
+    "location": "Bengaluru East, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-at-scoutit-4439162343",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:45.442955"
+  },
+  {
+    "title": "Software Developer",
+    "company": "Scoutit",
+    "location": "Bengaluru North, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-at-scoutit-4439161343",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:45.497800"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "Scoutit",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-scoutit-4439166220",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:45.545232"
+  },
+  {
+    "title": "Full Stack Engineer - AI Platform",
+    "company": "Teradata",
+    "location": "Hyderabad, Telangana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/full-stack-engineer-ai-platform-at-teradata-4372980335",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:45.603748"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "Scoutit",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-scoutit-4439163262",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:45.670110"
+  },
+  {
+    "title": "SDE 1",
+    "company": "GTMfund",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/sde-1-at-gtmfund-4439768982",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:45.719696"
+  },
+  {
+    "title": "Staff Software Engineer",
+    "company": "Intuit",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/staff-software-engineer-at-intuit-4439151065",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:45.770571"
+  },
+  {
+    "title": "SDE - I",
+    "company": "GTMfund",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/sde-i-at-gtmfund-4439770954",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:45.818554"
+  },
+  {
+    "title": "Software Engineer - Backend",
+    "company": "CoverForce",
+    "location": "India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-backend-at-coverforce-4350752081",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:45.875086"
+  },
+  {
+    "title": "Front-End Developer",
+    "company": "Peepul Agri",
+    "location": "Hyderabad, Telangana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/front-end-developer-at-peepul-agri-4437251198",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:45.930089"
+  },
+  {
+    "title": "Software Development Engineer (Backend) - SDE II",
+    "company": "Purplle.com",
+    "location": "Mumbai, Maharashtra, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-development-engineer-backend-sde-ii-at-purplle-com-4437241974",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:45.987960"
+  },
+  {
+    "title": "Software Engineer II",
+    "company": "PDI Technologies",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-ii-at-pdi-technologies-4410898624",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:46.050964"
+  },
+  {
+    "title": "UI Developer with React JS",
+    "company": "IQVIA",
+    "location": "Kochi, Kerala, India",
+    "job_url": "https://in.linkedin.com/jobs/view/ui-developer-with-react-js-at-iqvia-4439174037",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:46.103899"
+  },
+  {
+    "title": "Software Intern",
+    "company": "Purehire AI",
+    "location": "Greater Hyderabad Area",
+    "job_url": "https://in.linkedin.com/jobs/view/software-intern-at-purehire-ai-4437263786",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:46.155338"
+  },
+  {
+    "title": "MERN Stack Developer",
+    "company": "Wipro",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/mern-stack-developer-at-wipro-4440013659",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:46.202514"
+  },
+  {
+    "title": "Full Stack Software Engineer",
+    "company": "Scoutit",
+    "location": "Gurugram, Haryana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/full-stack-software-engineer-at-scoutit-4439154556",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:46.287806"
+  },
+  {
+    "title": "Software Development Engineer III",
+    "company": "Tesco Bengaluru",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-development-engineer-iii-at-tesco-bengaluru-4439161129",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:46.395220"
+  },
+  {
+    "title": "Software Developer II",
+    "company": "FedEx ACC",
+    "location": "Hyderabad, Telangana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-ii-at-fedex-acc-4402702417",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:46.504932"
+  },
+  {
+    "title": "Software Development Engineer II , Amazon Pay",
+    "company": "Amazon",
+    "location": "Greater Hyderabad Area",
+    "job_url": "https://in.linkedin.com/jobs/view/software-development-engineer-ii-amazon-pay-at-amazon-4403545746",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:46.614640"
+  },
+  {
+    "title": "GenAI Developer",
+    "company": "Infosys",
+    "location": "Bengaluru East, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/genai-developer-at-infosys-4439105200",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:46.888101"
+  },
+  {
+    "title": "Frontend Software Engineer",
+    "company": "Jobgether",
+    "location": "India",
+    "job_url": "https://in.linkedin.com/jobs/view/frontend-software-engineer-at-jobgether-4439130522",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:47.150054"
+  },
+  {
+    "title": "Software Developer II",
+    "company": "FedEx ACC",
+    "location": "Hyderabad, Telangana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-ii-at-fedex-acc-4402388504",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:47.426006"
+  },
+  {
+    "title": "Software Developer",
+    "company": "Adani Enterprises Limited",
+    "location": "Ahmedabad, Gujarat, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-at-adani-enterprises-limited-4440010830",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:47.553972"
+  },
+  {
+    "title": "SDE - 2 - Backend",
+    "company": "GTMfund",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/sde-2-backend-at-gtmfund-4439779580",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:47.686279"
+  },
+  {
+    "title": "Software Development Engineer - Backend (Node.js+Typescript)",
+    "company": "eDataBae",
+    "location": "India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-development-engineer-backend-node-js%2Btypescript-at-edatabae-4439155214",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:47.807869"
+  },
+  {
+    "title": "Full Stack Software Engineer",
+    "company": "Scoutit",
+    "location": "Delhi, India",
+    "job_url": "https://in.linkedin.com/jobs/view/full-stack-software-engineer-at-scoutit-4439151717",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:47.949465"
+  },
+  {
+    "title": "Software Developer, India",
+    "company": "AlgoSec",
+    "location": "New Delhi, Delhi, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-india-at-algosec-4439772594",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:48.001761"
+  },
+  {
+    "title": "Software Engr I",
+    "company": "Honeywell Aerospace",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engr-i-at-honeywell-aerospace-4440014751",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:48.070554"
+  },
+  {
+    "title": "Informatica Developer",
+    "company": "Infosys",
+    "location": "Bengaluru East, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/informatica-developer-at-infosys-4430315501",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:48.125285"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "Teradata",
+    "location": "Hyderabad, Telangana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-teradata-4326661453",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:52.804360"
+  },
+  {
+    "title": "EKS Engineer",
+    "company": "Infosys",
+    "location": "Bengaluru East, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/eks-engineer-at-infosys-4410805206",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:52.856722"
+  },
+  {
+    "title": "Software Development Engineer",
+    "company": "Adobe",
+    "location": "Bengaluru East, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-development-engineer-at-adobe-4439168169",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:52.908214"
+  },
+  {
+    "title": "Executive - Python",
+    "company": "KPMG India",
+    "location": "Mumbai, Maharashtra, India",
+    "job_url": "https://in.linkedin.com/jobs/view/executive-python-at-kpmg-india-4440003232",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:52.985133"
+  },
+  {
+    "title": "Software Developer",
+    "company": "Scoutit",
+    "location": "Bengaluru Rural District, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-at-scoutit-4439154558",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:53.032623"
+  },
+  {
+    "title": "Software Engineer -Backend",
+    "company": "Modulr",
+    "location": "Pune Division, Maharashtra, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-backend-at-modulr-4220088070",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:53.086274"
+  },
+  {
+    "title": "XR Software Engineer (All Levels - Multiple Positions)",
+    "company": "Qualcomm",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/xr-software-engineer-all-levels-multiple-positions-at-qualcomm-4380453154",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:53.132112"
+  },
+  {
+    "title": "Software Developer",
+    "company": "Scoutit",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-at-scoutit-4439169168",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:53.424232"
+  },
+  {
+    "title": "Software Developer",
+    "company": "Scoutit",
+    "location": "Bangalore Rural, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-at-scoutit-4439163273",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:53.777172"
+  },
+  {
+    "title": "DE-RCE-CCAR-Fullstack-FE-GDSN02",
+    "company": "EY",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/de-rce-ccar-fullstack-fe-gdsn02-at-ey-4408868408",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:54.283050"
+  },
+  {
+    "title": "Software Development Engineer II",
+    "company": "GreyOrange",
+    "location": "Gurugram, Haryana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-development-engineer-ii-at-greyorange-4346590086",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:54.722959"
+  },
+  {
+    "title": "Software Developer",
+    "company": "Scoutit",
+    "location": "Bengaluru South, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-at-scoutit-4439168152",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:55.047024"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "Appinventiv",
+    "location": "Noida, Uttar Pradesh, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-appinventiv-4437245486",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:55.207692"
+  },
+  {
+    "title": "Software Developer",
+    "company": "Scoutit",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-at-scoutit-4439149962",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:55.381839"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "CXO Inc",
+    "location": "Hyderabad, Telangana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-cxo-inc-4437240341",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:55.516914"
+  },
+  {
+    "title": "Senior Software Engineer- Backend",
+    "company": "Roku",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/senior-software-engineer-backend-at-roku-4439782254",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:55.667591"
+  },
+  {
+    "title": "Full Stack Engineer",
+    "company": "Codeyoung",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/full-stack-engineer-at-codeyoung-4440008304",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:55.775976"
+  },
+  {
+    "title": "Software Dev Engineer 2",
+    "company": "Amazon",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-dev-engineer-2-at-amazon-4412452972",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:55.903668"
+  },
+  {
+    "title": "Junior Software Developer",
+    "company": "avua",
+    "location": "India",
+    "job_url": "https://in.linkedin.com/jobs/view/junior-software-developer-at-avua-4439765454",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:56.048471"
+  },
+  {
+    "title": "Software Developer",
+    "company": "Scoutit",
+    "location": "India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-at-scoutit-4439157289",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:56.153842"
+  },
+  {
+    "title": "Python/Python GenAI",
+    "company": "Infosys",
+    "location": "Bengaluru East, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/python-python-genai-at-infosys-4439100513",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:56.292396"
+  },
+  {
+    "title": "SDE",
+    "company": "Scoutit",
+    "location": "India",
+    "job_url": "https://in.linkedin.com/jobs/view/sde-at-scoutit-4439170116",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:56.436190"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "Virtusa",
+    "location": "Andhra Pradesh, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-virtusa-4428916775",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:56.491330"
+  },
+  {
+    "title": "SDE II, EU GIL Installments",
+    "company": "Amazon",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/sde-ii-eu-gil-installments-at-amazon-4420988665",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:56.542575"
+  },
+  {
+    "title": "Software Engineer, C++",
+    "company": "Autodesk",
+    "location": "Pune Division, Maharashtra, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-c%2B%2B-at-autodesk-4430375715",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:56.592591"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "Leapwork",
+    "location": "Gurugram, Haryana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-leapwork-4399897962",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:56.642241"
+  },
+  {
+    "title": "Senior Software Engineer",
+    "company": "Microsoft",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/senior-software-engineer-at-microsoft-4403035850",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:56.697492"
+  },
+  {
+    "title": "Software Engineer 1",
+    "company": "CME Group",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-1-at-cme-group-4440026042",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:56.752694"
+  },
+  {
+    "title": "Software Engineer - Confluent",
+    "company": "IBM",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-confluent-at-ibm-4437253640",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:56.827105"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "RiVirtual Inc",
+    "location": "Hyderabad, Telangana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-rivirtual-inc-4437234508",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:56.888627"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "Scoutit",
+    "location": "Bengaluru Rural District, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-scoutit-4439150815",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:56.938321"
+  },
+  {
+    "title": "Software Developer",
+    "company": "Scoutit",
+    "location": "Bengaluru East, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-at-scoutit-4439162343",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:56.988795"
+  },
+  {
+    "title": "Software Developer",
+    "company": "Scoutit",
+    "location": "Bengaluru North, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-at-scoutit-4439161343",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:57.047135"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "Scoutit",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-scoutit-4439166220",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:57.098661"
+  },
+  {
+    "title": "Full Stack Engineer - AI Platform",
+    "company": "Teradata",
+    "location": "Hyderabad, Telangana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/full-stack-engineer-ai-platform-at-teradata-4372980335",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:57.149716"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "Scoutit",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-scoutit-4439163262",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:57.200553"
+  },
+  {
+    "title": "SDE 1",
+    "company": "GTMfund",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/sde-1-at-gtmfund-4439768982",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:57.248606"
+  },
+  {
+    "title": "Staff Software Engineer",
+    "company": "Intuit",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/staff-software-engineer-at-intuit-4439151065",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:57.305083"
+  },
+  {
+    "title": "SDE - I",
+    "company": "GTMfund",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/sde-i-at-gtmfund-4439770954",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:57.358037"
+  },
+  {
+    "title": "Software Engineer - Backend",
+    "company": "CoverForce",
+    "location": "India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-backend-at-coverforce-4350752081",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:57.425149"
+  },
+  {
+    "title": "Front-End Developer",
+    "company": "Peepul Agri",
+    "location": "Hyderabad, Telangana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/front-end-developer-at-peepul-agri-4437251198",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:57.480449"
+  },
+  {
+    "title": "Software Engineer II",
+    "company": "PDI Technologies",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-ii-at-pdi-technologies-4410898624",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:57.544852"
+  },
+  {
+    "title": "Software Development Engineer (Backend) - SDE II",
+    "company": "Purplle.com",
+    "location": "Mumbai, Maharashtra, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-development-engineer-backend-sde-ii-at-purplle-com-4437241974",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:57.599180"
+  },
+  {
+    "title": "UI Developer with React JS",
+    "company": "IQVIA",
+    "location": "Kochi, Kerala, India",
+    "job_url": "https://in.linkedin.com/jobs/view/ui-developer-with-react-js-at-iqvia-4439174037",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:57.669867"
+  },
+  {
+    "title": "Software Intern",
+    "company": "Purehire AI",
+    "location": "Greater Hyderabad Area",
+    "job_url": "https://in.linkedin.com/jobs/view/software-intern-at-purehire-ai-4437263786",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:57.728573"
+  },
+  {
+    "title": "Software Development Engineer III",
+    "company": "Tesco Bengaluru",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-development-engineer-iii-at-tesco-bengaluru-4439161129",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:57.809574"
+  },
+  {
+    "title": "MERN Stack Developer",
+    "company": "Wipro",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/mern-stack-developer-at-wipro-4440013659",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:57.872535"
+  },
+  {
+    "title": "Software Developer II",
+    "company": "FedEx ACC",
+    "location": "Hyderabad, Telangana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-ii-at-fedex-acc-4402702417",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:57.939817"
+  },
+  {
+    "title": "Software Development Engineer II , Amazon Pay",
+    "company": "Amazon",
+    "location": "Greater Hyderabad Area",
+    "job_url": "https://in.linkedin.com/jobs/view/software-development-engineer-ii-amazon-pay-at-amazon-4403545746",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:58.004651"
+  },
+  {
+    "title": "GenAI Developer",
+    "company": "Infosys",
+    "location": "Bengaluru East, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/genai-developer-at-infosys-4439105200",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:58.065353"
+  },
+  {
+    "title": "Frontend Software Engineer",
+    "company": "Jobgether",
+    "location": "India",
+    "job_url": "https://in.linkedin.com/jobs/view/frontend-software-engineer-at-jobgether-4439130522",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:58.124981"
+  },
+  {
+    "title": "Software Developer II",
+    "company": "FedEx ACC",
+    "location": "Hyderabad, Telangana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-ii-at-fedex-acc-4402388504",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:58.180077"
+  },
+  {
+    "title": "Software Developer",
+    "company": "Adani Enterprises Limited",
+    "location": "Ahmedabad, Gujarat, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-at-adani-enterprises-limited-4440010830",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:58.229173"
+  },
+  {
+    "title": "SDE - 2 - Backend",
+    "company": "GTMfund",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/sde-2-backend-at-gtmfund-4439779580",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:58.279152"
+  },
+  {
+    "title": "Software Development Engineer - Backend (Node.js+Typescript)",
+    "company": "eDataBae",
+    "location": "India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-development-engineer-backend-node-js%2Btypescript-at-edatabae-4439155214",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:58.328840"
+  },
+  {
+    "title": "Full Stack Software Engineer",
+    "company": "Scoutit",
+    "location": "Delhi, India",
+    "job_url": "https://in.linkedin.com/jobs/view/full-stack-software-engineer-at-scoutit-4439151717",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:58.379491"
+  },
+  {
+    "title": "Software Developer, India",
+    "company": "AlgoSec",
+    "location": "New Delhi, Delhi, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-india-at-algosec-4439772594",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:58.436116"
+  },
+  {
+    "title": "Software Engr I",
+    "company": "Honeywell Aerospace",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engr-i-at-honeywell-aerospace-4440014751",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:58.495659"
+  },
+  {
+    "title": "Informatica Developer",
+    "company": "Infosys",
+    "location": "Bengaluru East, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/informatica-developer-at-infosys-4430315501",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:58.545487"
+  },
+  {
+    "title": "Full Stack Software Engineer",
+    "company": "Scoutit",
+    "location": "New Delhi, Delhi, India",
+    "job_url": "https://in.linkedin.com/jobs/view/full-stack-software-engineer-at-scoutit-4439153598",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:00:58.597217"
+  },
+  {
+    "title": "DEVELOPER L3",
+    "company": "Wipro",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/developer-l3-at-wipro-4439105669",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:03.042100"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "Megan Soft Inc",
+    "location": "Greater Chennai Area",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-megan-soft-inc-4440004602",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:03.116984"
+  },
+  {
+    "title": "Big Data Developer",
+    "company": "Tata Consultancy Services",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/big-data-developer-at-tata-consultancy-services-4440024503",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:03.184351"
+  },
+  {
+    "title": "Backend Developer, India",
+    "company": "AlgoSec",
+    "location": "New Delhi, Delhi, India",
+    "job_url": "https://in.linkedin.com/jobs/view/backend-developer-india-at-algosec-4439770632",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:03.244580"
+  },
+  {
+    "title": "Full Stack Engineer",
+    "company": "Talentgigs",
+    "location": "Coimbatore, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/full-stack-engineer-at-talentgigs-4439129702",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:03.318060"
+  },
+  {
+    "title": "Node js",
+    "company": "Tata Consultancy Services",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/node-js-at-tata-consultancy-services-4439142123",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:03.375133"
+  },
+  {
+    "title": "Back-end Software Development Engineering Engineer 2",
+    "company": "Megan Soft Inc",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/back-end-software-development-engineering-engineer-2-at-megan-soft-inc-4440002027",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:03.430394"
+  },
+  {
+    "title": "Full Stack Engineer",
+    "company": "HCLTech",
+    "location": "Lucknow, Uttar Pradesh, India",
+    "job_url": "https://in.linkedin.com/jobs/view/full-stack-engineer-at-hcltech-4437272604",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:03.489542"
+  },
+  {
+    "title": "Full Stack Engineer",
+    "company": "NxtWave (Hiring for a Client)",
+    "location": "Gurugram, Haryana, India",
+    "job_url": "",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:03.544081"
+  },
+  {
+    "title": "PCC Developer",
+    "company": "NAB",
+    "location": "Gurugram, Haryana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/pcc-developer-at-nab-4437242287",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:03.599096"
+  },
+  {
+    "title": "Java Developer, India",
+    "company": "AlgoSec",
+    "location": "New Delhi, Delhi, India",
+    "job_url": "https://in.linkedin.com/jobs/view/java-developer-india-at-algosec-4439768699",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:03.657901"
+  },
+  {
+    "title": "Python Developer",
+    "company": "iZOOlogic",
+    "location": "Jaipur, Rajasthan, India",
+    "job_url": "https://in.linkedin.com/jobs/view/python-developer-at-izoologic-4439160409",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:03.715733"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "Aara Tech Private Limited",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-aara-tech-private-limited-4439128488",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:03.774901"
+  },
+  {
+    "title": "DEVELOPER L3",
+    "company": "Wipro",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/developer-l3-at-wipro-4439772264",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:03.824782"
+  },
+  {
+    "title": "Senior Software Engineer",
+    "company": "Capgemini",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/senior-software-engineer-at-capgemini-4437167347",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:03.875650"
+  },
+  {
+    "title": "Java AI Developer",
+    "company": "Infosys",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/java-ai-developer-at-infosys-4439112571",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:03.927964"
+  },
+  {
+    "title": "WTX Developer",
+    "company": "Coforge",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/wtx-developer-at-coforge-4437240310",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:03.987119"
+  },
+  {
+    "title": "Software Engineer (Systems) 3",
+    "company": "SANMINA-SCI TECHNOLOGY INDIA PRIVATE LIMITED",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-systems-3-at-sanmina-sci-technology-india-private-limited-4437262710",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:04.045396"
+  },
+  {
+    "title": "Full Stack Developer",
+    "company": "SourceFuse",
+    "location": "Mohali district, India",
+    "job_url": "https://in.linkedin.com/jobs/view/full-stack-developer-at-sourcefuse-4427497854",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:04.097328"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "Leapwork",
+    "location": "Gurugram, Haryana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-leapwork-4399897962",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:04.148728"
+  },
+  {
+    "title": "Python React Developer",
+    "company": "Coforge",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/python-react-developer-at-coforge-4437259458",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:04.198760"
+  },
+  {
+    "title": "Blockchain Developer",
+    "company": "Websultanate Software Technologies Pvt Ltd",
+    "location": "Lucknow, Uttar Pradesh, India",
+    "job_url": "https://in.linkedin.com/jobs/view/blockchain-developer-at-websultanate-software-technologies-pvt-ltd-4439149611",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:04.247999"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "PassFort - A Moody's Company",
+    "location": "Gurugram, Haryana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-passfort-a-moody-s-company-4437237832",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:04.428338"
+  },
+  {
+    "title": "Developer III - Software Engineering",
+    "company": "UST",
+    "location": "Coimbatore, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/developer-iii-software-engineering-at-ust-4361423994",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:04.503792"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "SourcingXPress",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-sourcingxpress-4438625985",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:04.578099"
+  },
+  {
+    "title": "System Engineer",
+    "company": "Astra Space.ai",
+    "location": "Bhopal, Madhya Pradesh, India",
+    "job_url": "https://in.linkedin.com/jobs/view/system-engineer-at-astra-space-ai-4439139287",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:04.644001"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "Cyient",
+    "location": "Noida, Uttar Pradesh, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-cyient-4437263725",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:04.698586"
+  },
+  {
+    "title": "Principal Engineer",
+    "company": "Priority",
+    "location": "Chandigarh, Chandigarh, India",
+    "job_url": "https://in.linkedin.com/jobs/view/principal-engineer-at-priority-4439196812",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:05.025164"
+  },
+  {
+    "title": "Full Stack Engineer (React, Node, MongoDB)",
+    "company": "Talentgigs",
+    "location": "Coimbatore, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/full-stack-engineer-react-node-mongodb-at-talentgigs-4439131691",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:05.479803"
+  },
+  {
+    "title": "Lead Software Engineer",
+    "company": "Capgemini",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/lead-software-engineer-at-capgemini-4437173205",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:05.773582"
+  },
+  {
+    "title": "We're looking for a passionate MERN Stack Developer to join our team and build scalable web applications.",
+    "company": "Creanaya Marketing",
+    "location": "New Delhi, Delhi, India",
+    "job_url": "",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:06.002836"
+  },
+  {
+    "title": "Python Developer",
+    "company": "Adroit India",
+    "location": "Hyderabad, Telangana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/python-developer-at-adroit-india-4437240344",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:06.269499"
+  },
+  {
+    "title": "Software Development Engineer 4",
+    "company": "Adobe",
+    "location": "Noida, Uttar Pradesh, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-development-engineer-4-at-adobe-4439149973",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:06.323049"
+  },
+  {
+    "title": "Full Stack Developer (Founding Engineer)",
+    "company": "Koa Care",
+    "location": "Guwahati, Assam, India",
+    "job_url": "https://in.linkedin.com/jobs/view/full-stack-developer-founding-engineer-at-koa-care-4437262071",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:07.019598"
+  },
+  {
+    "title": "WTX Developer",
+    "company": "BNP Paribas",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/wtx-developer-at-bnp-paribas-4439752469",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:07.090514"
+  },
+  {
+    "title": "Python Developer",
+    "company": "Pi One Technologies (π 1)",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/python-developer-at-pi-one-technologies-%CF%80-1-4439752195",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:07.144828"
+  },
+  {
+    "title": "Software Engineer (IV) - Premium Engineer III",
+    "company": "TekWissen India",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-iv-premium-engineer-iii-at-tekwissen-india-4429792964",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:07.199516"
+  },
+  {
+    "title": "Software Development Engineer",
+    "company": "Adobe",
+    "location": "Bengaluru East, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-development-engineer-at-adobe-4439168169",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:07.250835"
+  },
+  {
+    "title": "Software Engineer (III) - Core Engineer II",
+    "company": "TekWissen India",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-iii-core-engineer-ii-at-tekwissen-india-4429793933",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:07.320651"
+  },
+  {
+    "title": "Calypso Developer",
+    "company": "BNP Paribas",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/calypso-developer-at-bnp-paribas-4439734806",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:07.538206"
+  },
+  {
+    "title": "Application Developer- C, C++ Developer",
+    "company": "Fujitsu",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/application-developer-c-c%2B%2B-developer-at-fujitsu-4440006982",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:07.815432"
+  },
+  {
+    "title": "Software Developer 4",
+    "company": "Oracle",
+    "location": "Noida, Uttar Pradesh, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-4-at-oracle-4409680345",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:08.010497"
+  },
+  {
+    "title": "Software Development Engineer, CAM",
+    "company": "Amazon",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-development-engineer-cam-at-amazon-4371888495",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:08.084920"
+  },
+  {
+    "title": "Software Engineer III",
+    "company": "PDI Technologies",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-iii-at-pdi-technologies-4405090267",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:08.133465"
+  },
+  {
+    "title": "Consultant",
+    "company": "Symali",
+    "location": "India",
+    "job_url": "https://in.linkedin.com/jobs/view/consultant-at-symali-4439410094",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:08.185813"
+  },
+  {
+    "title": "Software Engineer II",
+    "company": "PDI Technologies",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-ii-at-pdi-technologies-4410898624",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:08.246174"
+  },
+  {
+    "title": "Python Developer",
+    "company": "Allime Tech Solutions",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/python-developer-at-allime-tech-solutions-4440009688",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:08.301682"
+  },
+  {
+    "title": "Intermediate Fullstack Engineer - Data Products",
+    "company": "GitLab",
+    "location": "Greater Delhi Area",
+    "job_url": "https://in.linkedin.com/jobs/view/intermediate-fullstack-engineer-data-products-at-gitlab-4440010950",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:08.489775"
+  },
+  {
+    "title": "Software Development Engineer II",
+    "company": "GreyOrange",
+    "location": "Gurugram, Haryana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-development-engineer-ii-at-greyorange-4346590086",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:08.551787"
+  },
+  {
+    "title": "Full Stack Engineer",
+    "company": "True Tech Professionals",
+    "location": "Gurugram, Haryana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/full-stack-engineer-at-true-tech-professionals-4439147698",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:08.613852"
+  },
+  {
+    "title": "Full Stack Developer - Assistant Vice President",
+    "company": "Citi",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/full-stack-developer-assistant-vice-president-at-citi-4411705463",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:08.697330"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "LevelShift",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-levelshift-4439798033",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:08.758203"
+  },
+  {
+    "title": "Full Stack Developer II",
+    "company": "FedEx",
+    "location": "Greater Hyderabad Area",
+    "job_url": "https://in.linkedin.com/jobs/view/full-stack-developer-ii-at-fedex-4402937810",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:08.813073"
+  },
+  {
+    "title": "Python Developer",
+    "company": "Infosys",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/python-developer-at-infosys-4438987994",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:08.862909"
+  },
+  {
+    "title": "Software Developer for AI Products - Americas",
+    "company": "Linde@India",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-for-ai-products-americas-at-linde%40india-4439797774",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:08.919111"
+  },
+  {
+    "title": "SDE2, Stores TA",
+    "company": "Amazon",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/sde2-stores-ta-at-amazon-4332063652",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:08.983391"
+  },
+  {
+    "title": "Senior Full Stack Engineer",
+    "company": "RunLoyal: Pet Software",
+    "location": "Coimbatore, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/senior-full-stack-engineer-at-runloyal-pet-software-4439156309",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:09.032873"
+  },
+  {
+    "title": "Full Stack Engineer",
+    "company": "Fidelity Investments",
+    "location": "Bengaluru East, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/full-stack-engineer-at-fidelity-investments-4440023708",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:09.087397"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "AMETEK",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-ametek-4371490772",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:09.152301"
+  },
+  {
+    "title": "Research Engineer",
+    "company": "Duruper",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/research-engineer-at-duruper-4437248259",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:09.207777"
+  },
+  {
+    "title": "DEVELOPER L3",
+    "company": "Wipro",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/developer-l3-at-wipro-4439105669",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:13.602339"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "Megan Soft Inc",
+    "location": "Greater Chennai Area",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-megan-soft-inc-4440004602",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:13.670744"
+  },
+  {
+    "title": "Big Data Developer",
+    "company": "Tata Consultancy Services",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/big-data-developer-at-tata-consultancy-services-4440024503",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:13.729365"
+  },
+  {
+    "title": "Backend Developer, India",
+    "company": "AlgoSec",
+    "location": "New Delhi, Delhi, India",
+    "job_url": "https://in.linkedin.com/jobs/view/backend-developer-india-at-algosec-4439770632",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:13.789923"
+  },
+  {
+    "title": "Full Stack Engineer",
+    "company": "Talentgigs",
+    "location": "Coimbatore, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/full-stack-engineer-at-talentgigs-4439129702",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:13.847419"
+  },
+  {
+    "title": "Node js",
+    "company": "Tata Consultancy Services",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/node-js-at-tata-consultancy-services-4439142123",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:13.903801"
+  },
+  {
+    "title": "Back-end Software Development Engineering Engineer 2",
+    "company": "Megan Soft Inc",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/back-end-software-development-engineering-engineer-2-at-megan-soft-inc-4440002027",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:13.954475"
+  },
+  {
+    "title": "Full Stack Engineer",
+    "company": "HCLTech",
+    "location": "Lucknow, Uttar Pradesh, India",
+    "job_url": "https://in.linkedin.com/jobs/view/full-stack-engineer-at-hcltech-4437272604",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:14.013482"
+  },
+  {
+    "title": "Full Stack Engineer",
+    "company": "NxtWave (Hiring for a Client)",
+    "location": "Gurugram, Haryana, India",
+    "job_url": "",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:14.079698"
+  },
+  {
+    "title": "PCC Developer",
+    "company": "NAB",
+    "location": "Gurugram, Haryana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/pcc-developer-at-nab-4437242287",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:14.127974"
+  },
+  {
+    "title": "Java Developer, India",
+    "company": "AlgoSec",
+    "location": "New Delhi, Delhi, India",
+    "job_url": "https://in.linkedin.com/jobs/view/java-developer-india-at-algosec-4439768699",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:14.200654"
+  },
+  {
+    "title": "Python Developer",
+    "company": "iZOOlogic",
+    "location": "Jaipur, Rajasthan, India",
+    "job_url": "https://in.linkedin.com/jobs/view/python-developer-at-izoologic-4439160409",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:14.272031"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "Aara Tech Private Limited",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-aara-tech-private-limited-4439128488",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:14.348178"
+  },
+  {
+    "title": "DEVELOPER L3",
+    "company": "Wipro",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/developer-l3-at-wipro-4439772264",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:14.409596"
+  },
+  {
+    "title": "Senior Software Engineer",
+    "company": "Capgemini",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/senior-software-engineer-at-capgemini-4437167347",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:14.468469"
+  },
+  {
+    "title": "Java AI Developer",
+    "company": "Infosys",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/java-ai-developer-at-infosys-4439112571",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:14.538613"
+  },
+  {
+    "title": "WTX Developer",
+    "company": "Coforge",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/wtx-developer-at-coforge-4437240310",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:14.592875"
+  },
+  {
+    "title": "Software Engineer (Systems) 3",
+    "company": "SANMINA-SCI TECHNOLOGY INDIA PRIVATE LIMITED",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-systems-3-at-sanmina-sci-technology-india-private-limited-4437262710",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:14.644134"
+  },
+  {
+    "title": "Full Stack Developer",
+    "company": "SourceFuse",
+    "location": "Mohali district, India",
+    "job_url": "https://in.linkedin.com/jobs/view/full-stack-developer-at-sourcefuse-4427497854",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:14.697015"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "Leapwork",
+    "location": "Gurugram, Haryana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-leapwork-4399897962",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:14.752763"
+  },
+  {
+    "title": "Python React Developer",
+    "company": "Coforge",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/python-react-developer-at-coforge-4437259458",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:14.811978"
+  },
+  {
+    "title": "Blockchain Developer",
+    "company": "Websultanate Software Technologies Pvt Ltd",
+    "location": "Lucknow, Uttar Pradesh, India",
+    "job_url": "https://in.linkedin.com/jobs/view/blockchain-developer-at-websultanate-software-technologies-pvt-ltd-4439149611",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:14.874277"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "PassFort - A Moody's Company",
+    "location": "Gurugram, Haryana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-passfort-a-moody-s-company-4437237832",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:14.923129"
+  },
+  {
+    "title": "Developer III - Software Engineering",
+    "company": "UST",
+    "location": "Coimbatore, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/developer-iii-software-engineering-at-ust-4361423994",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:14.987884"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "SourcingXPress",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-sourcingxpress-4438625985",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:15.048002"
+  },
+  {
+    "title": "System Engineer",
+    "company": "Astra Space.ai",
+    "location": "Bhopal, Madhya Pradesh, India",
+    "job_url": "https://in.linkedin.com/jobs/view/system-engineer-at-astra-space-ai-4439139287",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:15.102206"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "Cyient",
+    "location": "Noida, Uttar Pradesh, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-cyient-4437263725",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:15.157435"
+  },
+  {
+    "title": "Principal Engineer",
+    "company": "Priority",
+    "location": "Chandigarh, Chandigarh, India",
+    "job_url": "https://in.linkedin.com/jobs/view/principal-engineer-at-priority-4439196812",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:15.216771"
+  },
+  {
+    "title": "Full Stack Engineer (React, Node, MongoDB)",
+    "company": "Talentgigs",
+    "location": "Coimbatore, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/full-stack-engineer-react-node-mongodb-at-talentgigs-4439131691",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:15.283381"
+  },
+  {
+    "title": "Lead Software Engineer",
+    "company": "Capgemini",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/lead-software-engineer-at-capgemini-4437173205",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:15.347753"
+  },
+  {
+    "title": "We're looking for a passionate MERN Stack Developer to join our team and build scalable web applications.",
+    "company": "Creanaya Marketing",
+    "location": "New Delhi, Delhi, India",
+    "job_url": "",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:15.408924"
+  },
+  {
+    "title": "Python Developer",
+    "company": "Adroit India",
+    "location": "Hyderabad, Telangana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/python-developer-at-adroit-india-4437240344",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:15.458121"
+  },
+  {
+    "title": "Software Development Engineer 4",
+    "company": "Adobe",
+    "location": "Noida, Uttar Pradesh, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-development-engineer-4-at-adobe-4439149973",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:15.518525"
+  },
+  {
+    "title": "Full Stack Developer (Founding Engineer)",
+    "company": "Koa Care",
+    "location": "Guwahati, Assam, India",
+    "job_url": "https://in.linkedin.com/jobs/view/full-stack-developer-founding-engineer-at-koa-care-4437262071",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:15.576652"
+  },
+  {
+    "title": "WTX Developer",
+    "company": "BNP Paribas",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/wtx-developer-at-bnp-paribas-4439752469",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:15.628648"
+  },
+  {
+    "title": "Python Developer",
+    "company": "Pi One Technologies (π 1)",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/python-developer-at-pi-one-technologies-%CF%80-1-4439752195",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:15.699498"
+  },
+  {
+    "title": "Software Engineer (IV) - Premium Engineer III",
+    "company": "TekWissen India",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-iv-premium-engineer-iii-at-tekwissen-india-4429792964",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:15.759145"
+  },
+  {
+    "title": "Software Development Engineer",
+    "company": "Adobe",
+    "location": "Bengaluru East, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-development-engineer-at-adobe-4439168169",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:15.813277"
+  },
+  {
+    "title": "Software Engineer (III) - Core Engineer II",
+    "company": "TekWissen India",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-iii-core-engineer-ii-at-tekwissen-india-4429793933",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:15.877544"
+  },
+  {
+    "title": "Calypso Developer",
+    "company": "BNP Paribas",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/calypso-developer-at-bnp-paribas-4439734806",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:15.951140"
+  },
+  {
+    "title": "Application Developer- C, C++ Developer",
+    "company": "Fujitsu",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/application-developer-c-c%2B%2B-developer-at-fujitsu-4440006982",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:16.007124"
+  },
+  {
+    "title": "Software Developer 4",
+    "company": "Oracle",
+    "location": "Noida, Uttar Pradesh, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-4-at-oracle-4409680345",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:16.067273"
+  },
+  {
+    "title": "Software Development Engineer, CAM",
+    "company": "Amazon",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-development-engineer-cam-at-amazon-4371888495",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:16.121999"
+  },
+  {
+    "title": "Software Engineer III",
+    "company": "PDI Technologies",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-iii-at-pdi-technologies-4405090267",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:16.191312"
+  },
+  {
+    "title": "Consultant",
+    "company": "Symali",
+    "location": "India",
+    "job_url": "https://in.linkedin.com/jobs/view/consultant-at-symali-4439410094",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:16.249856"
+  },
+  {
+    "title": "Software Engineer II",
+    "company": "PDI Technologies",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-ii-at-pdi-technologies-4410898624",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:16.305933"
+  },
+  {
+    "title": "Python Developer",
+    "company": "Allime Tech Solutions",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/python-developer-at-allime-tech-solutions-4440009688",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:16.362239"
+  },
+  {
+    "title": "Intermediate Fullstack Engineer - Data Products",
+    "company": "GitLab",
+    "location": "Greater Delhi Area",
+    "job_url": "https://in.linkedin.com/jobs/view/intermediate-fullstack-engineer-data-products-at-gitlab-4440010950",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:16.417210"
+  },
+  {
+    "title": "Software Development Engineer II",
+    "company": "GreyOrange",
+    "location": "Gurugram, Haryana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-development-engineer-ii-at-greyorange-4346590086",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:16.469203"
+  },
+  {
+    "title": "Full Stack Engineer",
+    "company": "True Tech Professionals",
+    "location": "Gurugram, Haryana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/full-stack-engineer-at-true-tech-professionals-4439147698",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:16.527098"
+  },
+  {
+    "title": "Full Stack Developer - Assistant Vice President",
+    "company": "Citi",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/full-stack-developer-assistant-vice-president-at-citi-4411705463",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:16.584933"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "LevelShift",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-levelshift-4439798033",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:16.633356"
+  },
+  {
+    "title": "Full Stack Developer II",
+    "company": "FedEx",
+    "location": "Greater Hyderabad Area",
+    "job_url": "https://in.linkedin.com/jobs/view/full-stack-developer-ii-at-fedex-4402937810",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:16.690953"
+  },
+  {
+    "title": "Python Developer",
+    "company": "Infosys",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/python-developer-at-infosys-4438987994",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:16.743764"
+  },
+  {
+    "title": "Software Developer for AI Products - Americas",
+    "company": "Linde@India",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-for-ai-products-americas-at-linde%40india-4439797774",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:16.799838"
+  },
+  {
+    "title": "SDE2, Stores TA",
+    "company": "Amazon",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/sde2-stores-ta-at-amazon-4332063652",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:16.866157"
+  },
+  {
+    "title": "Senior Full Stack Engineer",
+    "company": "RunLoyal: Pet Software",
+    "location": "Coimbatore, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/senior-full-stack-engineer-at-runloyal-pet-software-4439156309",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:16.923754"
+  },
+  {
+    "title": "Full Stack Engineer",
+    "company": "Fidelity Investments",
+    "location": "Bengaluru East, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/full-stack-engineer-at-fidelity-investments-4440023708",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:16.987590"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "AMETEK",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-ametek-4371490772",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:17.056730"
+  },
+  {
+    "title": "Research Engineer",
+    "company": "Duruper",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/research-engineer-at-duruper-4437248259",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:17.142040"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "Teradata",
+    "location": "Hyderabad, Telangana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-teradata-4326661453",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:21.713206"
+  },
+  {
+    "title": "EKS Engineer",
+    "company": "Infosys",
+    "location": "Bengaluru East, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/eks-engineer-at-infosys-4410805206",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:21.946837"
+  },
+  {
+    "title": "Software Development Engineer",
+    "company": "Adobe",
+    "location": "Bengaluru East, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-development-engineer-at-adobe-4439168169",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:22.112865"
+  },
+  {
+    "title": "Executive - Python",
+    "company": "KPMG India",
+    "location": "Mumbai, Maharashtra, India",
+    "job_url": "https://in.linkedin.com/jobs/view/executive-python-at-kpmg-india-4440003232",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:22.288983"
+  },
+  {
+    "title": "Software Developer",
+    "company": "Scoutit",
+    "location": "Bengaluru Rural District, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-at-scoutit-4439154558",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:22.343659"
+  },
+  {
+    "title": "Software Engineer -Backend",
+    "company": "Modulr",
+    "location": "Pune Division, Maharashtra, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-backend-at-modulr-4220088070",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:22.556860"
+  },
+  {
+    "title": "XR Software Engineer (All Levels - Multiple Positions)",
+    "company": "Qualcomm",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/xr-software-engineer-all-levels-multiple-positions-at-qualcomm-4380453154",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:22.697932"
+  },
+  {
+    "title": "Software Developer",
+    "company": "Scoutit",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-at-scoutit-4439169168",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:22.802480"
+  },
+  {
+    "title": "Software Developer",
+    "company": "Scoutit",
+    "location": "Bangalore Rural, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-at-scoutit-4439163273",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:22.922722"
+  },
+  {
+    "title": "DE-RCE-CCAR-Fullstack-FE-GDSN02",
+    "company": "EY",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/de-rce-ccar-fullstack-fe-gdsn02-at-ey-4408868408",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:23.057790"
+  },
+  {
+    "title": "Software Development Engineer II",
+    "company": "GreyOrange",
+    "location": "Gurugram, Haryana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-development-engineer-ii-at-greyorange-4346590086",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:23.164288"
+  },
+  {
+    "title": "Software Developer",
+    "company": "Scoutit",
+    "location": "Bengaluru South, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-at-scoutit-4439168152",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:23.215976"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "Appinventiv",
+    "location": "Noida, Uttar Pradesh, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-appinventiv-4437245486",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:23.261852"
+  },
+  {
+    "title": "Software Developer",
+    "company": "Scoutit",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-at-scoutit-4439149962",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:23.312137"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "CXO Inc",
+    "location": "Hyderabad, Telangana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-cxo-inc-4437240341",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:23.368276"
+  },
+  {
+    "title": "Senior Software Engineer- Backend",
+    "company": "Roku",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/senior-software-engineer-backend-at-roku-4439782254",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:23.427090"
+  },
+  {
+    "title": "Full Stack Engineer",
+    "company": "Codeyoung",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/full-stack-engineer-at-codeyoung-4440008304",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:23.522132"
+  },
+  {
+    "title": "Software Dev Engineer 2",
+    "company": "Amazon",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-dev-engineer-2-at-amazon-4412452972",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:23.567729"
+  },
+  {
+    "title": "Junior Software Developer",
+    "company": "avua",
+    "location": "India",
+    "job_url": "https://in.linkedin.com/jobs/view/junior-software-developer-at-avua-4439765454",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:23.625495"
+  },
+  {
+    "title": "Software Developer",
+    "company": "Scoutit",
+    "location": "India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-at-scoutit-4439157289",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:23.692923"
+  },
+  {
+    "title": "Python/Python GenAI",
+    "company": "Infosys",
+    "location": "Bengaluru East, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/python-python-genai-at-infosys-4439100513",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:23.764861"
+  },
+  {
+    "title": "SDE",
+    "company": "Scoutit",
+    "location": "India",
+    "job_url": "https://in.linkedin.com/jobs/view/sde-at-scoutit-4439170116",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:23.824447"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "Virtusa",
+    "location": "Andhra Pradesh, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-virtusa-4428916775",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:23.872996"
+  },
+  {
+    "title": "SDE II, EU GIL Installments",
+    "company": "Amazon",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/sde-ii-eu-gil-installments-at-amazon-4420988665",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:24.109639"
+  },
+  {
+    "title": "Software Engineer, C++",
+    "company": "Autodesk",
+    "location": "Pune Division, Maharashtra, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-c%2B%2B-at-autodesk-4430375715",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:24.272476"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "Leapwork",
+    "location": "Gurugram, Haryana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-leapwork-4399897962",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:24.536392"
+  },
+  {
+    "title": "Senior Software Engineer",
+    "company": "Microsoft",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/senior-software-engineer-at-microsoft-4403035850",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:24.592217"
+  },
+  {
+    "title": "Software Engineer 1",
+    "company": "CME Group",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-1-at-cme-group-4440026042",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:24.643049"
+  },
+  {
+    "title": "Software Engineer - Confluent",
+    "company": "IBM",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-confluent-at-ibm-4437253640",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:24.697474"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "RiVirtual Inc",
+    "location": "Hyderabad, Telangana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-rivirtual-inc-4437234508",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:24.747137"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "Scoutit",
+    "location": "Bengaluru Rural District, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-scoutit-4439150815",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:24.798863"
+  },
+  {
+    "title": "Software Developer",
+    "company": "Scoutit",
+    "location": "Bengaluru East, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-at-scoutit-4439162343",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:24.854588"
+  },
+  {
+    "title": "Software Developer",
+    "company": "Scoutit",
+    "location": "Bengaluru North, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-at-scoutit-4439161343",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:24.903028"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "Scoutit",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-scoutit-4439166220",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:24.958494"
+  },
+  {
+    "title": "Full Stack Engineer - AI Platform",
+    "company": "Teradata",
+    "location": "Hyderabad, Telangana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/full-stack-engineer-ai-platform-at-teradata-4372980335",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:25.008329"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "Scoutit",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-at-scoutit-4439163262",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:25.056977"
+  },
+  {
+    "title": "SDE 1",
+    "company": "GTMfund",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/sde-1-at-gtmfund-4439768982",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:25.117255"
+  },
+  {
+    "title": "Staff Software Engineer",
+    "company": "Intuit",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/staff-software-engineer-at-intuit-4439151065",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:25.171903"
+  },
+  {
+    "title": "SDE - I",
+    "company": "GTMfund",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/sde-i-at-gtmfund-4439770954",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:25.241273"
+  },
+  {
+    "title": "Software Engineer - Backend",
+    "company": "CoverForce",
+    "location": "India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-backend-at-coverforce-4350752081",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:25.297472"
+  },
+  {
+    "title": "Front-End Developer",
+    "company": "Peepul Agri",
+    "location": "Hyderabad, Telangana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/front-end-developer-at-peepul-agri-4437251198",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:25.376707"
+  },
+  {
+    "title": "Software Development Engineer (Backend) - SDE II",
+    "company": "Purplle.com",
+    "location": "Mumbai, Maharashtra, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-development-engineer-backend-sde-ii-at-purplle-com-4437241974",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:25.433794"
+  },
+  {
+    "title": "Software Engineer II",
+    "company": "PDI Technologies",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engineer-ii-at-pdi-technologies-4410898624",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:25.490060"
+  },
+  {
+    "title": "UI Developer with React JS",
+    "company": "IQVIA",
+    "location": "Kochi, Kerala, India",
+    "job_url": "https://in.linkedin.com/jobs/view/ui-developer-with-react-js-at-iqvia-4439174037",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:25.545598"
+  },
+  {
+    "title": "Software Intern",
+    "company": "Purehire AI",
+    "location": "Greater Hyderabad Area",
+    "job_url": "https://in.linkedin.com/jobs/view/software-intern-at-purehire-ai-4437263786",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:25.604430"
+  },
+  {
+    "title": "MERN Stack Developer",
+    "company": "Wipro",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/mern-stack-developer-at-wipro-4440013659",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:25.654993"
+  },
+  {
+    "title": "Software Development Engineer III",
+    "company": "Tesco Bengaluru",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-development-engineer-iii-at-tesco-bengaluru-4439161129",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:25.706840"
+  },
+  {
+    "title": "Software Developer II",
+    "company": "FedEx ACC",
+    "location": "Hyderabad, Telangana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-ii-at-fedex-acc-4402702417",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:25.769674"
+  },
+  {
+    "title": "Software Development Engineer II , Amazon Pay",
+    "company": "Amazon",
+    "location": "Greater Hyderabad Area",
+    "job_url": "https://in.linkedin.com/jobs/view/software-development-engineer-ii-amazon-pay-at-amazon-4403545746",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:25.834803"
+  },
+  {
+    "title": "GenAI Developer",
+    "company": "Infosys",
+    "location": "Bengaluru East, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/genai-developer-at-infosys-4439105200",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:25.888876"
+  },
+  {
+    "title": "Frontend Software Engineer",
+    "company": "Jobgether",
+    "location": "India",
+    "job_url": "https://in.linkedin.com/jobs/view/frontend-software-engineer-at-jobgether-4439130522",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:25.944559"
+  },
+  {
+    "title": "Software Developer II",
+    "company": "FedEx ACC",
+    "location": "Hyderabad, Telangana, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-ii-at-fedex-acc-4402388504",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:25.993646"
+  },
+  {
+    "title": "Software Developer",
+    "company": "Adani Enterprises Limited",
+    "location": "Ahmedabad, Gujarat, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-at-adani-enterprises-limited-4440010830",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:26.053277"
+  },
+  {
+    "title": "SDE - 2 - Backend",
+    "company": "GTMfund",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/sde-2-backend-at-gtmfund-4439779580",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:26.108588"
+  },
+  {
+    "title": "Software Development Engineer - Backend (Node.js+Typescript)",
+    "company": "eDataBae",
+    "location": "India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-development-engineer-backend-node-js%2Btypescript-at-edatabae-4439155214",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:26.171372"
+  },
+  {
+    "title": "Full Stack Software Engineer",
+    "company": "Scoutit",
+    "location": "Delhi, India",
+    "job_url": "https://in.linkedin.com/jobs/view/full-stack-software-engineer-at-scoutit-4439151717",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:26.226853"
+  },
+  {
+    "title": "Software Developer, India",
+    "company": "AlgoSec",
+    "location": "New Delhi, Delhi, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-developer-india-at-algosec-4439772594",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:26.297385"
+  },
+  {
+    "title": "Software Engr I",
+    "company": "Honeywell Aerospace",
+    "location": "Bengaluru, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/software-engr-i-at-honeywell-aerospace-4440014751",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:26.354102"
+  },
+  {
+    "title": "Informatica Developer",
+    "company": "Infosys",
+    "location": "Bengaluru East, Karnataka, India",
+    "job_url": "https://in.linkedin.com/jobs/view/informatica-developer-at-infosys-4430315501",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:26.482134"
+  },
+  {
+    "title": "Full Stack Software Engineer",
+    "company": "Scoutit",
+    "location": "New Delhi, Delhi, India",
+    "job_url": "https://in.linkedin.com/jobs/view/full-stack-software-engineer-at-scoutit-4439153598",
+    "source": "LinkedIn",
+    "scrapedAt": "2026-07-13T13:01:26.614755"
+  }
+]

@@ -2,7 +2,6 @@ from config import get_jobs_collection
 
 def deduplicate():
     collection = get_jobs_collection()
-    
     print("Running deduplication...")
     all_jobs = list(collection.find())
     print(f"Total jobs in collection before deduplication: {len(all_jobs)}")

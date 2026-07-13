@@ -25,79 +25,32 @@ async function fetchJobs(page = 1, append = false) {
     if (user.preferredJobType) type = user.preferredJobType;
   }
 
-  let url;
-  const isSavedView = (activeSource === 'saved');
-
-  if (isSavedView) {
-    url = `${API_BASE_URL}/api/saved`;
-  } else {
-    url = `${API_BASE_URL}/api/jobs?page=${page}&limit=250`;
-    if (activeSource !== 'all') url += `&source=${activeSource}`;
-    if (location) url += `&location=${location}`;
-    if (type) url += `&type=${type}`;
-    if (search) url += `&search=${search}`;
-  }
+  let url = `${API_BASE_URL}/api/jobs?page=${page}&limit=250`;
+  if (activeSource !== 'all') url += `&source=${activeSource}`;
+  if (location) url += `&location=${location}`;
+  if (type) url += `&type=${type}`;
+  if (search) url += `&search=${search}`;
 
   try {
-    if (isSavedView) {
-      const token = localStorage.getItem("jobunify_token");
-      if (!token) {
-        grid.innerHTML = '<div class="empty" style="grid-column:1/-1">Please log in to view saved jobs.</div>';
-        isLoading = false;
-        return;
-      }
-      const res = await fetch(url, {
-        headers: { "Authorization": `Bearer ${token}` }
-      });
-      const data = await res.json();
-      
-      let jobs = data.jobs || [];
-      if (location) {
-        jobs = jobs.filter(j => j.location && new RegExp(location, 'i').test(j.location));
-      }
-      if (type) {
-        jobs = jobs.filter(j => j.type === type || j.duration === type);
-      }
-      if (search) {
-        jobs = jobs.filter(j => 
-          (j.title && j.title.toLowerCase().includes(search)) || 
-          (j.company && j.company.toLowerCase().includes(search))
-        );
-      }
-      
-      allJobs = jobs;
-      renderJobs(allJobs);
-      
-      const countEl = document.getElementById('jobCount');
-      if (countEl) {
-        countEl.textContent = `${jobs.length} saved jobs found`;
-      }
-      
-      const loadMoreBtn = document.getElementById('loadMoreBtn');
-      if (loadMoreBtn) {
-        loadMoreBtn.style.display = 'none';
-      }
+    const res = await fetch(url);
+    const data = await res.json();
+
+    if (append) {
+      allJobs = [...allJobs, ...data.jobs];
     } else {
-      const res = await fetch(url);
-      const data = await res.json();
+      allJobs = data.jobs;
+    }
 
-      if (append) {
-        allJobs = [...allJobs, ...data.jobs];
-      } else {
-        allJobs = data.jobs;
-      }
+    renderJobs(allJobs);
+    
+    const countEl = document.getElementById('jobCount');
+    if (countEl) {
+      countEl.textContent = `${data.total} jobs found`;
+    }
 
-      renderJobs(allJobs);
-      
-      const countEl = document.getElementById('jobCount');
-      if (countEl) {
-        countEl.textContent = `${data.total} jobs found`;
-      }
-
-      const loadMoreBtn = document.getElementById('loadMoreBtn');
-      if (loadMoreBtn) {
-        loadMoreBtn.style.display = page < data.totalPages ? 'block' : 'none';
-      }
+    const loadMoreBtn = document.getElementById('loadMoreBtn');
+    if (loadMoreBtn) {
+      loadMoreBtn.style.display = page < data.totalPages ? 'block' : 'none';
     }
 
   } catch (error) {
@@ -170,30 +123,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function setFilter(source, btn) {
-  const query = document.getElementById('searchBar')?.value.trim();
-  if (!query) return;
-  fetch(`${API_BASE_URL}/api/jobs/search?q=${encodeURIComponent(query)}`)
-    .then(res => res.json())
-    .then(data => {
-      const jobs = data.jobs || [];
-      renderJobs(jobs);
-      const countEl = document.getElementById('jobCount');
-      if (countEl) countEl.textContent = `${jobs.length} jobs found`;
-    })
-    .catch(err => console.error('Search error:', err));
-}
-
-// Attach search events after DOM loads
-
-
-function setFilter(source, btn) {
-  if (source === 'saved') {
-    const token = localStorage.getItem("jobunify_token");
-    if (!token) {
-      window.location.href = "signin.html";
-      return;
-    }
-  }
   activeSource = source;
   document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
@@ -360,9 +289,6 @@ async function toggleSaveJob(event, jobId) {
         }
       }
 
-      if (activeSource === "saved") {
-        fetchJobs(1);
-      }
     }
   } catch (error) {
     console.error("Error toggling saved job:", error);
