@@ -14,8 +14,15 @@ USER_AGENTS = [
 def scrape():
     collection = get_jobs_collection()
     jobs_saved = 0
-    
     print("Starting Internshala scraper...")
+    
+    # Clear out old/expired Internshala jobs
+    try:
+        deleted = collection.delete_many({"source": "Internshala"})
+        print(f"Cleared {deleted.deleted_count} stale Internshala jobs from DB.")
+    except Exception as e:
+        print(f"Failed to clear old jobs: {e}")
+
     for page in range(1, 6):
         url = f"https://internshala.com/internships/page-{page}/"
         headers = {
@@ -40,6 +47,12 @@ def scrape():
                     title_el = card.select_one(".job-internship-name") or card.select_one(".profile")
                     if not title_el:
                         continue
+                    
+                    # 1.5 Quick expiration check
+                    card_text = card.get_text().lower()
+                    if "applications are closed" in card_text or "expired" in card_text:
+                        continue
+
                     title = title_el.get_text(strip=True)
                     
                     # 2. Company

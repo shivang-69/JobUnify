@@ -26,7 +26,7 @@ router.get('/count', async (req, res) => {
 
 router.get('/', async (req, res) => {
   try {
-    const { source, location, type, search, page = 1, limit = 250 } = req.query;
+    const { source, location, type, search, page = 1, limit = 50 } = req.query;
     
     let filter = {};
     if (source) filter.source = source;
@@ -94,6 +94,93 @@ router.get('/search', async (req, res) => {
     console.log('Found jobs count:', jobs.length);
 logSearch(q, jobs.length);
     res.json({ jobs, total: jobs.length });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+// New endpoint to check if a job URL is broken
+router.post('/check-link', async (req, res) => {
+  try {
+    const { url } = req.body;
+    if (!url) return res.status(400).json({ error: 'URL required' });
+
+    // Use fetch to ping the URL.
+    try {
+      const isInternshala = url.includes('internshala.com');
+      const method = isInternshala ? 'GET' : 'HEAD';
+      const response = await fetch(url, {
+        method: method,
+        redirect: 'follow', // Follow redirects to catch Adzuna 404s
+        headers: {
+          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+        }
+      });
+      
+      if (response.status >= 400) {
+        return res.json({ status: 'broken' });
+      }
+
+      if (isInternshala && response.status === 200) {
+        const text = await response.text();
+        const lowerText = text.toLowerCase();
+        if (lowerText.includes('applications are closed') || lowerText.includes('is closed') || lowerText.includes('expired')) {
+          return res.json({ status: 'broken' });
+        }
+      }
+
+      return res.json({ status: 'ok' });
+    } catch (fetchErr) {
+      // If we cannot reach it (e.g. CORS or network error on backend), assume ok as a fallback
+      return res.json({ status: 'ok' });
+    }
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+// Batch endpoint to check multiple links before rendering
+router.post('/check-links', async (req, res) => {
+  try {
+    const { urls } = req.body;
+    if (!urls || !Array.isArray(urls)) return res.status(400).json({ error: 'Array of urls required' });
+
+    const results = {};
+    const chunkSize = 20;
+    
+    for (let i = 0; i < urls.length; i += chunkSize) {
+      const chunk = urls.slice(i, i + chunkSize);
+      await Promise.all(chunk.map(async (url) => {
+        try {
+          const isInternshala = url.includes('internshala.com');
+          const method = isInternshala ? 'GET' : 'HEAD';
+          const response = await fetch(url, {
+            method: method,
+            redirect: 'follow', // Follow redirects for Adzuna
+            headers: {
+              'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+            }
+          });
+          if (response.status >= 400) {
+            results[url] = 'broken';
+          } else if (isInternshala && response.status === 200) {
+            const text = await response.text();
+            const lowerText = text.toLowerCase();
+            if (lowerText.includes('applications are closed') || lowerText.includes('is closed') || lowerText.includes('expired')) {
+              results[url] = 'broken';
+            } else {
+              results[url] = 'ok';
+            }
+          } else {
+            results[url] = 'ok';
+          }
+        } catch (err) {
+          results[url] = 'ok';
+        }
+      }));
+    }
+    
+    return res.json({ results });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

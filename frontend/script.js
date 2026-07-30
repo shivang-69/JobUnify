@@ -14,6 +14,13 @@ async function fetchJobs(page = 1, append = false) {
   if (isLoading) return;
   isLoading = true;
 
+  if (!append) {
+    grid.innerHTML = '<div class="loader-container"><div class="spinner"></div><div>Fetching latest jobs...</div></div>';
+  } else {
+    const loadMoreBtn = document.getElementById('loadMoreBtn');
+    if (loadMoreBtn) loadMoreBtn.innerText = 'Loading...';
+  }
+
   const searchInput = document.getElementById('searchInput');
   const search = searchInput ? searchInput.value.toLowerCase() : '';
   const locFilter = document.getElementById('locationFilter');
@@ -25,7 +32,7 @@ async function fetchJobs(page = 1, append = false) {
     if (user.preferredJobType) type = user.preferredJobType;
   }
 
-  let url = `${API_BASE_URL}/api/jobs?page=${page}&limit=250`;
+  let url = `${API_BASE_URL}/api/jobs?page=${page}&limit=50`;
   if (activeSource !== 'all') url += `&source=${activeSource}`;
   if (location) url += `&location=${location}`;
   if (type) url += `&type=${type}`;
@@ -34,11 +41,30 @@ async function fetchJobs(page = 1, append = false) {
   try {
     const res = await fetch(url);
     const data = await res.json();
+    let fetchedJobs = data.jobs || [];
+
+    // Verify links before rendering to hide expired/closed jobs
+    if (fetchedJobs.length > 0) {
+      try {
+        const urlsToVerify = fetchedJobs.map(j => j.job_url || j.link).filter(Boolean);
+        const checkRes = await fetch(`${API_BASE_URL}/api/jobs/check-links`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ urls: urlsToVerify })
+        });
+        const checkData = await checkRes.json();
+        if (checkData.results) {
+          fetchedJobs = fetchedJobs.filter(j => checkData.results[j.job_url || j.link] !== 'broken');
+        }
+      } catch (e) {
+        console.error("Link verification failed:", e);
+      }
+    }
 
     if (append) {
-      allJobs = [...allJobs, ...data.jobs];
+      allJobs = [...allJobs, ...fetchedJobs];
     } else {
-      allJobs = data.jobs;
+      allJobs = fetchedJobs;
     }
 
     renderJobs(allJobs);
@@ -50,6 +76,7 @@ async function fetchJobs(page = 1, append = false) {
 
     const loadMoreBtn = document.getElementById('loadMoreBtn');
     if (loadMoreBtn) {
+      loadMoreBtn.innerText = 'Load More';
       loadMoreBtn.style.display = page < data.totalPages ? 'block' : 'none';
     }
 
@@ -486,11 +513,49 @@ function logout(event) {
 }
 
 // Gated Apply functionality: require user to be logged in
-function handleApply(event, url) {
+async function handleApply(event, url) {
   if (event) event.preventDefault();
   const token = localStorage.getItem("jobunify_token");
   console.log("[Apply Clicked] User detected as logged in:", !!token, "Token found:", token ? "Yes" : "No");
   if (token) {
+    let btn = null;
+    let originalText = "";
+    if (event && event.currentTarget) {
+      btn = event.currentTarget;
+      originalText = btn.innerHTML;
+      btn.innerHTML = "Checking...";
+      btn.style.pointerEvents = "none";
+      btn.style.opacity = "0.7";
+    }
+
+    try {
+      const res = await fetch(`${API_BASE_URL}/api/jobs/check-link`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ url })
+      });
+      const data = await res.json();
+
+      if (data.status === "broken") {
+        console.log("[Apply Blocked] Link is broken (404).");
+        if (btn) {
+          btn.innerHTML = "This listing is no longer available";
+          btn.style.opacity = "0.5";
+          btn.style.cursor = "not-allowed";
+          btn.classList.add("disabled");
+        }
+        return;
+      }
+    } catch (err) {
+      console.error("Error checking link status:", err);
+      // Fallback: proceed to open if check fails
+    }
+
+    if (btn) {
+      btn.innerHTML = originalText;
+      btn.style.pointerEvents = "auto";
+      btn.style.opacity = "1";
+    }
     console.log("[Apply Success] Opening job URL:", url);
     window.open(url, "_blank");
   } else {

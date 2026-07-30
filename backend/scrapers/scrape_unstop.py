@@ -6,8 +6,15 @@ from config import get_jobs_collection
 def scrape():
     collection = get_jobs_collection()
     jobs_saved = 0
-    
     print("Starting Unstop scraper...")
+    
+    # Clear out old/expired Unstop jobs
+    try:
+        deleted = collection.delete_many({"source": "Unstop"})
+        print(f"Cleared {deleted.deleted_count} stale Unstop jobs from DB.")
+    except Exception as e:
+        print(f"Failed to clear old jobs: {e}")
+
     for page in range(1, 11):
         url = "https://unstop.com/api/public/opportunity/search-result"
         params = {
@@ -48,6 +55,11 @@ def scrape():
                 try:
                     title = item.get("title", "")
                     if not title:
+                        continue
+                        
+                    # Quick expiration check
+                    status = str(item.get("status", "")).lower()
+                    if status in ["closed", "expired", "inactive"]:
                         continue
                         
                     # Organization Name

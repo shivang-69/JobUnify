@@ -52,6 +52,17 @@ def scrape():
                 break
                 
             for item in jobs:
+                # Expiration check
+                expiration_date = item.get("job_offer_expiration_datetime_utc")
+                if expiration_date:
+                    try:
+                        # Assuming ISO format like 2026-08-30T...
+                        exp_dt = datetime.strptime(expiration_date.split("T")[0], "%Y-%m-%d")
+                        if exp_dt < datetime.utcnow():
+                            continue
+                    except:
+                        pass
+                
                 # Format location cleanly
                 loc_parts = []
                 city = item.get("job_city")

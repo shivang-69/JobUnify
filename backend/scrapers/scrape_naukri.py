@@ -20,6 +20,13 @@ def scrape():
     from config import get_jobs_collection
     collection = get_jobs_collection()
 
+    # Clear out old/expired Adzuna jobs so we are only serving fresh listings
+    try:
+        deleted = collection.delete_many({"source": "Naukri"})
+        print(f"Cleared {deleted.deleted_count} stale Naukri/Adzuna jobs from DB.")
+    except Exception as e:
+        print(f"Failed to clear old jobs: {e}")
+
     BASE_URL = "https://api.adzuna.com/v1/api/jobs/in/search"
     RESULTS_PER_PAGE = 50
     QUERY = "software developer"

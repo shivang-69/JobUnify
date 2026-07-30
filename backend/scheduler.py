@@ -87,12 +87,12 @@ def run_scrapers():
 
 def main():
     scheduler = BlockingScheduler()
-    logger.info("Scheduling scrapers to run every 6 hours...")
+    logger.info("Scheduling scrapers to run every 1 hour...")
     
     # Run once immediately on start
     run_scrapers()
     
-    scheduler.add_job(run_scrapers, 'interval', hours=6)
+    scheduler.add_job(run_scrapers, 'interval', hours=1)
     try:
         scheduler.start()
     except (KeyboardInterrupt, SystemExit):
