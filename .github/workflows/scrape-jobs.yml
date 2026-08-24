@@ -26,4 +26,7 @@ jobs:
       - name: Run Scrapers
         env:
           MONGO_URI: ${{ secrets.MONGO_URI }}
+          ADZUNA_APP_ID: ${{ secrets.ADZUNA_APP_ID }}
+          ADZUNA_APP_KEY: ${{ secrets.ADZUNA_APP_KEY }}
+          RAPIDAPI_KEY: ${{ secrets.RAPIDAPI_KEY }}
         run: python backend/scrapers/run_all.py
