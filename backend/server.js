@@ -53,23 +53,4 @@ app.use(errorHandler);
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
-  
-  // Start Python scheduler automatically
-  const { spawn } = require("child_process");
-  const path = require("path");
-  const schedulerPath = path.join(__dirname, "scheduler.py");
-  console.log(`Starting Python scheduler at: ${schedulerPath}`);
-  
-  const schedulerProcess = spawn("python", ["-u", schedulerPath], {
-    cwd: __dirname,
-    stdio: "inherit"
-  });
-  
-  schedulerProcess.on("error", (err) => {
-    console.error("Failed to start Python scheduler:", err);
-  });
-  
-  schedulerProcess.on("close", (code) => {
-    console.log(`Python scheduler process exited with code ${code}`);
-  });
 });

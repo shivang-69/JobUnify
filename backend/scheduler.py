@@ -1,3 +1,7 @@
+# NOTE: This file is no longer used in production.
+# Scraping is now handled automatically by GitHub Actions (.github/workflows/scrape-jobs.yml).
+# It can still be used for local scheduling if desired.
+
 import os
 import sys
 import datetime
