@@ -52,24 +52,61 @@ router.get('/', async (req, res) => {
       });
     }
 
-    // Freshness & expiration condition (7 days threshold)
+    // Freshness & expiration conditions: LinkedIn = 2 days, Others = 7 days
+    const todayStr = new Date().toISOString().split('T')[0];
+    
     const sevenDaysAgo = new Date();
     sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
     const sevenDaysAgoStr = sevenDaysAgo.toISOString().split('T')[0];
-    const todayStr = new Date().toISOString().split('T')[0];
+
+    const twoDaysAgo = new Date();
+    twoDaysAgo.setDate(twoDaysAgo.getDate() - 2);
+    const twoDaysAgoStr = twoDaysAgo.toISOString().split('T')[0];
 
     conditions.push({
       $or: [
-        { date_posted: { $gte: sevenDaysAgoStr } },
-        { expiration_date: { $gte: todayStr } },
         {
           $and: [
-            { date_posted: { $not: { $gte: "0000-00-00" } } },
-            { expiration_date: { $exists: false } },
+            { source: "LinkedIn" },
             {
               $or: [
-                { scrapedAt: { $gte: sevenDaysAgo } },
-                { scrapedAt: { $gte: sevenDaysAgo.toISOString() } }
+                { date_posted: { $gte: twoDaysAgoStr } },
+                { expiration_date: { $gte: todayStr } },
+                {
+                  $and: [
+                    { date_posted: { $not: { $gte: "0000-00-00" } } },
+                    { expiration_date: { $exists: false } },
+                    {
+                      $or: [
+                        { scrapedAt: { $gte: twoDaysAgo } },
+                        { scrapedAt: { $gte: twoDaysAgo.toISOString() } }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          $and: [
+            { source: { $ne: "LinkedIn" } },
+            {
+              $or: [
+                { date_posted: { $gte: sevenDaysAgoStr } },
+                { expiration_date: { $gte: todayStr } },
+                {
+                  $and: [
+                    { date_posted: { $not: { $gte: "0000-00-00" } } },
+                    { expiration_date: { $exists: false } },
+                    {
+                      $or: [
+                        { scrapedAt: { $gte: sevenDaysAgo } },
+                        { scrapedAt: { $gte: sevenDaysAgo.toISOString() } }
+                      ]
+                    }
+                  ]
+                }
               ]
             }
           ]
@@ -130,23 +167,60 @@ router.get('/search', async (req, res) => {
       ]
     };
 
+    const todayStr = new Date().toISOString().split('T')[0];
+
     const sevenDaysAgo = new Date();
     sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
     const sevenDaysAgoStr = sevenDaysAgo.toISOString().split('T')[0];
-    const todayStr = new Date().toISOString().split('T')[0];
+
+    const twoDaysAgo = new Date();
+    twoDaysAgo.setDate(twoDaysAgo.getDate() - 2);
+    const twoDaysAgoStr = twoDaysAgo.toISOString().split('T')[0];
 
     const freshnessFilter = {
       $or: [
-        { date_posted: { $gte: sevenDaysAgoStr } },
-        { expiration_date: { $gte: todayStr } },
         {
           $and: [
-            { date_posted: { $not: { $gte: "0000-00-00" } } },
-            { expiration_date: { $exists: false } },
+            { source: "LinkedIn" },
             {
               $or: [
-                { scrapedAt: { $gte: sevenDaysAgo } },
-                { scrapedAt: { $gte: sevenDaysAgo.toISOString() } }
+                { date_posted: { $gte: twoDaysAgoStr } },
+                { expiration_date: { $gte: todayStr } },
+                {
+                  $and: [
+                    { date_posted: { $not: { $gte: "0000-00-00" } } },
+                    { expiration_date: { $exists: false } },
+                    {
+                      $or: [
+                        { scrapedAt: { $gte: twoDaysAgo } },
+                        { scrapedAt: { $gte: twoDaysAgo.toISOString() } }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          $and: [
+            { source: { $ne: "LinkedIn" } },
+            {
+              $or: [
+                { date_posted: { $gte: sevenDaysAgoStr } },
+                { expiration_date: { $gte: todayStr } },
+                {
+                  $and: [
+                    { date_posted: { $not: { $gte: "0000-00-00" } } },
+                    { expiration_date: { $exists: false } },
+                    {
+                      $or: [
+                        { scrapedAt: { $gte: sevenDaysAgo } },
+                        { scrapedAt: { $gte: sevenDaysAgo.toISOString() } }
+                      ]
+                    }
+                  ]
+                }
               ]
             }
           ]
