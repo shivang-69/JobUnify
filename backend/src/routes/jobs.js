@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const fs = require('fs');
 const path = require('path');
 const { isEntryLevel } = require('../utils/experienceFilter');
+const { isPaidInternship } = require('../utils/stipendFilter');
 
 router.get('/count', async (req, res) => {
   try {
@@ -165,14 +166,21 @@ router.get('/', async (req, res) => {
 
     // Apply experience filter in application code
     const entryLevelJobs = candidateJobs.filter(job => isEntryLevel(job).include);
-    
-    // Calculate track counts
-    const fullTimeCount = entryLevelJobs.filter(job => isEntryLevel(job).track === 'full-time').length;
-    const internshipCount = entryLevelJobs.filter(job => isEntryLevel(job).track === 'internship').length;
-    
-    let filtered = entryLevelJobs;
+
+    // Apply stipend filter: exclude explicitly-unpaid internships (fail-open for missing data)
+    const visibleJobs = entryLevelJobs.filter(job => {
+      const { track } = isEntryLevel(job);
+      if (track === 'internship') return isPaidInternship(job).paid;
+      return true; // full-time jobs are unaffected
+    });
+
+    // Calculate track counts (post-stipend-filter)
+    const fullTimeCount  = visibleJobs.filter(job => isEntryLevel(job).track === 'full-time').length;
+    const internshipCount = visibleJobs.filter(job => isEntryLevel(job).track === 'internship').length;
+
+    let filtered = visibleJobs;
     if (track) {
-      filtered = entryLevelJobs.filter(job => isEntryLevel(job).track === track);
+      filtered = visibleJobs.filter(job => isEntryLevel(job).track === track);
     }
     const total = filtered.length;
 
@@ -184,7 +192,7 @@ router.get('/', async (req, res) => {
       jobs,
       total,
       counts: {
-        total: entryLevelJobs.length,
+        total: visibleJobs.length,
         fullTime: fullTimeCount,
         internship: internshipCount
       },
@@ -338,12 +346,20 @@ router.get('/search', async (req, res) => {
     
     // Apply experience filter in application code
     const entryLevelJobs = candidateJobs.filter(job => isEntryLevel(job).include);
-    const fullTimeCount = entryLevelJobs.filter(job => isEntryLevel(job).track === 'full-time').length;
-    const internshipCount = entryLevelJobs.filter(job => isEntryLevel(job).track === 'internship').length;
 
-    let jobs = entryLevelJobs;
+    // Apply stipend filter: exclude explicitly-unpaid internships (fail-open for missing data)
+    const visibleJobs = entryLevelJobs.filter(job => {
+      const { track } = isEntryLevel(job);
+      if (track === 'internship') return isPaidInternship(job).paid;
+      return true;
+    });
+
+    const fullTimeCount  = visibleJobs.filter(job => isEntryLevel(job).track === 'full-time').length;
+    const internshipCount = visibleJobs.filter(job => isEntryLevel(job).track === 'internship').length;
+
+    let jobs = visibleJobs;
     if (track) {
-      jobs = entryLevelJobs.filter(job => isEntryLevel(job).track === track);
+      jobs = visibleJobs.filter(job => isEntryLevel(job).track === track);
     }
 
     console.log('Found jobs count:', jobs.length);
@@ -352,7 +368,7 @@ router.get('/search', async (req, res) => {
       jobs,
       total: jobs.length,
       counts: {
-        total: entryLevelJobs.length,
+        total: visibleJobs.length,
         fullTime: fullTimeCount,
         internship: internshipCount
       }
