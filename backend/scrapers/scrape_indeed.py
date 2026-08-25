@@ -104,6 +104,11 @@ def scrape():
                 elif min_sal:
                     stipend = f"{currency} {min_sal} / {period}"
 
+                req_exp = item.get("job_required_experience", {}) or {}
+                no_exp = req_exp.get("no_experience_required")
+                exp_months = req_exp.get("required_experience_in_months")
+                min_experience = 0 if no_exp else (exp_months / 12 if exp_months else None)
+
                 job_data = {
                     "job_title": item.get("job_title", "N/A"),
                     "company_name": item.get("employer_name", "N/A"),
@@ -123,8 +128,13 @@ def scrape():
                     "source": "Indeed",
                     "scrapedAt": datetime.utcnow().isoformat(),
                     "date_posted": job_data["date_posted"],
-                    "job_description_snippet": job_data["job_description_snippet"]
+                    "description": item.get("job_description", "")
                 }
+                if min_experience is not None:
+                    record["min_experience"] = min_experience
+                if no_exp is not None:
+                    record["no_experience_required"] = no_exp
+                record["job_description_snippet"] = job_data["job_description_snippet"]
                 if item.get("job_offer_expiration_datetime_utc"):
                     record["expiration_date"] = item.get("job_offer_expiration_datetime_utc").split("T")[0]
                 # Append to list for later deduplication and DB insert

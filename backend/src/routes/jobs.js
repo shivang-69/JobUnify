@@ -38,6 +38,25 @@ router.get('/', async (req, res) => {
         { title: { $not: { $regex: csBlacklist } } }
       ]
     };
+
+    const seniorityBlacklist = /\bsenior\b|\bsr\b|\blead\b|\bmanager\b|\barchitect\b|\bprincipal\b|\bdirector\b|\bhead\b|\bexpert\b|\bvp\b|\bchief\b/i;
+    const expDescBlacklist1 = /\b(?:[2-9]|\d{2,})\+?\s*(?:to|-)?\s*(?:\d+)?\s*years?(?:\s*of)?\s*experience\b/i;
+    const expDescBlacklist2 = /\bexperience\b.{0,20}\b(?:[2-9]|\d{2,})\+?\s*years?\b/i;
+
+    const experienceFilter = {
+      $and: [
+        { title: { $not: { $regex: seniorityBlacklist } } },
+        { description: { $not: { $regex: expDescBlacklist1 } } },
+        { description: { $not: { $regex: expDescBlacklist2 } } },
+        {
+          $or: [
+            { min_experience: { $exists: false } },
+            { min_experience: null },
+            { min_experience: { $lt: 2 } }
+          ]
+        }
+      ]
+    };
     
     let conditions = [];
     if (source) conditions.push({ source });
@@ -142,6 +161,7 @@ router.get('/', async (req, res) => {
     });
 
     conditions.push(csFilter);
+    conditions.push(experienceFilter);
 
     const filter = { $and: conditions };
 
@@ -200,6 +220,25 @@ router.get('/search', async (req, res) => {
       title: { $regex: csWhitelist },
       $and: [
         { title: { $not: { $regex: csBlacklist } } }
+      ]
+    };
+
+    const seniorityBlacklist = /\bsenior\b|\bsr\b|\blead\b|\bmanager\b|\barchitect\b|\bprincipal\b|\bdirector\b|\bhead\b|\bexpert\b|\bvp\b|\bchief\b/i;
+    const expDescBlacklist1 = /\b(?:[2-9]|\d{2,})\+?\s*(?:to|-)?\s*(?:\d+)?\s*years?(?:\s*of)?\s*experience\b/i;
+    const expDescBlacklist2 = /\bexperience\b.{0,20}\b(?:[2-9]|\d{2,})\+?\s*years?\b/i;
+
+    const experienceFilter = {
+      $and: [
+        { title: { $not: { $regex: seniorityBlacklist } } },
+        { description: { $not: { $regex: expDescBlacklist1 } } },
+        { description: { $not: { $regex: expDescBlacklist2 } } },
+        {
+          $or: [
+            { min_experience: { $exists: false } },
+            { min_experience: null },
+            { min_experience: { $lt: 2 } }
+          ]
+        }
       ]
     };
 
@@ -296,7 +335,8 @@ router.get('/search', async (req, res) => {
       filter = {
         $and: [
           freshnessFilter,
-          csFilter
+          csFilter,
+          experienceFilter
         ]
       };
     } else {
@@ -305,6 +345,7 @@ router.get('/search', async (req, res) => {
         $and: [
           freshnessFilter,
           csFilter,
+          experienceFilter,
           { $or: [ { title: regex }, { company: regex }, { location: regex } ] }
         ]
       };

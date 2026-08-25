@@ -112,6 +112,11 @@ def scrape():
                     job_url = f"https://unstop.com/{public_url}" if public_url else "https://unstop.com"
                     link = job_url
                     
+                    # Explicit experience info
+                    job_detail = item.get("jobDetail") or {}
+                    min_exp = job_detail.get("min_experience")
+                    max_exp = job_detail.get("max_experience")
+                    
                     job_data = {
                         "title": title,
                         "company": company,
@@ -124,6 +129,10 @@ def scrape():
                         "scrapedAt": datetime.now(),
                         "date_posted": date_posted
                     }
+                    if min_exp is not None:
+                        job_data["min_experience"] = min_exp
+                    if max_exp is not None:
+                        job_data["max_experience"] = max_exp
                     if expiration_date:
                         job_data["expiration_date"] = expiration_date
                     
