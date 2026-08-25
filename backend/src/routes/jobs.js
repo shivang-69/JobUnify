@@ -27,6 +27,17 @@ router.get('/count', async (req, res) => {
 router.get('/', async (req, res) => {
   try {
     const { source, location, type, search, page = 1, limit = 50 } = req.query;
+
+    // CS/IT-only Whitelist/Blacklist Regexes
+    const csWhitelist = /software|developer|programmer|engineer|frontend|backend|full\s*stack|data\s*scientist|data\s*analyst|data\s*science|devops|qa|sdet|ai|ml|machine\s*learning|cyber|security|cloud|sysadmin|system\s*admin|it\s*support|tech\s*support|android|ios|web|coder|react|node|python|java|javascript|c\+\+|golang|php|laravel|angular|vue|django|flask|spring\s*boot|flutter|swift|kotlin|aws|azure/i;
+    const csBlacklist = /mechanical|civil|electrical|electronics|chemical|structural|sales|marketing|hr|human\s*resources|finance|accountant|content\s*writer|copywriter|social\s*media|graphic|telecaller|tele-caller|adviser|advisor|customer\s*care|relationship\s*manager|sales\s*exec|business\s*development|bde|recruiter/i;
+
+    const csFilter = {
+      title: { $regex: csWhitelist },
+      $and: [
+        { title: { $not: { $regex: csBlacklist } } }
+      ]
+    };
     
     let conditions = [];
     if (source) conditions.push({ source });
@@ -41,15 +52,15 @@ router.get('/', async (req, res) => {
       });
     }
 
-    // Freshness & expiration condition (14 days threshold)
-    const fourteenDaysAgo = new Date();
-    fourteenDaysAgo.setDate(fourteenDaysAgo.getDate() - 14);
-    const fourteenDaysAgoStr = fourteenDaysAgo.toISOString().split('T')[0];
+    // Freshness & expiration condition (7 days threshold)
+    const sevenDaysAgo = new Date();
+    sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
+    const sevenDaysAgoStr = sevenDaysAgo.toISOString().split('T')[0];
     const todayStr = new Date().toISOString().split('T')[0];
 
     conditions.push({
       $or: [
-        { date_posted: { $gte: fourteenDaysAgoStr } },
+        { date_posted: { $gte: sevenDaysAgoStr } },
         { expiration_date: { $gte: todayStr } },
         {
           $and: [
@@ -57,14 +68,16 @@ router.get('/', async (req, res) => {
             { expiration_date: { $exists: false } },
             {
               $or: [
-                { scrapedAt: { $gte: fourteenDaysAgo } },
-                { scrapedAt: { $gte: fourteenDaysAgo.toISOString() } }
+                { scrapedAt: { $gte: sevenDaysAgo } },
+                { scrapedAt: { $gte: sevenDaysAgo.toISOString() } }
               ]
             }
           ]
         }
       ]
     });
+
+    conditions.push(csFilter);
 
     const filter = { $and: conditions };
 
@@ -106,14 +119,25 @@ router.get('/search', async (req, res) => {
   try {
     const q = req.query.q || '';
 
-    const fourteenDaysAgo = new Date();
-    fourteenDaysAgo.setDate(fourteenDaysAgo.getDate() - 14);
-    const fourteenDaysAgoStr = fourteenDaysAgo.toISOString().split('T')[0];
+    // CS/IT-only Whitelist/Blacklist Regexes
+    const csWhitelist = /software|developer|programmer|engineer|frontend|backend|full\s*stack|data\s*scientist|data\s*analyst|data\s*science|devops|qa|sdet|ai|ml|machine\s*learning|cyber|security|cloud|sysadmin|system\s*admin|it\s*support|tech\s*support|android|ios|web|coder|react|node|python|java|javascript|c\+\+|golang|php|laravel|angular|vue|django|flask|spring\s*boot|flutter|swift|kotlin|aws|azure/i;
+    const csBlacklist = /mechanical|civil|electrical|electronics|chemical|structural|sales|marketing|hr|human\s*resources|finance|accountant|content\s*writer|copywriter|social\s*media|graphic|telecaller|tele-caller|adviser|advisor|customer\s*care|relationship\s*manager|sales\s*exec|business\s*development|bde|recruiter/i;
+
+    const csFilter = {
+      title: { $regex: csWhitelist },
+      $and: [
+        { title: { $not: { $regex: csBlacklist } } }
+      ]
+    };
+
+    const sevenDaysAgo = new Date();
+    sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
+    const sevenDaysAgoStr = sevenDaysAgo.toISOString().split('T')[0];
     const todayStr = new Date().toISOString().split('T')[0];
 
     const freshnessFilter = {
       $or: [
-        { date_posted: { $gte: fourteenDaysAgoStr } },
+        { date_posted: { $gte: sevenDaysAgoStr } },
         { expiration_date: { $gte: todayStr } },
         {
           $and: [
@@ -121,8 +145,8 @@ router.get('/search', async (req, res) => {
             { expiration_date: { $exists: false } },
             {
               $or: [
-                { scrapedAt: { $gte: fourteenDaysAgo } },
-                { scrapedAt: { $gte: fourteenDaysAgo.toISOString() } }
+                { scrapedAt: { $gte: sevenDaysAgo } },
+                { scrapedAt: { $gte: sevenDaysAgo.toISOString() } }
               ]
             }
           ]
@@ -132,12 +156,18 @@ router.get('/search', async (req, res) => {
 
     let filter;
     if (!q) {
-      filter = freshnessFilter;
+      filter = {
+        $and: [
+          freshnessFilter,
+          csFilter
+        ]
+      };
     } else {
       const regex = new RegExp(q, 'i');
       filter = {
         $and: [
           freshnessFilter,
+          csFilter,
           { $or: [ { title: regex }, { company: regex }, { location: regex } ] }
         ]
       };
