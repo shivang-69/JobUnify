@@ -5,6 +5,32 @@ import time
 from datetime import datetime
 from config import get_jobs_collection
 
+def parse_internshala_posted_date(text):
+    import re
+    from datetime import datetime, timedelta
+    now = datetime.now()
+    text = text.lower().strip()
+    
+    if "hour" in text or "minute" in text or "today" in text or "just now" in text:
+        return now.strftime("%Y-%m-%d")
+    
+    match = re.search(r'(\d+)\s+day', text)
+    if match:
+        days = int(match.group(1))
+        return (now - timedelta(days=days)).strftime("%Y-%m-%d")
+        
+    match = re.search(r'(\d+)\s+week', text)
+    if match:
+        weeks = int(match.group(1))
+        return (now - timedelta(weeks=weeks)).strftime("%Y-%m-%d")
+        
+    match = re.search(r'(\d+)\s+month', text)
+    if match:
+        months = int(match.group(1))
+        return (now - timedelta(days=months * 30)).strftime("%Y-%m-%d")
+        
+    return now.strftime("%Y-%m-%d")
+
 USER_AGENTS = [
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
@@ -16,10 +42,16 @@ def scrape():
     jobs_saved = 0
     print("Starting Internshala scraper...")
     
-    # Clear out old/expired Internshala jobs
+    # Clear out old/expired Internshala jobs (excluding saved jobs)
     try:
-        deleted = collection.delete_many({"source": "Internshala"})
-        print(f"Cleared {deleted.deleted_count} stale Internshala jobs from DB.")
+        db = collection.database
+        from config import get_saved_job_ids
+        saved_ids = list(get_saved_job_ids(db))
+        deleted = collection.delete_many({
+            "source": "Internshala",
+            "_id": {"$nin": saved_ids}
+        })
+        print(f"Cleared {deleted.deleted_count} stale Internshala jobs from DB (excluding saved jobs).")
     except Exception as e:
         print(f"Failed to clear old jobs: {e}")
 
@@ -93,6 +125,12 @@ def scrape():
                         job_url = f"https://internshala.com{href}" if href.startswith('/') else href
                     
                     # Insert job
+                    date_posted = "N/A"
+                    labels = card.select(".detail-row-2 .color-labels div")
+                    if labels:
+                        relative_date = labels[0].get_text(strip=True)
+                        date_posted = parse_internshala_posted_date(relative_date)
+
                     job_data = {
                         "title": title,
                         "company": company,
@@ -102,7 +140,8 @@ def scrape():
                         "link": job_url,
                         "job_url": job_url,
                         "source": "Internshala",
-                        "scrapedAt": datetime.now()
+                        "scrapedAt": datetime.now(),
+                        "date_posted": date_posted
                     }
                     
                     # Upsert to prevent duplicate key issue on same run

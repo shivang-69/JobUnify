@@ -20,10 +20,16 @@ def scrape():
     from config import get_jobs_collection
     collection = get_jobs_collection()
 
-    # Clear out old/expired Adzuna jobs so we are only serving fresh listings
+    # Clear out old/expired Adzuna jobs so we are only serving fresh listings (excluding saved jobs)
     try:
-        deleted = collection.delete_many({"source": "Naukri"})
-        print(f"Cleared {deleted.deleted_count} stale Naukri/Adzuna jobs from DB.")
+        db = collection.database
+        from config import get_saved_job_ids
+        saved_ids = list(get_saved_job_ids(db))
+        deleted = collection.delete_many({
+            "source": "Naukri",
+            "_id": {"$nin": saved_ids}
+        })
+        print(f"Cleared {deleted.deleted_count} stale Naukri/Adzuna jobs from DB (excluding saved jobs).")
     except Exception as e:
         print(f"Failed to clear old jobs: {e}")
 
@@ -59,6 +65,10 @@ def scrape():
             location = job.get("location", {}).get("display_name") if isinstance(job.get("location"), dict) else job.get("location")
             job_url = job.get("redirect_url")
             date_posted = job.get("created")
+            if date_posted:
+                date_posted = date_posted.split("T")[0]
+            else:
+                date_posted = "N/A"
             description = job.get("description")
 
             job_data = {

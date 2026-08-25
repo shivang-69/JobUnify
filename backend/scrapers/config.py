@@ -19,3 +19,12 @@ def get_jobs_collection():
         db = client["jobunify"]
         
     return db["jobs"]
+
+def get_saved_job_ids(db):
+    try:
+        saved_collection = db["savedjobs"]
+        saved_mappings = list(saved_collection.find({}, {"jobId": 1}))
+        return [mapping["jobId"] for mapping in saved_mappings if "jobId" in mapping]
+    except Exception as e:
+        print(f"Error fetching saved job IDs: {e}")
+        return []

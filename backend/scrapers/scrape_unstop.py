@@ -8,10 +8,16 @@ def scrape():
     jobs_saved = 0
     print("Starting Unstop scraper...")
     
-    # Clear out old/expired Unstop jobs
+    # Clear out old/expired Unstop jobs (excluding saved jobs)
     try:
-        deleted = collection.delete_many({"source": "Unstop"})
-        print(f"Cleared {deleted.deleted_count} stale Unstop jobs from DB.")
+        db = collection.database
+        from config import get_saved_job_ids
+        saved_ids = list(get_saved_job_ids(db))
+        deleted = collection.delete_many({
+            "source": "Unstop",
+            "_id": {"$nin": saved_ids}
+        })
+        print(f"Cleared {deleted.deleted_count} stale Unstop jobs from DB (excluding saved jobs).")
     except Exception as e:
         print(f"Failed to clear old jobs: {e}")
 
@@ -92,6 +98,17 @@ def scrape():
                     
                     # Link and job_url
                     public_url = item.get("public_url", "")
+                    
+                    updated_at = item.get("updated_at")
+                    date_posted = "N/A"
+                    if updated_at:
+                        date_posted = updated_at.split("T")[0]
+                        
+                    end_date = item.get("end_date")
+                    expiration_date = None
+                    if end_date:
+                        expiration_date = end_date.split("T")[0]
+                    
                     job_url = f"https://unstop.com/{public_url}" if public_url else "https://unstop.com"
                     link = job_url
                     
@@ -104,8 +121,11 @@ def scrape():
                         "job_url": job_url,
                         "link": link,  # legacy field
                         "source": "Unstop",
-                        "scrapedAt": datetime.now()
+                        "scrapedAt": datetime.now(),
+                        "date_posted": date_posted
                     }
+                    if expiration_date:
+                        job_data["expiration_date"] = expiration_date
                     
                     collection.update_one(
                         {"title": title, "company": company},

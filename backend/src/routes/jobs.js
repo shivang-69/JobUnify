@@ -28,16 +28,45 @@ router.get('/', async (req, res) => {
   try {
     const { source, location, type, search, page = 1, limit = 50 } = req.query;
     
-    let filter = {};
-    if (source) filter.source = source;
-    if (location) filter.location = new RegExp(location, 'i');
-    if (type) filter.type = type;
+    let conditions = [];
+    if (source) conditions.push({ source });
+    if (location) conditions.push({ location: new RegExp(location, 'i') });
+    if (type) conditions.push({ type });
     if (search) {
-      filter.$or = [
-        { title: new RegExp(search, 'i') },
-        { company: new RegExp(search, 'i') }
-      ];
+      conditions.push({
+        $or: [
+          { title: new RegExp(search, 'i') },
+          { company: new RegExp(search, 'i') }
+        ]
+      });
     }
+
+    // Freshness & expiration condition (14 days threshold)
+    const fourteenDaysAgo = new Date();
+    fourteenDaysAgo.setDate(fourteenDaysAgo.getDate() - 14);
+    const fourteenDaysAgoStr = fourteenDaysAgo.toISOString().split('T')[0];
+    const todayStr = new Date().toISOString().split('T')[0];
+
+    conditions.push({
+      $or: [
+        { date_posted: { $gte: fourteenDaysAgoStr } },
+        { expiration_date: { $gte: todayStr } },
+        {
+          $and: [
+            { date_posted: { $not: { $gte: "0000-00-00" } } },
+            { expiration_date: { $exists: false } },
+            {
+              $or: [
+                { scrapedAt: { $gte: fourteenDaysAgo } },
+                { scrapedAt: { $gte: fourteenDaysAgo.toISOString() } }
+              ]
+            }
+          ]
+        }
+      ]
+    });
+
+    const filter = { $and: conditions };
 
     const skip = (parseInt(page) - 1) * parseInt(limit);
     const jobs = await mongoose.connection.db
@@ -76,23 +105,51 @@ function logSearch(query, count) {
 router.get('/search', async (req, res) => {
   try {
     const q = req.query.q || '';
+
+    const fourteenDaysAgo = new Date();
+    fourteenDaysAgo.setDate(fourteenDaysAgo.getDate() - 14);
+    const fourteenDaysAgoStr = fourteenDaysAgo.toISOString().split('T')[0];
+    const todayStr = new Date().toISOString().split('T')[0];
+
+    const freshnessFilter = {
+      $or: [
+        { date_posted: { $gte: fourteenDaysAgoStr } },
+        { expiration_date: { $gte: todayStr } },
+        {
+          $and: [
+            { date_posted: { $not: { $gte: "0000-00-00" } } },
+            { expiration_date: { $exists: false } },
+            {
+              $or: [
+                { scrapedAt: { $gte: fourteenDaysAgo } },
+                { scrapedAt: { $gte: fourteenDaysAgo.toISOString() } }
+              ]
+            }
+          ]
+        }
+      ]
+    };
+
+    let filter;
     if (!q) {
-      // No query – return all jobs
-      const allJobs = await mongoose.connection.db
-        .collection('jobs')
-        .find({})
-        .toArray();
-      return res.json({ jobs: allJobs, total: allJobs.length });
+      filter = freshnessFilter;
+    } else {
+      const regex = new RegExp(q, 'i');
+      filter = {
+        $and: [
+          freshnessFilter,
+          { $or: [ { title: regex }, { company: regex }, { location: regex } ] }
+        ]
+      };
     }
-    const regex = new RegExp(q, 'i');
-    const filter = { $or: [ { title: regex }, { company: regex }, { location: regex } ] };
+
     console.log('Search query:', q);
     const jobs = await mongoose.connection.db
       .collection('jobs')
       .find(filter)
       .toArray();
     console.log('Found jobs count:', jobs.length);
-logSearch(q, jobs.length);
+    logSearch(q, jobs.length);
     res.json({ jobs, total: jobs.length });
   } catch (error) {
     res.status(500).json({ message: error.message });

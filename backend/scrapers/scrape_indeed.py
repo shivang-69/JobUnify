@@ -11,9 +11,18 @@ load_dotenv(env_path)
 
 def scrape():
     collection = get_jobs_collection()
-    # Remove any existing Indeed jobs before a fresh scrape
-    deleted = collection.delete_many({"source": "Indeed"})
-    print(f"Deleted {deleted.deleted_count} existing Indeed job documents from MongoDB")
+    # Remove any existing Indeed jobs before a fresh scrape (excluding saved jobs)
+    try:
+        db = collection.database
+        from config import get_saved_job_ids
+        saved_ids = list(get_saved_job_ids(db))
+        deleted = collection.delete_many({
+            "source": "Indeed",
+            "_id": {"$nin": saved_ids}
+        })
+        print(f"Deleted {deleted.deleted_count} existing Indeed job documents from MongoDB (excluding saved jobs)")
+    except Exception as e:
+        print(f"Failed to clear old Indeed jobs: {e}")
     api_key = os.getenv("RAPIDAPI_KEY")
     if not api_key:
         print("ERROR: RAPIDAPI_KEY is missing from your .env file!")
@@ -116,6 +125,8 @@ def scrape():
                     "date_posted": job_data["date_posted"],
                     "job_description_snippet": job_data["job_description_snippet"]
                 }
+                if item.get("job_offer_expiration_datetime_utc"):
+                    record["expiration_date"] = item.get("job_offer_expiration_datetime_utc").split("T")[0]
                 # Append to list for later deduplication and DB insert
                 all_jobs.append(record)
                 
