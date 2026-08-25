@@ -27,7 +27,7 @@ router.get('/count', async (req, res) => {
 
 router.get('/', async (req, res) => {
   try {
-    const { source, location, type, search, page = 1, limit = 50 } = req.query;
+    const { source, location, type, search, track, page = 1, limit = 50 } = req.query;
 
     // CS/IT-only Whitelist/Blacklist Regexes
     const csWhitelist = /software|developer|programmer|engineer|frontend|backend|full\s*stack|data\s*scientist|data\s*analyst|data\s*science|devops|qa|sdet|ai|ml|machine\s*learning|cyber|security|cloud|sysadmin|system\s*admin|it\s*support|tech\s*support|android|ios|web|coder|react|node|python|java|javascript|c\+\+|golang|php|laravel|angular|vue|django|flask|spring\s*boot|flutter|swift|kotlin|aws|azure|infrastructure|network|systems\s*administrator|it\s*admin/i;
@@ -164,7 +164,16 @@ router.get('/', async (req, res) => {
       .toArray();
 
     // Apply experience filter in application code
-    const filtered = candidateJobs.filter(job => isEntryLevel(job).include);
+    const entryLevelJobs = candidateJobs.filter(job => isEntryLevel(job).include);
+    
+    // Calculate track counts
+    const fullTimeCount = entryLevelJobs.filter(job => isEntryLevel(job).track === 'full-time').length;
+    const internshipCount = entryLevelJobs.filter(job => isEntryLevel(job).track === 'internship').length;
+    
+    let filtered = entryLevelJobs;
+    if (track) {
+      filtered = entryLevelJobs.filter(job => isEntryLevel(job).track === track);
+    }
     const total = filtered.length;
 
     // Apply pagination on filtered results
@@ -174,6 +183,11 @@ router.get('/', async (req, res) => {
     res.json({
       jobs,
       total,
+      counts: {
+        total: entryLevelJobs.length,
+        fullTime: fullTimeCount,
+        internship: internshipCount
+      },
       page: parseInt(page),
       totalPages: Math.ceil(total / parseInt(limit))
     });
@@ -315,17 +329,34 @@ router.get('/search', async (req, res) => {
       };
     }
 
-    console.log('Search query:', q);
+    const track = req.query.track;
+    console.log('Search query:', q, 'track:', track);
     const candidateJobs = await mongoose.connection.db
       .collection('jobs')
       .find(filter)
       .toArray();
     
     // Apply experience filter in application code
-    const jobs = candidateJobs.filter(job => isEntryLevel(job).include);
+    const entryLevelJobs = candidateJobs.filter(job => isEntryLevel(job).include);
+    const fullTimeCount = entryLevelJobs.filter(job => isEntryLevel(job).track === 'full-time').length;
+    const internshipCount = entryLevelJobs.filter(job => isEntryLevel(job).track === 'internship').length;
+
+    let jobs = entryLevelJobs;
+    if (track) {
+      jobs = entryLevelJobs.filter(job => isEntryLevel(job).track === track);
+    }
+
     console.log('Found jobs count:', jobs.length);
     logSearch(q, jobs.length);
-    res.json({ jobs, total: jobs.length });
+    res.json({
+      jobs,
+      total: jobs.length,
+      counts: {
+        total: entryLevelJobs.length,
+        fullTime: fullTimeCount,
+        internship: internshipCount
+      }
+    });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

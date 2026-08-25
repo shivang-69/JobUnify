@@ -101,6 +101,22 @@
   <!-- MAIN CONTENT -->
   <main class="main">
 
+    <!-- TRACK SWITCHER TABS -->
+    <div class="track-tabs" id="trackTabs">
+      <button class="track-tab active" id="tabFullTime" onclick="setTrack('full-time', this)">
+        <span class="tab-label">Full-Time</span>
+        <span class="tab-badge" id="badgeFullTime">...</span>
+      </button>
+      <button class="track-tab" id="tabInternship" onclick="setTrack('internship', this)">
+        <span class="tab-label">Internships</span>
+        <span class="tab-badge" id="badgeInternship">...</span>
+      </button>
+      <button class="track-tab" id="tabAll" onclick="setTrack('', this)">
+        <span class="tab-label">All Jobs</span>
+        <span class="tab-badge" id="badgeAll">...</span>
+      </button>
+    </div>
+
     <div class="filters">
       <span class="filter-label">Filter:</span>
       <button class="filter-btn active" onclick="setFilter('all', this)">All</button>

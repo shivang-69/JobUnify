@@ -164,6 +164,7 @@ def scrape():
                             print(f"Failed to fetch details for {job_id} (attempt {attempt+1}): {e}")
                             break  # don't retry on network errors
 
+            job_track = "internship" if ("internship" in (job_url or "").lower() or "internship" in (title or "").lower() or "intern" in (title or "").lower()) else "full-time"
             job_data = {
                 "title": title,
                 "company": company,
@@ -172,6 +173,7 @@ def scrape():
                 "date_posted": date_posted,
                 "description": description,
                 "experience_raw": experience_raw,
+                "job_track": job_track,
                 "source": "Naukri",
                 "scrapedAt": datetime.utcnow().isoformat()
             }

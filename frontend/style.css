@@ -273,6 +273,68 @@ nav {
 }
 
 /* ────────────────────────────
+   TRACK SWITCHER TABS
+──────────────────────────── */
+.track-tabs {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.track-tab {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--muted);
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.2s ease;
+  font-family: 'Inter', sans-serif;
+}
+
+.track-tab:hover {
+  background: var(--surface2);
+  color: var(--text);
+  border-color: rgba(108, 99, 255, 0.4);
+}
+
+.track-tab.active {
+  background: var(--accent);
+  color: #ffffff;
+  border-color: var(--accent);
+  box-shadow: 0 4px 14px rgba(108, 99, 255, 0.35);
+}
+
+.tab-badge {
+  background: rgba(255, 255, 255, 0.15);
+  color: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 12px;
+  min-width: 24px;
+  text-align: center;
+}
+
+.track-tab.active .tab-badge {
+  background: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+}
+
+.track-tab:not(.active) .tab-badge {
+  background: var(--surface2);
+  color: var(--muted);
+}
+
+/* ────────────────────────────
    FILTERS
 ──────────────────────────── */
 .main {

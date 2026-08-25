@@ -6,6 +6,7 @@ let allJobs = [];
 let currentPage = 1;
 let isLoading = false;
 let activeSource = 'all';
+let activeTrack = 'full-time';
 let savedJobIds = [];
 
 async function fetchJobs(page = 1, append = false) {
@@ -33,6 +34,7 @@ async function fetchJobs(page = 1, append = false) {
   }
 
   let url = `${API_BASE_URL}/api/jobs?page=${page}&limit=50`;
+  if (activeTrack) url += `&track=${activeTrack}`;
   if (activeSource !== 'all') url += `&source=${activeSource}`;
   if (location) url += `&location=${location}`;
   if (type) url += `&type=${type}`;
@@ -69,6 +71,15 @@ async function fetchJobs(page = 1, append = false) {
 
     renderJobs(allJobs);
     
+    if (data.counts) {
+      const bFT = document.getElementById('badgeFullTime');
+      if (bFT) bFT.textContent = data.counts.fullTime;
+      const bInt = document.getElementById('badgeInternship');
+      if (bInt) bInt.textContent = data.counts.internship;
+      const bAll = document.getElementById('badgeAll');
+      if (bAll) bAll.textContent = data.counts.total;
+    }
+
     const countEl = document.getElementById('jobCount');
     if (countEl) {
       countEl.textContent = `${data.total} jobs found`;
@@ -96,11 +107,21 @@ function performSearch() {
     fetchJobs(1);
     return;
   }
-  fetch(`${API_BASE_URL}/api/jobs/search?q=${encodeURIComponent(query)}`)
+  let searchUrl = `${API_BASE_URL}/api/jobs/search?q=${encodeURIComponent(query)}`;
+  if (activeTrack) searchUrl += `&track=${activeTrack}`;
+  fetch(searchUrl)
     .then(res => res.json())
     .then(data => {
       const jobs = data.jobs || [];
       renderJobs(jobs);
+      if (data.counts) {
+        const bFT = document.getElementById('badgeFullTime');
+        if (bFT) bFT.textContent = data.counts.fullTime;
+        const bInt = document.getElementById('badgeInternship');
+        if (bInt) bInt.textContent = data.counts.internship;
+        const bAll = document.getElementById('badgeAll');
+        if (bAll) bAll.textContent = data.counts.total;
+      }
       const countEl = document.getElementById('jobCount');
       if (countEl) countEl.textContent = `${jobs.length} jobs found`;
     })
@@ -148,6 +169,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const searchBar = document.getElementById('searchBar');
   if (searchBar) searchBar.addEventListener('keypress', e => { if (e.key === 'Enter') performSearch(); });
 });
+
+function setTrack(track, btn) {
+  activeTrack = track;
+  document.querySelectorAll('.track-tab').forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  currentPage = 1;
+  fetchJobs(1);
+}
 
 function setFilter(source, btn) {
   activeSource = source;
