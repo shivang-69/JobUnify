@@ -16,7 +16,7 @@
  */
 
 // ─── Seniority title blacklist ───────────────────────────────────────────────
-const seniorityBlacklist = /\bsenior\b|\bsr\b|\blead\b|\bmanager\b|\barchitect\b|\bprincipal\b|\bdirector\b|\bhead\b|\bexpert\b|\bvp\b|\bavp\b|\bgm\b|\bdgm\b|\bem\b|\bchief\b|\bmid-level\b|\bmid\s+level\b|\bmid\b|\bintermediate\b|\b\w+\s+(III|IV|V)\b/i;
+const seniorityBlacklist = /\bsenior\b|\bsr\b|\blead\b|\bmanager\b|\barchitect\b|\bprincipal\b|\bdirector\b|\bhead\b|\bexpert\b|\bvp\b|\bavp\b|\bgm\b|\bdgm\b|\bem\b|\bchief\b|\bmid-level\b|\bmid\s+level\b|\bmid\b|\bintermediate\b|\b\w+\s+(III|IV|V)\b|\bSDE[- ]?[2-9]\b/i;
 
 // ─── Experience‑description blacklists (≥ 2 years) ──────────────────────────
 //  Each regex targets a different phrasing variant seen in real job postings.
@@ -35,6 +35,8 @@ const expDescBlacklists = [
   /\b(?:experience|exp)\b\s*(?:[2-9]|\d{2,})(?:\.\d+)?\s*\+?\s*(?:years?|yrs?)\b/i,
   // "3+ yrs", "5+ years" (standalone, no keyword prefix)
   /\b(?:[2-9]|\d{2,})\+\s*(?:years?|yrs?)\b/i,
+  // Standalone range where minimum >= 2 e.g. "4-6 Years", "6-7 years", "2 to 5 yrs"
+  /\b(?:[2-9]|\d{2,})\s*(?:-|to)\s*\d+\s*(?:years?|yrs?)\b/i,
 ];
 
 // ─── Positive entry‑level signals ───────────────────────────────────────────
