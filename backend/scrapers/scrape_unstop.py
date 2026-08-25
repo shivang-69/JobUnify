@@ -127,7 +127,8 @@ def scrape():
                         "link": link,  # legacy field
                         "source": "Unstop",
                         "scrapedAt": datetime.now(),
-                        "date_posted": date_posted
+                        "date_posted": date_posted,
+                        "description": item.get("details", "")
                     }
                     if min_exp is not None:
                         job_data["min_experience"] = min_exp
