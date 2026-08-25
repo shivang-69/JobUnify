@@ -42,12 +42,20 @@ router.get('/', async (req, res) => {
     const seniorityBlacklist = /\bsenior\b|\bsr\b|\blead\b|\bmanager\b|\barchitect\b|\bprincipal\b|\bdirector\b|\bhead\b|\bexpert\b|\bvp\b|\bavp\b|\bgm\b|\bdgm\b|\bem\b|\bchief\b|\bmid-level\b|\bmid\s+level\b|\bmid\b|\bintermediate\b/i;
     const expDescBlacklist1 = /\b(?:[2-9]|\d{2,})\+?\s*(?:to|-)?\s*(?:\d+)?\s*years?(?:\s*of)?\s*experience\b/i;
     const expDescBlacklist2 = /\bexperience\b.{0,20}\b(?:[2-9]|\d{2,})\+?\s*years?\b/i;
+    const expDescBlacklist3 = /\b(?:experience|exp)\b\s*:\s*(?:[2-9]|\d{2,})(?:\.\d+)?\s*(?:-|to)\s*(?:\d+(?:\.\d+)?)\s*(?:years?|yrs?)\b/i;
+    const expDescBlacklist4 = /\b(?:experience|exp)\b\s*:\s*(?:[2-9]|\d{2,})(?:\.\d+)?\s*(?:\+)?\s*(?:years?|yrs?)\b/i;
+    const expDescBlacklist5 = /\b(?:[2-9]|\d{2,})(?:\.\d+)?\s*-\s*(?:\d+(?:\.\d+)?)\s*(?:years?|yrs?)\s*(?:exp|experience)\b/i;
+    const expDescBlacklist6 = /\b(?:experience|exp)\b\s*(?:[2-9]|\d{2,})(?:\.\d+)?\s*(?:\+)?\s*(?:years?|yrs?)\b/i;
 
     const experienceFilter = {
       $and: [
         { title: { $not: { $regex: seniorityBlacklist } } },
         { description: { $not: { $regex: expDescBlacklist1 } } },
         { description: { $not: { $regex: expDescBlacklist2 } } },
+        { description: { $not: { $regex: expDescBlacklist3 } } },
+        { description: { $not: { $regex: expDescBlacklist4 } } },
+        { description: { $not: { $regex: expDescBlacklist5 } } },
+        { description: { $not: { $regex: expDescBlacklist6 } } },
         {
           $or: [
             { min_experience: { $exists: false } },
@@ -226,12 +234,20 @@ router.get('/search', async (req, res) => {
     const seniorityBlacklist = /\bsenior\b|\bsr\b|\blead\b|\bmanager\b|\barchitect\b|\bprincipal\b|\bdirector\b|\bhead\b|\bexpert\b|\bvp\b|\bavp\b|\bgm\b|\bdgm\b|\bem\b|\bchief\b|\bmid-level\b|\bmid\s+level\b|\bmid\b|\bintermediate\b/i;
     const expDescBlacklist1 = /\b(?:[2-9]|\d{2,})\+?\s*(?:to|-)?\s*(?:\d+)?\s*years?(?:\s*of)?\s*experience\b/i;
     const expDescBlacklist2 = /\bexperience\b.{0,20}\b(?:[2-9]|\d{2,})\+?\s*years?\b/i;
+    const expDescBlacklist3 = /\b(?:experience|exp)\b\s*:\s*(?:[2-9]|\d{2,})(?:\.\d+)?\s*(?:-|to)\s*(?:\d+(?:\.\d+)?)\s*(?:years?|yrs?)\b/i;
+    const expDescBlacklist4 = /\b(?:experience|exp)\b\s*:\s*(?:[2-9]|\d{2,})(?:\.\d+)?\s*(?:\+)?\s*(?:years?|yrs?)\b/i;
+    const expDescBlacklist5 = /\b(?:[2-9]|\d{2,})(?:\.\d+)?\s*-\s*(?:\d+(?:\.\d+)?)\s*(?:years?|yrs?)\s*(?:exp|experience)\b/i;
+    const expDescBlacklist6 = /\b(?:experience|exp)\b\s*(?:[2-9]|\d{2,})(?:\.\d+)?\s*(?:\+)?\s*(?:years?|yrs?)\b/i;
 
     const experienceFilter = {
       $and: [
         { title: { $not: { $regex: seniorityBlacklist } } },
         { description: { $not: { $regex: expDescBlacklist1 } } },
         { description: { $not: { $regex: expDescBlacklist2 } } },
+        { description: { $not: { $regex: expDescBlacklist3 } } },
+        { description: { $not: { $regex: expDescBlacklist4 } } },
+        { description: { $not: { $regex: expDescBlacklist5 } } },
+        { description: { $not: { $regex: expDescBlacklist6 } } },
         {
           $or: [
             { min_experience: { $exists: false } },
