@@ -121,9 +121,18 @@ router.get('/', async (req, res) => {
     const skip = (parseInt(page) - 1) * parseInt(limit);
     const jobs = await mongoose.connection.db
       .collection('jobs')
-      .find(filter)
-      .skip(skip)
-      .limit(parseInt(limit))
+      .aggregate([
+        { $match: filter },
+        {
+          $addFields: {
+            isLinkedIn: { $cond: { if: { $eq: ["$source", "LinkedIn"] }, then: 1, else: 0 } },
+            sortDate: { $ifNull: ["$date_posted", "$scrapedAt"] }
+          }
+        },
+        { $sort: { isLinkedIn: 1, sortDate: -1 } },
+        { $skip: skip },
+        { $limit: parseInt(limit) }
+      ])
       .toArray();
 
     const total = await mongoose.connection.db
