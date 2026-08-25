@@ -3,6 +3,7 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const fs = require('fs');
 const path = require('path');
+const { isEntryLevel } = require('../utils/experienceFilter');
 
 router.get('/count', async (req, res) => {
   try {
@@ -39,33 +40,7 @@ router.get('/', async (req, res) => {
       ]
     };
 
-    const seniorityBlacklist = /\bsenior\b|\bsr\b|\blead\b|\bmanager\b|\barchitect\b|\bprincipal\b|\bdirector\b|\bhead\b|\bexpert\b|\bvp\b|\bavp\b|\bgm\b|\bdgm\b|\bem\b|\bchief\b|\bmid-level\b|\bmid\s+level\b|\bmid\b|\bintermediate\b/i;
-    const expDescBlacklist1 = /\b(?:[2-9]|\d{2,})\+?\s*(?:to|-)?\s*(?:\d+)?\s*years?(?:\s*of)?\s*experience\b/i;
-    const expDescBlacklist2 = /\bexperience\b.{0,20}\b(?:[2-9]|\d{2,})\+?\s*years?\b/i;
-    const expDescBlacklist3 = /\b(?:experience|exp)\b\s*:\s*(?:[2-9]|\d{2,})(?:\.\d+)?\s*(?:-|to)\s*(?:\d+(?:\.\d+)?)\s*(?:years?|yrs?)\b/i;
-    const expDescBlacklist4 = /\b(?:experience|exp)\b\s*:\s*(?:[2-9]|\d{2,})(?:\.\d+)?\s*(?:\+)?\s*(?:years?|yrs?)\b/i;
-    const expDescBlacklist5 = /\b(?:[2-9]|\d{2,})(?:\.\d+)?\s*-\s*(?:\d+(?:\.\d+)?)\s*(?:years?|yrs?)\s*(?:exp|experience)\b/i;
-    const expDescBlacklist6 = /\b(?:experience|exp)\b\s*(?:[2-9]|\d{2,})(?:\.\d+)?\s*(?:\+)?\s*(?:years?|yrs?)\b/i;
-
-    const experienceFilter = {
-      $and: [
-        { title: { $not: { $regex: seniorityBlacklist } } },
-        // Apply each blacklist to both description and experience_raw
-        { $or: [ { description: { $not: { $regex: expDescBlacklist1 } } }, { experience_raw: { $not: { $regex: expDescBlacklist1 } } } ] },
-        { $or: [ { description: { $not: { $regex: expDescBlacklist2 } } }, { experience_raw: { $not: { $regex: expDescBlacklist2 } } } ] },
-        { $or: [ { description: { $not: { $regex: expDescBlacklist3 } } }, { experience_raw: { $not: { $regex: expDescBlacklist3 } } } ] },
-        { $or: [ { description: { $not: { $regex: expDescBlacklist4 } } }, { experience_raw: { $not: { $regex: expDescBlacklist4 } } } ] },
-        { $or: [ { description: { $not: { $regex: expDescBlacklist5 } } }, { experience_raw: { $not: { $regex: expDescBlacklist5 } } } ] },
-        { $or: [ { description: { $not: { $regex: expDescBlacklist6 } } }, { experience_raw: { $not: { $regex: expDescBlacklist6 } } } ] },
-        {
-          $or: [
-            { min_experience: { $exists: false } },
-            { min_experience: null },
-            { min_experience: { $lt: 2 } }
-          ]
-        }
-      ]
-    };
+    // Experience filtering is now done in application code via isEntryLevel()
     
     let conditions = [];
     if (source) conditions.push({ source });
@@ -170,12 +145,11 @@ router.get('/', async (req, res) => {
     });
 
     conditions.push(csFilter);
-    conditions.push(experienceFilter);
 
     const filter = { $and: conditions };
 
-    const skip = (parseInt(page) - 1) * parseInt(limit);
-    const jobs = await mongoose.connection.db
+    // Fetch candidate jobs from DB (without experience filter)
+    const candidateJobs = await mongoose.connection.db
       .collection('jobs')
       .aggregate([
         { $match: filter },
@@ -185,15 +159,17 @@ router.get('/', async (req, res) => {
             sortDate: { $ifNull: ["$date_posted", "$scrapedAt"] }
           }
         },
-        { $sort: { isLinkedIn: 1, sortDate: -1 } },
-        { $skip: skip },
-        { $limit: parseInt(limit) }
+        { $sort: { isLinkedIn: 1, sortDate: -1 } }
       ])
       .toArray();
 
-    const total = await mongoose.connection.db
-      .collection('jobs')
-      .countDocuments(filter);
+    // Apply experience filter in application code
+    const filtered = candidateJobs.filter(job => isEntryLevel(job).include);
+    const total = filtered.length;
+
+    // Apply pagination on filtered results
+    const skip = (parseInt(page) - 1) * parseInt(limit);
+    const jobs = filtered.slice(skip, skip + parseInt(limit));
 
     res.json({
       jobs,
@@ -230,38 +206,7 @@ router.get('/search', async (req, res) => {
       $and: [
         { title: { $not: { $regex: csBlacklist } } }
       ]
-    };
-
-    const seniorityBlacklist = /\bsenior\b|\bsr\b|\blead\b|\bmanager\b|\barchitect\b|\bprincipal\b|\bdirector\b|\bhead\b|\bexpert\b|\bvp\b|\bavp\b|\bgm\b|\bdgm\b|\bem\b|\bchief\b|\bmid-level\b|\bmid\s+level\b|\bmid\b|\bintermediate\b/i;
-    const expDescBlacklist1 = /\b(?:[2-9]|\d{2,})\+?\s*(?:to|-)?\s*(?:\d+)?\s*years?(?:\s*of)?\s*experience\b/i;
-    const expDescBlacklist2 = /\bexperience\b.{0,20}\b(?:[2-9]|\d{2,})\+?\s*years?\b/i;
-    const expDescBlacklist3 = /\b(?:experience|exp)\b\s*:\s*(?:[2-9]|\d{2,})(?:\.\d+)?\s*(?:-|to)\s*(?:\d+(?:\.\d+)?)\s*(?:years?|yrs?)\b/i;
-    const expDescBlacklist4 = /\b(?:experience|exp)\b\s*:\s*(?:[2-9]|\d{2,})(?:\.\d+)?\s*(?:\+)?\s*(?:years?|yrs?)\b/i;
-    const expDescBlacklist5 = /\b(?:[2-9]|\d{2,})(?:\.\d+)?\s*-\s*(?:\d+(?:\.\d+)?)\s*(?:years?|yrs?)\s*(?:exp|experience)\b/i;
-    const expDescBlacklist6 = /\b(?:experience|exp)\b\s*(?:[2-9]|\d{2,})(?:\.\d+)?\s*(?:\+)?\s*(?:years?|yrs?)\b/i;
-
-    const experienceFilter = {
-      $and: [
-        { title: { $not: { $regex: seniorityBlacklist } } },
-        { description: { $not: { $regex: expDescBlacklist1 } } },
-        { description: { $not: { $regex: expDescBlacklist2 } } },
-        { description: { $not: { $regex: expDescBlacklist3 } } },
-        { description: { $not: { $regex: expDescBlacklist4 } } },
-        { description: { $not: { $regex: expDescBlacklist5 } } },
-        { description: { $not: { $regex: expDescBlacklist6 } } },
-        { experience_raw: { $not: { $regex: expDescBlacklist3 } } },
-        { experience_raw: { $not: { $regex: expDescBlacklist4 } } },
-        { experience_raw: { $not: { $regex: expDescBlacklist5 } } },
-        { experience_raw: { $not: { $regex: expDescBlacklist6 } } },
-        {
-          $or: [
-            { min_experience: { $exists: false } },
-            { min_experience: null },
-            { min_experience: { $lt: 2 } }
-          ]
-        }
-      ]
-    };
+    };    // Experience filtering is now done in application code via isEntryLevel()
 
     const todayStr = new Date().toISOString().split('T')[0];
 
@@ -356,8 +301,7 @@ router.get('/search', async (req, res) => {
       filter = {
         $and: [
           freshnessFilter,
-          csFilter,
-          experienceFilter
+          csFilter
         ]
       };
     } else {
@@ -366,17 +310,19 @@ router.get('/search', async (req, res) => {
         $and: [
           freshnessFilter,
           csFilter,
-          experienceFilter,
           { $or: [ { title: regex }, { company: regex }, { location: regex } ] }
         ]
       };
     }
 
     console.log('Search query:', q);
-    const jobs = await mongoose.connection.db
+    const candidateJobs = await mongoose.connection.db
       .collection('jobs')
       .find(filter)
       .toArray();
+    
+    // Apply experience filter in application code
+    const jobs = candidateJobs.filter(job => isEntryLevel(job).include);
     console.log('Found jobs count:', jobs.length);
     logSearch(q, jobs.length);
     res.json({ jobs, total: jobs.length });
