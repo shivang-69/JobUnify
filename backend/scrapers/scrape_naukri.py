@@ -46,6 +46,7 @@ def scrape():
             "app_id": ADZUNA_APP_ID,
             "app_key": ADZUNA_APP_KEY,
             "what": QUERY,
+            "category": "it-jobs",
             "results_per_page": RESULTS_PER_PAGE,
             "content-type": "application/json"
         }

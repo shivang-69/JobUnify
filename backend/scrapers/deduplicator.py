@@ -12,7 +12,9 @@ def deduplicate():
     for job in all_jobs:
         title_key = (job.get("title") or "").strip().lower()
         company_key = (job.get("company") or "").strip().lower()
-        key = f"{title_key} @ {company_key}"
+        location_key = (job.get("location") or "").strip().lower()
+        duration_key = (job.get("duration") or "").strip().lower()
+        key = f"{title_key} @ {company_key} @ {location_key} @ {duration_key}"
         
         if key in seen:
             duplicates_to_delete.append(job["_id"])
