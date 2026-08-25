@@ -21,7 +21,7 @@ def scrape():
     except Exception as e:
         print(f"Failed to clear old jobs: {e}")
 
-    for page in range(1, 11):
+    for page in range(1, 16):
         url = "https://unstop.com/api/public/opportunity/search-result"
         params = {
             "opportunity": "jobs",

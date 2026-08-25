@@ -55,8 +55,8 @@ def scrape():
     except Exception as e:
         print(f"Failed to clear old jobs: {e}")
 
-    for page in range(1, 6):
-        url = f"https://internshala.com/internships/page-{page}/"
+    for page in range(1, 11):
+        url = f"https://internshala.com/internships/computer-science-internship/page-{page}/"
         headers = {
             "User-Agent": random.choice(USER_AGENTS),
             "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",

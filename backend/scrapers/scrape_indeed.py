@@ -42,7 +42,7 @@ def scrape():
     for page in range(1, 26):
         print(f"Fetching JSearch API page {page}...")
         params = {
-            "query": "software developer jobs in India",
+            "query": '"Software Engineer" OR "SDE" OR "Developer" OR "DevOps" OR "Data Analyst" OR "Data Scientist" OR "QA" OR "ML" OR "Cloud" OR "Cybersecurity" OR "IT Support" in India',
             "page": str(page),
             "num_pages": "1"
         }

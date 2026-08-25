@@ -35,12 +35,12 @@ def scrape():
 
     BASE_URL = "https://api.adzuna.com/v1/api/jobs/in/search"
     RESULTS_PER_PAGE = 50
-    QUERY = "software developer"
+    QUERY = "developer"
 
     total_saved = 0
     all_jobs = []
 
-    for page in range(1, 6):
+    for page in range(1, 16):
         url = f"{BASE_URL}/{page}"
         params = {
             "app_id": ADZUNA_APP_ID,
