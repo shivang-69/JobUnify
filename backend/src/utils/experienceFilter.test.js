@@ -207,6 +207,17 @@ describe('Category 5: Internship postings', () => {
     expect(result.include).toBe(true);
     expect(result.status).toBe('entry_level');
   });
+
+  test('Internshala posting with source: "Internshala" → should PASS', () => {
+    const result = isEntryLevel({
+      title: 'Web Development',
+      company: 'Nynex Realty',
+      source: 'Internshala',
+      job_url: 'https://internshala.com/internship/detail/web-development-internship123',
+    });
+    expect(result.include).toBe(true);
+    expect(result.status).toBe('entry_level');
+  });
 });
 
 // ═══════════════════════════════════════════════════════════════════════════

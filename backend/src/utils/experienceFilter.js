@@ -59,19 +59,32 @@ const experienceInfoDetector = /\b\d+\s*(?:[+-]|to)?\s*\d*\s*(?:years?|yrs?)\b/i
 /**
  * Determines whether a job should be classified as entry‑level.
  *
- * @param {{title:string, description?:string, experience_raw?:string, min_experience?:number|null}} job
+ * @param {{title:string, description?:string, experience_raw?:string, min_experience?:number|null, source?:string, type?:string, job_url?:string, link?:string}} job
  * @returns {{include:boolean, status:'entry_level'|'senior'|'unknown'}}
  */
 function isEntryLevel(job) {
   const title = job.title || '';
-  const text = `${job.description || ''}\n${job.experience_raw || ''}`;
+  const source = job.source || '';
+  const type = job.type || '';
+  const jobUrl = job.job_url || job.link || '';
+  const text = `${title}\n${job.description || ''}\n${job.experience_raw || ''}\n${type}\n${jobUrl}`;
 
   // ── Step 1: Title blacklist ────────────────────────────────────────────
   if (seniorityBlacklist.test(title)) {
     return { include: false, status: 'senior' };
   }
 
-  // ── Step 2: Numeric min_experience field ───────────────────────────────
+  // ── Step 2: Source/Type/URL Internship Signal ──────────────────────────
+  if (
+    source === 'Internshala' ||
+    /internship/i.test(type) ||
+    /internship/i.test(jobUrl) ||
+    /\binternship\b/i.test(title)
+  ) {
+    return { include: true, status: 'entry_level' };
+  }
+
+  // ── Step 3: Numeric min_experience field ───────────────────────────────
   if (typeof job.min_experience === 'number') {
     if (job.min_experience >= 2) {
       return { include: false, status: 'senior' };
@@ -80,29 +93,28 @@ function isEntryLevel(job) {
     return { include: true, status: 'entry_level' };
   }
 
-  // ── Step 3: Check for explicit entry‑level signals ─────────────────────
+  // ── Step 4: Check for explicit entry‑level signals ─────────────────────
   for (const re of entryLevelSignals) {
     if (re.test(text)) {
       return { include: true, status: 'entry_level' };
     }
   }
 
-  // ── Step 4: Check for senior‑experience blacklists ─────────────────────
+  // ── Step 5: Check for senior‑experience blacklists ─────────────────────
   for (const re of expDescBlacklists) {
     if (re.test(text)) {
       return { include: false, status: 'senior' };
     }
   }
 
-  // ── Step 5: Check if ANY experience info is present at all ─────────────
+  // ── Step 6: Check if ANY experience info is present at all ─────────────
   if (experienceInfoDetector.test(text)) {
     // There IS experience info, but it wasn't caught by blacklists or
-    // entry‑level signals.  This likely means it's in range 1–1 or similar
-    // edge cases.  Include it (it wasn't flagged as senior).
+    // entry‑level signals. Include it (it wasn't flagged as senior).
     return { include: true, status: 'entry_level' };
   }
 
-  // ── Step 6: Fail‑closed — no experience information at all ─────────────
+  // ── Step 7: Fail‑closed — no experience information at all ─────────────
   return { include: false, status: 'unknown' };
 }
 
