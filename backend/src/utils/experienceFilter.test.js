@@ -408,3 +408,86 @@ describe('Category 9: Edge cases', () => {
     expect(result.status).toBe('entry_level');
   });
 });
+
+// ═══════════════════════════════════════════════════════════════════════════
+// Category 10: Standalone range leak fixes (commit e2067bc)
+// ═══════════════════════════════════════════════════════════════════════════
+
+describe('Category 10: Standalone range leak fixes', () => {
+  test('Standalone senior range "4-6 Years" in experience_raw → should FAIL', () => {
+    const result = isEntryLevel({
+      title: 'Fullstack Developer',
+      description: 'Build backend microservices.',
+      experience_raw: '4-6 Years',
+      min_experience: null,
+    });
+    expect(result.include).toBe(false);
+    expect(result.status).toBe('senior');
+  });
+
+  test('Standalone senior range "6-7 years" in experience_raw → should FAIL', () => {
+    const result = isEntryLevel({
+      title: 'Java Developer',
+      description: 'Spring Boot backend development.',
+      experience_raw: '6-7 years',
+      min_experience: null,
+    });
+    expect(result.include).toBe(false);
+    expect(result.status).toBe('senior');
+  });
+
+  test('Standalone senior range "7 -11 Years" in experience_raw → should FAIL', () => {
+    const result = isEntryLevel({
+      title: 'Java Fullstack Developer',
+      description: 'Enterprise platform development.',
+      experience_raw: '7 -11 Years',
+      min_experience: null,
+    });
+    expect(result.include).toBe(false);
+    expect(result.status).toBe('senior');
+  });
+
+  test('Title "SDE-2 Fullstack" → should FAIL (senior title)', () => {
+    const result = isEntryLevel({
+      title: 'SDE-2 Fullstack (Python/Java and Vue.js)',
+      description: 'Build web applications.',
+      experience_raw: null,
+      min_experience: null,
+    });
+    expect(result.include).toBe(false);
+    expect(result.status).toBe('senior');
+  });
+
+  test('Standalone entry-level range "0-1 years" in experience_raw → should PASS', () => {
+    const result = isEntryLevel({
+      title: 'Python Developer',
+      description: 'Entry level role.',
+      experience_raw: '0-1 years',
+      min_experience: null,
+    });
+    expect(result.include).toBe(true);
+    expect(result.status).toBe('entry_level');
+  });
+
+  test('Standalone entry-level range "0-2 years" in experience_raw → should PASS', () => {
+    const result = isEntryLevel({
+      title: 'Frontend Developer',
+      description: 'React developer position.',
+      experience_raw: '0-2 years',
+      min_experience: null,
+    });
+    expect(result.include).toBe(true);
+    expect(result.status).toBe('entry_level');
+  });
+
+  test('Standalone entry-level range "1-2 years" in experience_raw → should PASS', () => {
+    const result = isEntryLevel({
+      title: 'Junior Developer',
+      description: 'Software engineering team.',
+      experience_raw: '1-2 years',
+      min_experience: null,
+    });
+    expect(result.include).toBe(true);
+    expect(result.status).toBe('entry_level');
+  });
+});
