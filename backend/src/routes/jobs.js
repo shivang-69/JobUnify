@@ -50,12 +50,13 @@ router.get('/', async (req, res) => {
     const experienceFilter = {
       $and: [
         { title: { $not: { $regex: seniorityBlacklist } } },
-        { description: { $not: { $regex: expDescBlacklist1 } } },
-        { description: { $not: { $regex: expDescBlacklist2 } } },
-        { description: { $not: { $regex: expDescBlacklist3 } } },
-        { description: { $not: { $regex: expDescBlacklist4 } } },
-        { description: { $not: { $regex: expDescBlacklist5 } } },
-        { description: { $not: { $regex: expDescBlacklist6 } } },
+        // Apply each blacklist to both description and experience_raw
+        { $or: [ { description: { $not: { $regex: expDescBlacklist1 } } }, { experience_raw: { $not: { $regex: expDescBlacklist1 } } } ] },
+        { $or: [ { description: { $not: { $regex: expDescBlacklist2 } } }, { experience_raw: { $not: { $regex: expDescBlacklist2 } } } ] },
+        { $or: [ { description: { $not: { $regex: expDescBlacklist3 } } }, { experience_raw: { $not: { $regex: expDescBlacklist3 } } } ] },
+        { $or: [ { description: { $not: { $regex: expDescBlacklist4 } } }, { experience_raw: { $not: { $regex: expDescBlacklist4 } } } ] },
+        { $or: [ { description: { $not: { $regex: expDescBlacklist5 } } }, { experience_raw: { $not: { $regex: expDescBlacklist5 } } } ] },
+        { $or: [ { description: { $not: { $regex: expDescBlacklist6 } } }, { experience_raw: { $not: { $regex: expDescBlacklist6 } } } ] },
         {
           $or: [
             { min_experience: { $exists: false } },
@@ -248,6 +249,10 @@ router.get('/search', async (req, res) => {
         { description: { $not: { $regex: expDescBlacklist4 } } },
         { description: { $not: { $regex: expDescBlacklist5 } } },
         { description: { $not: { $regex: expDescBlacklist6 } } },
+        { experience_raw: { $not: { $regex: expDescBlacklist3 } } },
+        { experience_raw: { $not: { $regex: expDescBlacklist4 } } },
+        { experience_raw: { $not: { $regex: expDescBlacklist5 } } },
+        { experience_raw: { $not: { $regex: expDescBlacklist6 } } },
         {
           $or: [
             { min_experience: { $exists: false } },
