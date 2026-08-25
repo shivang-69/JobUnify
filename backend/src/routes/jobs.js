@@ -52,12 +52,16 @@ router.get('/', async (req, res) => {
       });
     }
 
-    // Freshness & expiration conditions: LinkedIn = 2 days, Others = 7 days
+    // Freshness & expiration conditions: LinkedIn = 2 days, Naukri = 4 days, Others = 7 days
     const todayStr = new Date().toISOString().split('T')[0];
     
     const sevenDaysAgo = new Date();
     sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
     const sevenDaysAgoStr = sevenDaysAgo.toISOString().split('T')[0];
+
+    const fourDaysAgo = new Date();
+    fourDaysAgo.setDate(fourDaysAgo.getDate() - 4);
+    const fourDaysAgoStr = fourDaysAgo.toISOString().split('T')[0];
 
     const twoDaysAgo = new Date();
     twoDaysAgo.setDate(twoDaysAgo.getDate() - 2);
@@ -90,7 +94,30 @@ router.get('/', async (req, res) => {
         },
         {
           $and: [
-            { source: { $ne: "LinkedIn" } },
+            { source: "Naukri" },
+            {
+              $or: [
+                { date_posted: { $gte: fourDaysAgoStr } },
+                { expiration_date: { $gte: todayStr } },
+                {
+                  $and: [
+                    { date_posted: { $not: { $gte: "0000-00-00" } } },
+                    { expiration_date: { $exists: false } },
+                    {
+                      $or: [
+                        { scrapedAt: { $gte: fourDaysAgo } },
+                        { scrapedAt: { $gte: fourDaysAgo.toISOString() } }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          $and: [
+            { source: { $nin: ["LinkedIn", "Naukri"] } },
             {
               $or: [
                 { date_posted: { $gte: sevenDaysAgoStr } },
@@ -182,6 +209,10 @@ router.get('/search', async (req, res) => {
     sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
     const sevenDaysAgoStr = sevenDaysAgo.toISOString().split('T')[0];
 
+    const fourDaysAgo = new Date();
+    fourDaysAgo.setDate(fourDaysAgo.getDate() - 4);
+    const fourDaysAgoStr = fourDaysAgo.toISOString().split('T')[0];
+
     const twoDaysAgo = new Date();
     twoDaysAgo.setDate(twoDaysAgo.getDate() - 2);
     const twoDaysAgoStr = twoDaysAgo.toISOString().split('T')[0];
@@ -213,7 +244,30 @@ router.get('/search', async (req, res) => {
         },
         {
           $and: [
-            { source: { $ne: "LinkedIn" } },
+            { source: "Naukri" },
+            {
+              $or: [
+                { date_posted: { $gte: fourDaysAgoStr } },
+                { expiration_date: { $gte: todayStr } },
+                {
+                  $and: [
+                    { date_posted: { $not: { $gte: "0000-00-00" } } },
+                    { expiration_date: { $exists: false } },
+                    {
+                      $or: [
+                        { scrapedAt: { $gte: fourDaysAgo } },
+                        { scrapedAt: { $gte: fourDaysAgo.toISOString() } }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          $and: [
+            { source: { $nin: ["LinkedIn", "Naukri"] } },
             {
               $or: [
                 { date_posted: { $gte: sevenDaysAgoStr } },
