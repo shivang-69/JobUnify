@@ -249,7 +249,10 @@ function buildJobCard(job) {
         <div class="stipend">
           ${job.stipend || job.salary || 'Not disclosed'}
         </div>
-          ${job.job_url ? `<a href="#" onclick="handleApply(event, '${job.job_url}')" class="apply-btn">Apply →</a>` : `<button class="apply-btn" disabled>Not Available</button>`}
+          <div style="display:flex; gap:8px;">
+            ${job.job_url ? `<a href="#" onclick="handleApply(event, '${job.job_url}')" class="apply-btn">Apply →</a>` : `<button class="apply-btn" disabled>Not Available</button>`}
+            <a href="https://jobunify.onrender.com/api/jobs/detail/${job._id}" target="_blank" class="details-btn" style="text-decoration:none; padding:8px 12px; border-radius:6px; background:#475569; color:#fff; font-size:0.875rem; font-weight:500; display:inline-flex; align-items:center; transition:background 0.2s;" onmouseover="this.style.background='#334155'" onmouseout="this.style.background='#475569'">Details</a>
+          </div>
       </div>
     </div>
   `;
