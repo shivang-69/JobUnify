@@ -15,7 +15,7 @@ sys.path.append(SCRAPERS_DIR)
 import scrape_internshala
 import scrape_unstop
 import scrape_naukri
-import scrape_indeed
+import scrape_google_jobs
 import deduplicator
 from config import get_jobs_collection
 
@@ -36,7 +36,7 @@ def run_scrapers():
         "Internshala": 0,
         "Unstop": 0,
         "Naukri": 0,
-        "Indeed": 0
+        "GoogleJobs": 0
     }
     
     # 1. Internshala
@@ -66,14 +66,14 @@ def run_scrapers():
     except Exception as e:
         logger.error(f"ERROR: Naukri scraper failed: {e}")
         
-    # 4. Indeed
+    # 4. GoogleJobs
     t_start = datetime.datetime.now()
-    logger.info(f"Starting Indeed scraper at {t_start}")
+    logger.info(f"Starting GoogleJobs scraper at {t_start}")
     try:
-        results["Indeed"] = scrape_indeed.scrape()
-        logger.info(f"Completed Indeed scraper at {datetime.datetime.now()}. Saved: {results['Indeed']}")
+        results["GoogleJobs"] = scrape_google_jobs.scrape()
+        logger.info(f"Completed GoogleJobs scraper at {datetime.datetime.now()}. Saved: {results['GoogleJobs']}")
     except Exception as e:
-        logger.error(f"ERROR: Indeed scraper failed: {e}")
+        logger.error(f"ERROR: GoogleJobs scraper failed: {e}")
         
     logger.info("Running deduplication...")
     try:

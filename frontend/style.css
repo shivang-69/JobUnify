@@ -500,10 +500,10 @@ nav {
   border: 1px solid rgba(56, 189, 248, 0.2);
 }
 
-.source-indeed {
-  background: rgba(244, 114, 182, 0.12);
-  color: var(--pink);
-  border: 1px solid rgba(244, 114, 182, 0.2);
+.source-googlejobs {
+  background: rgba(108, 99, 255, 0.12);
+  color: #6c63ff;
+  border: 1px solid rgba(108, 99, 255, 0.2);
 }
 
 .job-title {

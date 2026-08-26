@@ -1,6 +1,6 @@
 # JobUnify
 
-A job aggregator that pulls listings from Internshala, Unstop, Naukri and Indeed in one place — filtered for freshers.
+A job aggregator that pulls listings from Internshala, Unstop, Naukri and Google Jobs in one place — filtered for freshers.
 
 ## 🔗 Live Demo
 
@@ -13,7 +13,7 @@ A job aggregator that pulls listings from Internshala, Unstop, Naukri and Indeed
 - **Backend:** Node.js + Express
 - **Database:** MongoDB Atlas
 - **Auth:** JWT + Google OAuth
-- **Scrapers:** Python (Playwright, Requests, Adzuna API, JSearch API)
+- **Scrapers:** Python (Playwright, Requests, Adzuna API, SerpApi)
 - **Deployment:** Vercel (frontend) + Render (backend)
 
 ## Features

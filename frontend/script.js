@@ -211,7 +211,7 @@ function buildJobCard(job) {
     'Internshala': '#22c55e',
     'Unstop': '#f97316',
     'Naukri': '#38bdf8',
-    'Indeed': '#f472b6'
+    'GoogleJobs': '#6c63ff'
   };
   const logoBg = colors[source] || '#6c63ff';
   const isSaved = savedJobIds.includes(job._id);
