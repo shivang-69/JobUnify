@@ -337,33 +337,7 @@ function renderJobs(jobs) {
   grid.innerHTML = jobs.map(buildJobCard).join('');
 }
 
-async function updateStats() {
-  const jobsTodayEl = document.getElementById('stat-jobs-today');
-  const platformsEl = document.getElementById('stat-platforms');
-  if (!jobsTodayEl && !platformsEl) return;
 
-  try {
-    const res = await fetch(`${API_BASE_URL}/api/jobs/count`);
-    const data = await res.json();
-
-    if (jobsTodayEl) {
-      const count = data.total;
-      if (count >= 1000) {
-        const formatted = (count / 1000).toFixed(1);
-        const cleanFormatted = formatted.endsWith('.0') ? formatted.slice(0, -2) : formatted;
-        jobsTodayEl.innerHTML = `${cleanFormatted}<span>K+</span>`;
-      } else {
-        jobsTodayEl.textContent = count;
-      }
-    }
-
-    if (platformsEl) {
-      platformsEl.textContent = data.platformsCount;
-    }
-  } catch (error) {
-    console.error('Error fetching job count:', error);
-  }
-}
 
 async function fetchSavedJobs() {
   const token = localStorage.getItem("jobunify_token");
@@ -480,7 +454,6 @@ async function toggleSaveJob(event, jobId) {
     // Async sync with backend details
     await fetchSavedJobs();
     fetchJobs(1);
-    updateStats();
     syncUserProfile();
   });
 
