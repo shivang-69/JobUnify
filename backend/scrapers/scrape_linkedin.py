@@ -59,7 +59,7 @@ def scrape():
                     "location": location,
                     "job_url": job_url,
                     "source": "LinkedIn",
-                    "scrapedAt": datetime.utcnow().isoformat(),
+                    "scrapedAt": datetime.utcnow(),
                 }
                 collection.update_one(
                     {"job_url": job_url},

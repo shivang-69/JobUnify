@@ -175,7 +175,7 @@ def scrape():
                 "experience_raw": experience_raw,
                 "job_track": job_track,
                 "source": "Naukri",
-                "scrapedAt": datetime.utcnow().isoformat()
+                "scrapedAt": datetime.utcnow()
             }
             # Upsert using title, company, job_url as unique key
             try:
