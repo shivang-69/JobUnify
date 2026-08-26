@@ -8,6 +8,57 @@ const { isPaidInternship } = require('../utils/stipendFilter');
 const { buildFreshnessFilter } = require('../utils/freshnessFilter');
 const { formatPostedDate } = require('../utils/dateFormatter');
 
+function parseSalary(salaryStr) {
+  if (!salaryStr || typeof salaryStr !== 'string') return null;
+  const s = salaryStr.toLowerCase();
+  if (s.includes('not disclosed') || s.includes('unpaid') || s.includes('competitive') || s.includes('best in industry')) {
+    return null;
+  }
+
+  // Remove commas to avoid splitting numbers like 10,000
+  const cleanStr = s.replace(/,/g, '');
+  
+  // Match numbers (including decimals)
+  const matches = cleanStr.match(/\d+(\.\d+)?/g);
+  if (!matches || matches.length === 0) return null;
+
+  let numbers = matches.map(Number);
+
+  // Check if it is LPA / Lakhs Per Annum
+  const isLpa = s.includes('lpa') || s.includes('lakh') || s.includes('lac') || s.includes('annum') || s.includes('annual');
+
+  if (isLpa) {
+    // If it's lakh/LPA, multiply numbers < 100 by 100,000 (e.g. 3.6 -> 360000)
+    numbers = numbers.map(n => n < 100 ? n * 100000 : n);
+  }
+
+  // Filter out any numbers that are too small to be a monthly or annual salary/stipend
+  const validNumbers = numbers.filter(n => n >= 500);
+  if (validNumbers.length === 0) return null;
+
+  let minVal, maxVal;
+  if (validNumbers.length === 1) {
+    minVal = validNumbers[0];
+    maxVal = validNumbers[0];
+  } else {
+    minVal = Math.min(...validNumbers);
+    maxVal = Math.max(...validNumbers);
+  }
+
+  const unitText = isLpa ? "YEAR" : "MONTH";
+
+  return {
+    "@type": "MonetaryAmount",
+    "currency": "INR",
+    "value": {
+      "@type": "QuantitativeValue",
+      "minValue": minVal,
+      "maxValue": maxVal,
+      "unitText": unitText
+    }
+  };
+}
+
 router.get('/count', async (req, res) => {
   try {
     const total = await mongoose.connection.db
@@ -160,13 +211,19 @@ router.get('/', async (req, res) => {
           "@type": "Place",
           "address": {
             "@type": "PostalAddress",
-            "addressLocality": job.location || 'Location'
+            "addressLocality": job.location || 'Location',
+            "addressCountry": "India"
           }
         },
         "employmentType": job.type || (job.track === 'internship' ? 'INTERNSHIP' : 'FULL_TIME'),
         "directApply": true,
-        "url": job.job_url || ''
+        "url": `https://jobunify.onrender.com/api/jobs/detail/${job._id}`
       };
+
+      const salaryData = parseSalary(job.stipend || job.salary);
+      if (salaryData) {
+        jsonLd.baseSalary = salaryData;
+      }
 
       const html = `<!DOCTYPE html>
 <html lang="en">
