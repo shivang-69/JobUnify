@@ -58,6 +58,8 @@ router.get('/', async (req, res) => {
     }
     conditions.push(buildFreshnessFilter());
     conditions.push(csFilter);
+    // Exclude retired sources — data preserved in DB but not served
+    conditions.push({ source: { $nin: ['Unstop', 'LinkedIn'] } });
 
     const filter = { $and: conditions };
 
@@ -246,12 +248,16 @@ router.get('/search', async (req, res) => {
       ]
     };
 
+    // Exclude retired sources in all query branches
+    const retiredSourceFilter = { source: { $nin: ['Unstop', 'LinkedIn'] } };
+
     let filter;
     if (!q) {
       filter = {
         $and: [
           freshnessFilter,
-          csFilter
+          csFilter,
+          retiredSourceFilter
         ]
       };
     } else {
@@ -260,6 +266,7 @@ router.get('/search', async (req, res) => {
         $and: [
           freshnessFilter,
           csFilter,
+          retiredSourceFilter,
           { $or: [ { title: regex }, { company: regex }, { location: regex } ] }
         ]
       };

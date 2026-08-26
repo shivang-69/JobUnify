@@ -13,7 +13,7 @@ SCRAPERS_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'scraper
 sys.path.append(SCRAPERS_DIR)
 
 import scrape_internshala
-import scrape_unstop
+# import scrape_unstop  # RETIRED — Unstop disabled. Data preserved in MongoDB.
 import scrape_naukri
 import scrape_google_jobs
 import deduplicator
@@ -34,7 +34,6 @@ def run_scrapers():
     
     results = {
         "Internshala": 0,
-        "Unstop": 0,
         "Naukri": 0,
         "GoogleJobs": 0
     }
@@ -48,14 +47,10 @@ def run_scrapers():
     except Exception as e:
         logger.error(f"ERROR: Internshala scraper failed: {e}")
         
-    # 2. Unstop
-    t_start = datetime.datetime.now()
-    logger.info(f"Starting Unstop scraper at {t_start}")
-    try:
-        results["Unstop"] = scrape_unstop.scrape()
-        logger.info(f"Completed Unstop scraper at {datetime.datetime.now()}. Saved: {results['Unstop']}")
-    except Exception as e:
-        logger.error(f"ERROR: Unstop scraper failed: {e}")
+    # 2. Unstop — RETIRED (disabled, data preserved)
+    # t_start = datetime.datetime.now()
+    # results["Unstop"] = scrape_unstop.scrape()
+        
         
     # 3. Naukri
     t_start = datetime.datetime.now()

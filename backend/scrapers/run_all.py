@@ -5,7 +5,7 @@ import os
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 import scrape_internshala
-import scrape_unstop
+# import scrape_unstop  # RETIRED — Unstop disabled. Data preserved in MongoDB.
 import scrape_naukri
 import scrape_google_jobs
 import deduplicator
@@ -17,7 +17,6 @@ def main():
     
     results = {
         "Internshala": 0,
-        "Unstop": 0,
         "Naukri": 0,
         "GoogleJobs": 0
     }
@@ -28,19 +27,13 @@ def main():
     except Exception as e:
         print(f"ERROR: Internshala scraper failed: {e}\n")
         
-    # 2. Unstop
-    try:
-        results["Unstop"] = scrape_unstop.scrape()
-    except Exception as e:
-        print(f"ERROR: Unstop scraper failed: {e}\n")
-        
-    # 3. Naukri
+    # 2. Naukri
     try:
         results["Naukri"] = scrape_naukri.scrape()
     except Exception as e:
         print(f"ERROR: Naukri scraper failed: {e}\n")
         
-    # 4. GoogleJobs (SerpApi replacement for Indeed/LinkedIn)
+    # 3. GoogleJobs (SerpApi — replaces Indeed/LinkedIn, quota-throttled to once/day)
     try:
         results["GoogleJobs"] = scrape_google_jobs.scrape()
     except Exception as e:
@@ -63,7 +56,6 @@ def main():
     print("Final Scraping Report Summary:")
     print("========================================")
     print(f"Internshala: {results['Internshala']} jobs")
-    print(f"Unstop: {results['Unstop']} jobs")
     print(f"Naukri: {results['Naukri']} jobs")
     print(f"GoogleJobs: {results['GoogleJobs']} jobs")
     print(f"Total Scraped: {total_scraped} jobs")

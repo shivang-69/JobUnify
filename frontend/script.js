@@ -209,7 +209,6 @@ function buildJobCard(job) {
   const letter = (job.company || 'J')[0].toUpperCase();
   const colors = {
     'Internshala': '#22c55e',
-    'Unstop': '#f97316',
     'Naukri': '#38bdf8',
     'GoogleJobs': '#6c63ff'
   };

@@ -17,8 +17,13 @@ async function run() {
   await mongoose.connect(uri);
   const collection = mongoose.connection.db.collection('jobs');
 
-  // Query MongoDB using the official production freshness filter
-  const query = buildFreshnessFilter();
+  // Query MongoDB using the official production freshness filter + retired source exclusion
+  const query = {
+    $and: [
+      buildFreshnessFilter(),
+      { source: { $nin: ['Unstop', 'LinkedIn'] } }
+    ]
+  };
   const freshJobs = await collection.find(query).toArray();
   
   const countsBySource = {};
