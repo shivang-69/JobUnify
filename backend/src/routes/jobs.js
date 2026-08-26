@@ -182,6 +182,22 @@ router.get('/', async (req, res) => {
     if (track) {
       filtered = visibleJobs.filter(job => isEntryLevel(job).track === track);
     }
+
+    // Apply sort if sort=newest is requested
+    const sort = req.query.sort;
+    if (sort === 'newest') {
+      filtered.sort((a, b) => {
+        const dateA = a.posted_at ? new Date(a.posted_at).getTime() : 0;
+        const dateB = b.posted_at ? new Date(b.posted_at).getTime() : 0;
+        if (dateA !== dateB) {
+          return dateB - dateA;
+        }
+        const fallbackA = new Date(a.date_posted || a.scrapedAt || 0).getTime();
+        const fallbackB = new Date(b.date_posted || b.scrapedAt || 0).getTime();
+        return fallbackB - fallbackA;
+      });
+    }
+
     const total = filtered.length;
 
     // Apply pagination on filtered results
@@ -360,6 +376,21 @@ router.get('/search', async (req, res) => {
     let jobs = visibleJobs;
     if (track) {
       jobs = visibleJobs.filter(job => isEntryLevel(job).track === track);
+    }
+
+    // Apply sort if sort=newest is requested
+    const sort = req.query.sort;
+    if (sort === 'newest') {
+      jobs.sort((a, b) => {
+        const dateA = a.posted_at ? new Date(a.posted_at).getTime() : 0;
+        const dateB = b.posted_at ? new Date(b.posted_at).getTime() : 0;
+        if (dateA !== dateB) {
+          return dateB - dateA;
+        }
+        const fallbackA = new Date(a.date_posted || a.scrapedAt || 0).getTime();
+        const fallbackB = new Date(b.date_posted || b.scrapedAt || 0).getTime();
+        return fallbackB - fallbackA;
+      });
     }
 
     console.log('Found jobs count:', jobs.length);

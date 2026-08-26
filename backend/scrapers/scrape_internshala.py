@@ -131,6 +131,13 @@ def scrape():
                         relative_date = labels[0].get_text(strip=True)
                         date_posted = parse_internshala_posted_date(relative_date)
 
+                    posted_at = datetime.now()
+                    if date_posted and date_posted != "N/A":
+                        try:
+                            posted_at = datetime.strptime(date_posted, "%Y-%m-%d")
+                        except Exception:
+                            pass
+
                     job_data = {
                         "title": title,
                         "company": company,
@@ -141,7 +148,8 @@ def scrape():
                         "job_url": job_url,
                         "source": "Internshala",
                         "scrapedAt": datetime.now(),
-                        "date_posted": date_posted
+                        "date_posted": date_posted,
+                        "posted_at": posted_at
                     }
                     
                     # Upsert to prevent duplicate key issue on same run

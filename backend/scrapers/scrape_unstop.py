@@ -117,6 +117,13 @@ def scrape():
                     min_exp = job_detail.get("min_experience")
                     max_exp = job_detail.get("max_experience")
                     
+                    posted_at = datetime.now()
+                    if date_posted and date_posted != "N/A":
+                        try:
+                            posted_at = datetime.strptime(date_posted, "%Y-%m-%d")
+                        except Exception:
+                            pass
+
                     job_data = {
                         "title": title,
                         "company": company,
@@ -128,6 +135,7 @@ def scrape():
                         "source": "Unstop",
                         "scrapedAt": datetime.now(),
                         "date_posted": date_posted,
+                        "posted_at": posted_at,
                         "description": item.get("details", "")
                     }
                     if min_exp is not None:

@@ -850,3 +850,8 @@ nav {
 @keyframes spin {
   to { transform: rotate(360deg); }
 }
+
+.posted-date {
+  color: var(--accent2);
+  font-weight: 500;
+}

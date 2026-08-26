@@ -33,12 +33,16 @@ async function fetchJobs(page = 1, append = false) {
     if (user.preferredJobType) type = user.preferredJobType;
   }
 
+  const sortFilter = document.getElementById('sortFilter');
+  const sort = sortFilter ? sortFilter.value : '';
+
   let url = `${API_BASE_URL}/api/jobs?page=${page}&limit=50`;
   if (activeTrack) url += `&track=${activeTrack}`;
   if (activeSource !== 'all') url += `&source=${activeSource}`;
   if (location) url += `&location=${location}`;
   if (type) url += `&type=${type}`;
   if (search) url += `&search=${search}`;
+  if (sort) url += `&sort=${sort}`;
 
   try {
     const res = await fetch(url);
@@ -107,8 +111,11 @@ function performSearch() {
     fetchJobs(1);
     return;
   }
+  const sortFilter = document.getElementById('sortFilter');
+  const sort = sortFilter ? sortFilter.value : '';
   let searchUrl = `${API_BASE_URL}/api/jobs/search?q=${encodeURIComponent(query)}`;
   if (activeTrack) searchUrl += `&track=${activeTrack}`;
+  if (sort) searchUrl += `&sort=${sort}`;
   fetch(searchUrl)
     .then(res => res.json())
     .then(data => {
@@ -231,6 +238,7 @@ function buildJobCard(job) {
       </div>
       <div class="company-name">
         ${job.company || 'N/A'} · ${job.location || 'N/A'}
+        ${(job.source === 'Internshala' || job.source === 'Unstop') && job.posted_at ? ` · <span class="posted-date">${formatPostedDate(job.posted_at)}</span>` : ''}
       </div>
         ${(() => {
           const tags = [];
@@ -593,3 +601,44 @@ async function handleApply(event, url) {
     window.location.href = "signin.html";
   }
 }
+
+function formatPostedDate(dateString) {
+  if (!dateString || dateString === 'N/A' || dateString === 'null' || dateString === 'undefined') {
+    return '';
+  }
+
+  const postedDate = new Date(dateString);
+  if (isNaN(postedDate.getTime())) {
+    return '';
+  }
+
+  // Use local midnight for both to ensure day-level delta
+  const postedMidnight = new Date(postedDate.getFullYear(), postedDate.getMonth(), postedDate.getDate());
+  const now = new Date();
+  const relativeMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+
+  const diffTime = relativeMidnight.getTime() - postedMidnight.getTime();
+  const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+
+  if (diffDays < 0) {
+    return 'Posted today';
+  }
+  if (diffDays === 0) {
+    return 'Posted today';
+  }
+  if (diffDays === 1) {
+    return 'Posted yesterday';
+  }
+  if (diffDays >= 2 && diffDays <= 6) {
+    return `Posted ${diffDays} days ago`;
+  }
+  if (diffDays >= 7) {
+    const weeks = Math.floor(diffDays / 7);
+    if (weeks === 1) {
+      return 'Posted 1 week ago';
+    }
+    return `Posted ${weeks} weeks ago`;
+  }
+  return '';
+}
+
