@@ -491,3 +491,60 @@ describe('Category 10: Standalone range leak fixes', () => {
     expect(result.status).toBe('entry_level');
   });
 });
+
+// ═══════════════════════════════════════════════════════════════════════════
+// Category 11: Plural Freshers and Batch-Year title/desc signals
+// ═══════════════════════════════════════════════════════════════════════════
+
+describe('Category 11: Plural Freshers and Batch-Year title/desc signals', () => {
+  test('Plural "Freshers" in title → should PASS', () => {
+    const result = isEntryLevel({
+      title: 'JAVA Software Engineer (Developer) Freshers at Indore',
+      description: 'Responsibilities: Develop and scale next-generation technologies...',
+      source: 'GoogleJobs'
+    });
+    expect(result.include).toBe(true);
+    expect(result.status).toBe('entry_level');
+  });
+
+  test('Real case: Micron Software Engineer 2026 → should PASS', () => {
+    const result = isEntryLevel({
+      title: 'Micron Software Engineer 2026 | PMO | Hyderabad — Apply Now',
+      description: 'Micron Software Engineer 2026 is hiring for the Project Management Office (PMO) team in Hyderabad. Micron is looking for software engineers skilled in SQL, Snowflake and data reporting to support PMO processes. This Micron Software Engineer 2026 role is a great opportunity for IS / IT / CS graduates who enjoy data, automation and reporting.',
+      source: 'GoogleJobs'
+    });
+    expect(result.include).toBe(true);
+    expect(result.status).toBe('entry_level');
+  });
+
+  test('Adversarial 1: Senior Lead with mentoring year mention → should FAIL', () => {
+    const result = isEntryLevel({
+      title: 'Senior Engineering Lead',
+      description: 'We are looking for a senior lead to manage our engineering teams through our 2025 product roadmap. Experience mentoring a batch of junior developers is required.',
+      source: 'GoogleJobs'
+    });
+    expect(result.include).toBe(false);
+    expect(result.status).toBe('senior');
+  });
+
+  test('Adversarial 2: Lead role mentioning graduates/year in different contexts → should FAIL', () => {
+    const result = isEntryLevel({
+      title: 'Lead Software Developer (Node.js)',
+      description: 'Candidates must have 8+ years of experience. We hire graduates from top universities every year, including the upcoming 2026 batch.',
+      source: 'GoogleJobs'
+    });
+    expect(result.include).toBe(false);
+    expect(result.status).toBe('senior');
+  });
+
+  test('Adversarial 3: Standard developer title with senior requirements and unrelated year → should FAIL', () => {
+    const result = isEntryLevel({
+      title: 'Software Engineer',
+      description: 'Requirements: 6 years of experience in Java. Our office was established in 2024. Excellent benefits package.',
+      source: 'GoogleJobs'
+    });
+    expect(result.include).toBe(false);
+    expect(result.status).toBe('senior');
+  });
+});
+

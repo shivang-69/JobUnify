@@ -238,7 +238,7 @@ function buildJobCard(job) {
       </div>
       <div class="company-name">
         ${job.company || 'N/A'} · ${job.location || 'N/A'}
-        ${(job.source === 'Internshala' || job.source === 'Unstop') && job.posted_at ? ` · <span class="posted-date">${formatPostedDate(job.posted_at)}</span>` : ''}
+        ${(job.posted_at || job.date_posted) ? ` · <span class="posted-date">${formatPostedDate(job.posted_at || job.date_posted)}</span>` : ''}
       </div>
         ${(() => {
           const tags = [];

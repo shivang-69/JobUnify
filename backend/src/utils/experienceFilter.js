@@ -43,7 +43,7 @@ const expDescBlacklists = [
 // If ANY of these match, we consider the job to have recognisable experience
 // info AND to be targeting entry‑level / fresher candidates.
 const entryLevelSignals = [
-  /\bfresher\b/i,
+  /\bfreshers?\b/i,
   /\bfreshers?\s*welcome\b/i,
   /\binternship\b/i,
   /\bintern\b/i,
@@ -51,6 +51,7 @@ const entryLevelSignals = [
   /\b[0-1]\s*(?:-|to)\s*[0-2]\s*(?:years?|yrs?)\b/i,   // 0-1, 0-2, 1-2 years
   /\b(?:experience|exp)\b\s*:\s*[0-1](?:\.\d+)?\s*(?:-|to)\s*[0-2](?:\.\d+)?\s*(?:years?|yrs?)\b/i,
   /\b0\+?\s*(?:years?|yrs?)\b/i,                         // 0 years, 0+ years
+  /\b202[4-7]\s*(?:batch|passout|graduates?)\b/i,        // Graduation batches e.g. "2026 Batch"
 ];
 
 // ─── "Has any experience info at all" detector ──────────────────────────────
@@ -67,11 +68,13 @@ function getJobTrack(job) {
   const title = job.title || '';
   const source = job.source || '';
   const type = job.type || '';
+  const duration = job.duration || '';
   const jobUrl = job.job_url || job.link || '';
 
   if (
     source === 'Internshala' ||
     /internship/i.test(type) ||
+    /internship/i.test(duration) ||
     /internship/i.test(jobUrl) ||
     /\binternship\b/i.test(title) ||
     /\bintern\b/i.test(title)
@@ -115,6 +118,10 @@ function isEntryLevel(job) {
   }
 
   // ── Step 4: Check for explicit entry‑level signals ─────────────────────
+  if (/\b202[4-7]\b/.test(title)) {
+    return { include: true, status: 'entry_level', track };
+  }
+
   for (const re of entryLevelSignals) {
     if (re.test(text)) {
       return { include: true, status: 'entry_level', track };

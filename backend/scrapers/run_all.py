@@ -7,7 +7,7 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 import scrape_internshala
 import scrape_unstop
 import scrape_naukri
-import scrape_indeed
+import scrape_google_jobs
 import deduplicator
 
 def main():
@@ -19,7 +19,7 @@ def main():
         "Internshala": 0,
         "Unstop": 0,
         "Naukri": 0,
-        "Indeed": 0
+        "GoogleJobs": 0
     }
     
     # 1. Internshala
@@ -40,11 +40,11 @@ def main():
     except Exception as e:
         print(f"ERROR: Naukri scraper failed: {e}\n")
         
-    # 4. Indeed
+    # 4. GoogleJobs (SerpApi replacement for Indeed/LinkedIn)
     try:
-        results["Indeed"] = scrape_indeed.scrape()
+        results["GoogleJobs"] = scrape_google_jobs.scrape()
     except Exception as e:
-        print(f"ERROR: Indeed scraper failed: {e}\n")
+        print(f"ERROR: GoogleJobs scraper failed: {e}\n")
         
     print("\n========================================")
     print("Running Deduplication Phase...")
@@ -65,7 +65,7 @@ def main():
     print(f"Internshala: {results['Internshala']} jobs")
     print(f"Unstop: {results['Unstop']} jobs")
     print(f"Naukri: {results['Naukri']} jobs")
-    print(f"Indeed: {results['Indeed']} jobs")
+    print(f"GoogleJobs: {results['GoogleJobs']} jobs")
     print(f"Total Scraped: {total_scraped} jobs")
     print(f"Duplicates Removed: {removed} jobs")
     print(f"Total Unique in Database: {total_saved} jobs")
