@@ -6,7 +6,7 @@ let allJobs = [];
 let currentPage = 1;
 let isLoading = false;
 let activeSource = 'all';
-let activeTrack = 'full-time';
+let activeTrack = '';
 let savedJobIds = [];
 
 async function fetchJobs(page = 1, append = false) {
