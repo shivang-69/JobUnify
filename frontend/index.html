@@ -76,19 +76,30 @@
 
   <!-- HERO -->
   <section class="hero" id="heroSection">
-    <div class="hero-badge">✦ 3 Platforms · One Search</div>
-    <h1>Every student job,<br/><span>right here.</span></h1>
-    <p>Stop switching tabs. We pull jobs from Internshala, Naukri & Google Jobs — filtered for freshers.</p>
+    <div class="hero-badge">✦ 0 experience. Guaranteed.</div>
+    <h1>Fresher jobs.<br/><span>Nothing else.</span></h1>
+    <p>We only list roles that need zero experience — verified, not just filtered. Search once, apply with confidence.</p>
 
-    <div class="platforms">
-      <div class="platform-pill"><div class="dot" style="background:#22c55e"></div>Internshala</div>
-      <div class="platform-pill"><div class="dot" style="background:#38bdf8"></div>Naukri</div>
-      <div class="platform-pill"><div class="dot" style="background:#6c63ff"></div>Google Jobs</div>
+    <div class="trust-pills" style="display:flex; justify-content:center; gap:12px; margin-bottom:32px;">
+      <div class="trust-pill" style="display:flex; align-items:center; gap:6px; background:rgba(34, 197, 94, 0.08); border:1px solid rgba(34, 197, 94, 0.2); padding:6px 14px; border-radius:999px; font-size:13px; color:#22c55e; font-weight:500;">
+        <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        0 exp only
+      </div>
+      <div class="trust-pill" style="display:flex; align-items:center; gap:6px; background:rgba(34, 197, 94, 0.08); border:1px solid rgba(34, 197, 94, 0.2); padding:6px 14px; border-radius:999px; font-size:13px; color:#22c55e; font-weight:500;">
+        <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        updated daily
+      </div>
     </div>
 
     <div class="search-wrapper">
       <input type="text" id="searchInput" placeholder="Search by role, skill, or company..." />
       <button class="search-btn" onclick="heroSearch()">Search</button>
+    </div>
+
+    <div class="platforms" style="margin-top:24px; margin-bottom:0;">
+      <div class="platform-pill"><div class="dot" style="background:#22c55e"></div>Internshala</div>
+      <div class="platform-pill"><div class="dot" style="background:#38bdf8"></div>Naukri</div>
+      <div class="platform-pill"><div class="dot" style="background:#6c63ff"></div>Google Jobs</div>
     </div>
   </section>
 
@@ -99,12 +110,12 @@
       <div class="stat-label">Jobs Today</div>
     </div>
     <div class="stat">
-      <div class="stat-num" id="stat-platforms">4</div>
+      <div class="stat-num" id="stat-platforms">3</div>
       <div class="stat-label">Platforms</div>
     </div>
     <div class="stat">
-      <div class="stat-num">0</div>
-      <div class="stat-label">Duplicates</div>
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Fresher-verified</div>
     </div>
     <div class="stat">
       <div class="stat-num">6<span>hr</span></div>
@@ -132,11 +143,12 @@
     </div>
 
     <div class="filters">
-      <span class="filter-label">Filter:</span>
-      <button class="filter-btn active" onclick="setFilter('all', this)">All</button>
-      <button class="filter-btn" onclick="setFilter('Internshala', this)">Internshala</button>
-      <button class="filter-btn" onclick="setFilter('Naukri', this)">Naukri</button>
-      <button class="filter-btn" onclick="setFilter('GoogleJobs', this)">Google Jobs</button>
+      <span class="filter-label">Roles:</span>
+      <button class="filter-btn active" onclick="setRoleFilter('', this)">All Roles</button>
+      <button class="filter-btn" onclick="setRoleFilter('software', this)">Software Dev</button>
+      <button class="filter-btn" onclick="setRoleFilter('qa', this)">QA & Testing</button>
+      <button class="filter-btn" onclick="setRoleFilter('data', this)">Data & Analytics</button>
+      <button class="filter-btn" onclick="setRoleFilter('design', this)">Design / UI-UX</button>
 
       <select class="filter-select" id="locationFilter" onchange="filterJobs()">
         <option value="">All Locations</option>
@@ -146,6 +158,13 @@
         <option>Mumbai</option>
         <option>Hyderabad</option>
         <option>Pune</option>
+      </select>
+
+      <select class="filter-select" id="sourceFilter" onchange="filterJobsBySource()">
+        <option value="all">All Sources</option>
+        <option value="Internshala">Internshala</option>
+        <option value="Naukri">Naukri</option>
+        <option value="GoogleJobs">Google Jobs</option>
       </select>
 
       <select class="filter-select" id="sortFilter" onchange="filterJobs()">

@@ -7,6 +7,7 @@ let currentPage = 1;
 let isLoading = false;
 let activeSource = 'all';
 let activeTrack = '';
+let activeRole = '';
 let savedJobIds = [];
 
 async function fetchJobs(page = 1, append = false) {
@@ -41,7 +42,12 @@ async function fetchJobs(page = 1, append = false) {
   if (activeSource !== 'all') url += `&source=${activeSource}`;
   if (location) url += `&location=${location}`;
   if (type) url += `&type=${type}`;
-  if (search) url += `&search=${search}`;
+  
+  let searchQuery = search;
+  if (activeRole) {
+    searchQuery = searchQuery ? `${searchQuery} ${activeRole}` : activeRole;
+  }
+  if (searchQuery) url += `&search=${encodeURIComponent(searchQuery)}`;
   if (sort) url += `&sort=${sort}`;
 
   try {
@@ -185,10 +191,17 @@ function setTrack(track, btn) {
   fetchJobs(1);
 }
 
-function setFilter(source, btn) {
-  activeSource = source;
-  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
+function setRoleFilter(role, btn) {
+  activeRole = role;
+  document.querySelectorAll('.filters .filter-btn').forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  currentPage = 1;
+  fetchJobs(1);
+}
+
+function filterJobsBySource() {
+  const srcSelect = document.getElementById('sourceFilter');
+  activeSource = srcSelect ? srcSelect.value : 'all';
   currentPage = 1;
   fetchJobs(1);
 }
@@ -221,10 +234,15 @@ function buildJobCard(job) {
         <div class="company-logo" style="background:${logoBg};color:#fff">
           ${letter}
         </div>
-        <div style="display:flex; align-items:center; gap:8px;">
+        <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
           <span class="source-badge source-${sourceClass}">
             ${source}
           </span>
+          <span class="fresher-badge" style="background:rgba(108, 99, 255, 0.12); border:1px solid rgba(108, 99, 255, 0.3); color:var(--accent2); font-size:11px; font-weight:600; padding:4px 8px; border-radius:6px; display:inline-flex; align-items:center; gap:4px; letter-spacing:0.2px;">
+            <svg viewBox="0 0 24 24" width="10" height="10" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            fresher eligible
+          </span>
+        </div>
           <button class="bookmark-btn ${isSaved ? 'saved' : ''}" onclick="toggleSaveJob(event, '${job._id}')" title="Save Job">
             <svg class="bookmark-icon" viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="${isSaved ? 'currentColor' : 'none'}" stroke-linecap="round" stroke-linejoin="round">
               <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
