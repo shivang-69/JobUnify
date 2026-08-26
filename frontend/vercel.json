@@ -1,4 +1,14 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/sitemap.xml",
+      "destination": "https://jobunify.onrender.com/sitemap.xml"
+    },
+    {
+      "source": "/api/jobs/detail/:id",
+      "destination": "https://jobunify.onrender.com/api/jobs/detail/:id"
+    }
+  ]
 }

@@ -92,7 +92,7 @@ app.get("/sitemap.xml", async (req, res) => {
     xml += `  <url>\n    <loc>https://job-unify.vercel.app/</loc>\n    <changefreq>daily</changefreq>\n    <priority>1.0</priority>\n  </url>\n`;
 
     for (const job of visibleJobs) {
-      xml += `  <url>\n    <loc>https://jobunify.onrender.com/api/jobs/detail/${job._id}</loc>\n    <changefreq>weekly</changefreq>\n    <priority>0.7</priority>\n  </url>\n`;
+      xml += `  <url>\n    <loc>https://job-unify.vercel.app/api/jobs/detail/${job._id}</loc>\n    <changefreq>weekly</changefreq>\n    <priority>0.7</priority>\n  </url>\n`;
     }
 
     xml += `</urlset>`;

@@ -217,7 +217,7 @@ router.get('/', async (req, res) => {
         },
         "employmentType": job.type || (job.track === 'internship' ? 'INTERNSHIP' : 'FULL_TIME'),
         "directApply": true,
-        "url": `https://jobunify.onrender.com/api/jobs/detail/${job._id}`
+        "url": `https://job-unify.vercel.app/api/jobs/detail/${job._id}`
       };
 
       const salaryData = parseSalary(job.stipend || job.salary);
