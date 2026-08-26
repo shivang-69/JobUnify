@@ -181,7 +181,59 @@ document.addEventListener('DOMContentLoaded', () => {
   if (searchBtn) searchBtn.addEventListener('click', performSearch);
   const searchBar = document.getElementById('searchBar');
   if (searchBar) searchBar.addEventListener('keypress', e => { if (e.key === 'Enter') performSearch(); });
+
+  // Load stats
+  fetchStats();
 });
+
+async function fetchStats() {
+  try {
+    const res = await fetch(`${API_BASE_URL}/api/stats`);
+    const data = await res.json();
+    
+    const jobsTodayEl = document.getElementById('stat-jobs-today');
+    if (jobsTodayEl) {
+      jobsTodayEl.textContent = formatJobsTodayCount(data.jobsToday);
+    }
+    
+    const platformsEl = document.getElementById('stat-platforms');
+    if (platformsEl) {
+      platformsEl.textContent = data.platformCount;
+    }
+    
+    const updatedEl = document.getElementById('stat-updated');
+    if (updatedEl) {
+      updatedEl.textContent = formatTimeAgo(data.lastUpdated);
+    }
+  } catch (err) {
+    console.error('Error fetching stats:', err);
+  }
+}
+
+function formatJobsTodayCount(count) {
+  if (count >= 1000) {
+    const thousands = count / 1000;
+    const rounded = Math.floor(thousands * 10) / 10;
+    const exact = thousands;
+    if (rounded < exact) {
+      return `${rounded}K+`;
+    }
+    return `${rounded}K`;
+  }
+  return count.toString();
+}
+
+function formatTimeAgo(dateStr) {
+  if (!dateStr) return 'N/A';
+  const diffMs = Date.now() - new Date(dateStr).getTime();
+  const diffMins = Math.floor(diffMs / (1000 * 60));
+  if (diffMins < 1) return 'Just now';
+  if (diffMins < 60) return `${diffMins}m ago`;
+  const diffHrs = Math.floor(diffMins / 60);
+  if (diffHrs < 24) return `${diffHrs}h ago`;
+  const diffDays = Math.floor(diffHrs / 24);
+  return `${diffDays}d ago`;
+}
 
 function setTrack(track, btn) {
   activeTrack = track;

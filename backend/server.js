@@ -46,6 +46,63 @@ app.get("/", (req, res) => {
   res.json({ message: "JobUnify API is running ✅" });
 });
 
+let cachedStats = null;
+let cacheExpiry = 0;
+const CACHE_TTL = 5 * 60 * 1000; // 5 minutes TTL
+
+app.get("/api/stats", async (req, res) => {
+  try {
+    const now = Date.now();
+    if (cachedStats && now < cacheExpiry) {
+      return res.json(cachedStats);
+    }
+
+    const mongoose = require("mongoose");
+    const ACTIVE_SOURCES = ["Internshala", "Naukri", "GoogleJobs"];
+    const platformCount = ACTIVE_SOURCES.length;
+
+    // Last 24 hours
+    const twentyFourHoursAgo = new Date(now - 24 * 60 * 60 * 1000);
+    const jobsTodayFilter = {
+      source: { $nin: ["Unstop", "LinkedIn"] },
+      $or: [
+        { date_posted: { $gte: twentyFourHoursAgo } },
+        { date_posted: { $gte: twentyFourHoursAgo.toISOString() } },
+        { scrapedAt: { $gte: twentyFourHoursAgo } },
+        { scrapedAt: { $gte: twentyFourHoursAgo.toISOString() } }
+      ]
+    };
+
+    const jobsToday = await mongoose.connection.db
+      .collection("jobs")
+      .countDocuments(jobsTodayFilter);
+
+    // Latest successful scrape run based on scrapedAt
+    const latestJob = await mongoose.connection.db
+      .collection("jobs")
+      .find({ source: { $nin: ["Unstop", "LinkedIn"] } }, { projection: { scrapedAt: 1 } })
+      .sort({ scrapedAt: -1 })
+      .limit(1)
+      .toArray();
+
+    let lastUpdated = null;
+    if (latestJob.length > 0 && latestJob[0].scrapedAt) {
+      lastUpdated = latestJob[0].scrapedAt;
+    }
+
+    cachedStats = {
+      jobsToday,
+      platformCount,
+      lastUpdated
+    };
+    cacheExpiry = now + CACHE_TTL;
+
+    res.json(cachedStats);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
 // Sitemap.xml endpoint for Google Jobs indexing
 const mongoose = require("mongoose");
 const { buildFreshnessFilter } = require("./src/utils/freshnessFilter");
