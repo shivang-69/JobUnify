@@ -177,6 +177,13 @@ nav {
   font-weight: 500;
   color: var(--muted);
   opacity: 0.6;
+  cursor: pointer;
+  transition: opacity 0.2s, border-color 0.2s;
+}
+
+.platform-pill:hover {
+  opacity: 1;
+  border-color: var(--accent);
 }
 
 .platform-pill .dot {

@@ -334,19 +334,11 @@
       if (dropdown) dropdown.classList.remove('active');
     });
 
-    // Gated Apply functionality: require user to be logged in
+    // Public Apply functionality: proceed directly to external site
     function handleApply(event, url) {
       if (event) event.preventDefault();
-      const token = localStorage.getItem("jobunify_token");
-      console.log("[Apply Clicked] User detected as logged in:", !!token, "Token found:", token ? "Yes" : "No");
-      if (token) {
-        console.log("[Apply Success] Opening job URL:", url);
-        window.open(url, "_blank");
-      } else {
-        console.log("[Apply Blocked] No token found. Redirecting to signin.html");
-        alert("Please login to apply");
-        window.location.href = "signin.html";
-      }
+      console.log("[Apply Success] Opening job URL:", url);
+      window.open(url, "_blank");
     }
   </script>
 </body>

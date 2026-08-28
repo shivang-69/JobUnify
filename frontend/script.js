@@ -142,15 +142,34 @@ function performSearch() {
 }
 
 // Search from hero (logged‑out view)
-function heroSearch() {
-  const token = localStorage.getItem('jobunify_token');
-  if (!token) {
-    // redirect to sign‑in page
-    window.location.href = 'signin.html';
-    return;
+function showListingsView() {
+  const hero = document.getElementById('heroSection');
+  if (hero) hero.classList.add('hidden');
+  const stats = document.getElementById('statsSection');
+  if (stats) stats.classList.add('hidden');
+  const searchContainer = document.getElementById('searchContainer');
+  if (searchContainer) searchContainer.classList.remove('hidden');
+}
+
+function handlePlatformClick(source) {
+  showListingsView();
+  const srcSelect = document.getElementById('sourceFilter');
+  if (srcSelect) {
+    srcSelect.value = source;
   }
+  activeSource = source;
+  currentPage = 1;
+  fetchJobs(1);
+}
+
+function heroSearch() {
   const query = document.getElementById('searchInput')?.value.trim();
   if (!query) return;
+  showListingsView();
+  
+  const searchBar = document.getElementById('searchBar');
+  if (searchBar) searchBar.value = query;
+
   fetch(`${API_BASE_URL}/api/jobs/search?q=${encodeURIComponent(query)}`)
     .then(res => res.json())
     .then(data => {
@@ -158,12 +177,6 @@ function heroSearch() {
       renderJobs(jobs);
       const countEl = document.getElementById('jobCount');
       if (countEl) countEl.textContent = `${jobs.length} jobs found`;
-      // hide hero after search
-      const hero = document.getElementById('heroSection');
-      if (hero) hero.classList.add('hidden');
-      // show logged‑in search bar
-      const searchContainer = document.getElementById('searchContainer');
-      if (searchContainer) searchContainer.classList.remove('hidden');
     })
     .catch(err => console.error('Search error:', err));
 }
@@ -236,6 +249,7 @@ function formatTimeAgo(dateStr) {
 }
 
 function setTrack(track, btn) {
+  showListingsView();
   activeTrack = track;
   document.querySelectorAll('.track-tab').forEach(b => b.classList.remove('active'));
   if (btn) btn.classList.add('active');
@@ -244,6 +258,7 @@ function setTrack(track, btn) {
 }
 
 function setRoleFilter(role, btn) {
+  showListingsView();
   activeRole = role;
   document.querySelectorAll('.filters .filter-btn').forEach(b => b.classList.remove('active'));
   if (btn) btn.classList.add('active');
@@ -252,6 +267,7 @@ function setRoleFilter(role, btn) {
 }
 
 function filterJobsBySource() {
+  showListingsView();
   const srcSelect = document.getElementById('sourceFilter');
   activeSource = srcSelect ? srcSelect.value : 'all';
   currentPage = 1;
@@ -259,6 +275,7 @@ function filterJobsBySource() {
 }
 
 function filterJobs() {
+  showListingsView();
   currentPage = 1;
   fetchJobs(1);
 }
@@ -362,7 +379,7 @@ async function toggleSaveJob(event, jobId) {
 
   const token = localStorage.getItem("jobunify_token");
   if (!token) {
-    window.location.href = "signin.html";
+    showInlineAuthPrompt(event.currentTarget || event.target.closest(".bookmark-btn"));
     return;
   }
 
@@ -596,54 +613,93 @@ function logout(event) {
 // Gated Apply functionality: require user to be logged in
 async function handleApply(event, url) {
   if (event) event.preventDefault();
-  const token = localStorage.getItem("jobunify_token");
-  console.log("[Apply Clicked] User detected as logged in:", !!token, "Token found:", token ? "Yes" : "No");
-  if (token) {
-    let btn = null;
-    let originalText = "";
-    if (event && event.currentTarget) {
-      btn = event.currentTarget;
-      originalText = btn.innerHTML;
-      btn.innerHTML = "Checking...";
-      btn.style.pointerEvents = "none";
-      btn.style.opacity = "0.7";
-    }
-
-    try {
-      const res = await fetch(`${API_BASE_URL}/api/jobs/check-link`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ url })
-      });
-      const data = await res.json();
-
-      if (data.status === "broken") {
-        console.log("[Apply Blocked] Link is broken (404).");
-        if (btn) {
-          btn.innerHTML = "This listing is no longer available";
-          btn.style.opacity = "0.5";
-          btn.style.cursor = "not-allowed";
-          btn.classList.add("disabled");
-        }
-        return;
-      }
-    } catch (err) {
-      console.error("Error checking link status:", err);
-      // Fallback: proceed to open if check fails
-    }
-
-    if (btn) {
-      btn.innerHTML = originalText;
-      btn.style.pointerEvents = "auto";
-      btn.style.opacity = "1";
-    }
-    console.log("[Apply Success] Opening job URL:", url);
-    window.open(url, "_blank");
-  } else {
-    console.log("[Apply Blocked] No token found. Redirecting to signin.html");
-    alert("Please login to apply");
-    window.location.href = "signin.html";
+  
+  let btn = null;
+  let originalText = "";
+  if (event && event.currentTarget) {
+    btn = event.currentTarget;
+    originalText = btn.innerHTML;
+    btn.innerHTML = "Checking...";
+    btn.style.pointerEvents = "none";
+    btn.style.opacity = "0.7";
   }
+
+  try {
+    const res = await fetch(`${API_BASE_URL}/api/jobs/check-link`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ url })
+    });
+    const data = await res.json();
+
+    if (data.status === "broken") {
+      console.log("[Apply Blocked] Link is broken (404).");
+      if (btn) {
+        btn.innerHTML = "This listing is no longer available";
+        btn.style.opacity = "0.5";
+        btn.style.cursor = "not-allowed";
+        btn.classList.add("disabled");
+      }
+      return;
+    }
+  } catch (err) {
+    console.error("Error checking link status:", err);
+  }
+
+  if (btn) {
+    btn.innerHTML = originalText;
+    btn.style.pointerEvents = "auto";
+    btn.style.opacity = "1";
+  }
+  console.log("[Apply Success] Opening job URL:", url);
+  window.open(url, "_blank");
+}
+
+function showInlineAuthPrompt(btn) {
+  if (!btn) return;
+  
+  if (btn.querySelector('.inline-auth-prompt') || btn.parentNode.querySelector('.inline-auth-prompt')) {
+    return;
+  }
+  
+  const prompt = document.createElement('div');
+  prompt.className = 'inline-auth-prompt';
+  prompt.textContent = 'Sign in to save this job';
+  prompt.style.position = 'absolute';
+  prompt.style.background = '#1e1b4b';
+  prompt.style.border = '1px solid rgba(167, 139, 250, 0.4)';
+  prompt.style.color = '#c084fc';
+  prompt.style.padding = '6px 12px';
+  prompt.style.borderRadius = '6px';
+  prompt.style.fontSize = '12px';
+  prompt.style.fontWeight = '500';
+  prompt.style.whiteSpace = 'nowrap';
+  prompt.style.zIndex = '10';
+  prompt.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.5)';
+  
+  prompt.style.top = '50%';
+  prompt.style.right = 'calc(100% + 8px)';
+  prompt.style.transform = 'translateY(-50%)';
+  prompt.style.pointerEvents = 'none';
+  prompt.style.opacity = '0';
+  prompt.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
+  
+  const parent = btn.parentNode;
+  parent.style.position = 'relative';
+  parent.appendChild(prompt);
+  
+  setTimeout(() => {
+    prompt.style.opacity = '1';
+    prompt.style.transform = 'translateY(-50%) scale(1)';
+  }, 10);
+  
+  setTimeout(() => {
+    prompt.style.opacity = '0';
+    prompt.style.transform = 'translateY(-50%) scale(0.95)';
+    setTimeout(() => {
+      prompt.remove();
+    }, 200);
+  }, 2500);
 }
 
 function formatPostedDate(dateString) {
