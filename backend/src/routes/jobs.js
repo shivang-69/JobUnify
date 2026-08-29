@@ -112,6 +112,8 @@ router.get('/', async (req, res) => {
     conditions.push(csFilter);
     // Exclude retired sources — data preserved in DB but not served
     conditions.push({ source: { $nin: ['Unstop', 'LinkedIn'] } });
+    // Exclude broken links
+    conditions.push({ is_broken: { $ne: true } });
 
     const filter = { $and: conditions };
 
@@ -464,6 +466,7 @@ router.get('/search', async (req, res) => {
 
     // Exclude retired sources in all query branches
     const retiredSourceFilter = { source: { $nin: ['Unstop', 'LinkedIn'] } };
+    const isBrokenFilter = { is_broken: { $ne: true } };
 
     let filter;
     if (!q) {
@@ -471,7 +474,8 @@ router.get('/search', async (req, res) => {
         $and: [
           freshnessFilter,
           csFilter,
-          retiredSourceFilter
+          retiredSourceFilter,
+          isBrokenFilter
         ]
       };
     } else {
@@ -481,6 +485,7 @@ router.get('/search', async (req, res) => {
           freshnessFilter,
           csFilter,
           retiredSourceFilter,
+          isBrokenFilter,
           { $or: [ { title: regex }, { company: regex }, { location: regex } ] }
         ]
       };

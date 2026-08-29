@@ -50,28 +50,11 @@ async function fetchJobs(page = 1, append = false) {
   if (searchQuery) url += `&search=${encodeURIComponent(searchQuery)}`;
   if (sort) url += `&sort=${sort}`;
 
+  console.log("[Trace] [" + new Date().toISOString() + "] fetchJobs() starting API fetch for URL: " + url);
   try {
     const res = await fetch(url);
     const data = await res.json();
     let fetchedJobs = data.jobs || [];
-
-    // Verify links before rendering to hide expired/closed jobs
-    if (fetchedJobs.length > 0) {
-      try {
-        const urlsToVerify = fetchedJobs.map(j => j.job_url || j.link).filter(Boolean);
-        const checkRes = await fetch(`${API_BASE_URL}/api/jobs/check-links`, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ urls: urlsToVerify })
-        });
-        const checkData = await checkRes.json();
-        if (checkData.results) {
-          fetchedJobs = fetchedJobs.filter(j => checkData.results[j.job_url || j.link] !== 'broken');
-        }
-      } catch (e) {
-        console.error("Link verification failed:", e);
-      }
-    }
 
     if (append) {
       allJobs = [...allJobs, ...fetchedJobs];
@@ -79,7 +62,37 @@ async function fetchJobs(page = 1, append = false) {
       allJobs = fetchedJobs;
     }
 
+    console.log("[Trace] [" + new Date().toISOString() + "] fetchJobs() API resolved, jobs count: " + fetchedJobs.length + ", rendering jobs...");
     renderJobs(allJobs);
+    console.log("[Trace] [" + new Date().toISOString() + "] renderJobs() complete (spinner replaced with job cards)");
+
+    // Verify links in background (non-blocking)
+    if (fetchedJobs.length > 0) {
+      const currentJobs = fetchedJobs;
+      console.log("[Trace] [" + new Date().toISOString() + "] Starting background link verification for " + currentJobs.length + " jobs");
+      (async () => {
+        try {
+          const urlsToVerify = currentJobs.map(j => j.job_url || j.link).filter(Boolean);
+          const checkRes = await fetch(`${API_BASE_URL}/api/jobs/check-links`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ urls: urlsToVerify })
+          });
+          const checkData = await checkRes.json();
+          if (checkData.results) {
+            const initialLen = allJobs.length;
+            allJobs = allJobs.filter(j => checkData.results[j.job_url || j.link] !== 'broken');
+            console.log("[Trace] [" + new Date().toISOString() + "] Background link verification completed");
+            if (allJobs.length !== initialLen) {
+              console.log("[Trace] [" + new Date().toISOString() + "] Updating jobs list in DOM due to broken links filter");
+              renderJobs(allJobs);
+            }
+          }
+        } catch (e) {
+          console.error("Background link verification failed:", e);
+        }
+      })();
+    }
     
     if (data.counts) {
       const bFT = document.getElementById('badgeFullTime');
@@ -312,7 +325,7 @@ function buildJobCard(job) {
             0 exp
           </span>
         </div>
-        <button class="bookmark-btn ${isSaved ? 'saved' : ''}" onclick="toggleSaveJob(event, '${job._id}')" title="Save Job">
+        <button class="bookmark-btn ${isSaved ? 'saved' : ''}" data-job-id="${job._id}" onclick="toggleSaveJob(event, '${job._id}')" title="Save Job">
           <svg class="bookmark-icon" viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="${isSaved ? 'currentColor' : 'none'}" stroke-linecap="round" stroke-linejoin="round">
             <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
           </svg>
@@ -359,6 +372,7 @@ function renderJobs(jobs) {
 async function fetchSavedJobs() {
   const token = localStorage.getItem("jobunify_token");
   if (!token) return;
+  console.log("[Trace] [" + new Date().toISOString() + "] fetchSavedJobs() API fetch starting");
   try {
     const res = await fetch(`${API_BASE_URL}/api/saved`, {
       headers: {
@@ -368,10 +382,30 @@ async function fetchSavedJobs() {
     const data = await res.json();
     if (data.success) {
       savedJobIds = data.jobs.map(job => job._id);
+      console.log("[Trace] [" + new Date().toISOString() + "] fetchSavedJobs() API resolved, updating bookmarks UI");
+      updateBookmarksUI();
     }
   } catch (error) {
     console.error("Error fetching saved jobs:", error);
   }
+}
+
+function updateBookmarksUI() {
+  document.querySelectorAll('.bookmark-btn').forEach(btn => {
+    const jobId = btn.dataset.jobId;
+    if (jobId) {
+      const isSaved = savedJobIds.includes(jobId);
+      if (isSaved) {
+        btn.classList.add('saved');
+        const svg = btn.querySelector('.bookmark-icon');
+        if (svg) svg.setAttribute('fill', 'currentColor');
+      } else {
+        btn.classList.remove('saved');
+        const svg = btn.querySelector('.bookmark-icon');
+        if (svg) svg.setAttribute('fill', 'none');
+      }
+    }
+  });
 }
 
 async function toggleSaveJob(event, jobId) {
@@ -421,7 +455,8 @@ async function toggleSaveJob(event, jobId) {
   }
 }
 
-  document.addEventListener('DOMContentLoaded', async () => {
+  document.addEventListener('DOMContentLoaded', () => {
+    console.log("[Trace] [" + new Date().toISOString() + "] DOMContentLoaded triggered, running fetches");
     const token = localStorage.getItem('jobunify_token');
     const signUpBtn = document.querySelector('.nav-btn');
     const avatarWrap = document.querySelector('.avatar-wrap');
@@ -469,7 +504,7 @@ async function toggleSaveJob(event, jobId) {
       }
     }
     // Async sync with backend details
-    await fetchSavedJobs();
+    fetchSavedJobs();
     fetchJobs(1);
     syncUserProfile();
   });
@@ -520,6 +555,7 @@ document.addEventListener('keydown', function (e) {
 async function syncUserProfile() {
   const token = localStorage.getItem("jobunify_token");
   if (!token) return;
+  console.log("[Trace] [" + new Date().toISOString() + "] syncUserProfile() API fetch starting");
   try {
     const res = await fetch(`${API_BASE_URL}/api/profile`, {
       headers: { "Authorization": `Bearer ${token}` }
@@ -547,60 +583,14 @@ async function syncUserProfile() {
       
       const sidebarName = document.getElementById("sidebar-name");
       if (sidebarName) sidebarName.textContent = user.name || "User";
+      console.log("[Trace] [" + new Date().toISOString() + "] syncUserProfile() API resolved, updated UI");
     }
   } catch (error) {
     console.error("Error syncing user profile:", error);
   }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  const token = localStorage.getItem("jobunify_token");
-  const signUpBtn = document.querySelector(".nav-btn");
-  const avatarWrap = document.querySelector(".avatar-wrap");
-
-  if (token) {
-    // Logged in: Hide signup, show avatar
-    if (signUpBtn) {
-      const parentA = signUpBtn.closest("a");
-      if (parentA) parentA.style.display = "none";
-      else signUpBtn.style.display = "none";
-    }
-    if (avatarWrap) avatarWrap.style.display = "block";
-
-    // Populate user profile info (local cache first)
-    const userStr = localStorage.getItem("jobunify_user");
-    if (userStr) {
-      try {
-        const user = JSON.parse(userStr);
-        const firstLetter = user.name ? user.name.charAt(0).toUpperCase() : "U";
-        const avatarBtn = document.getElementById("avatarBtn");
-        const dropdownAvatar = document.getElementById("sidebar-avatar") || document.querySelector(".dropdown-avatar-header") || document.querySelector(".dropdown-avatar");
-        if (avatarBtn) avatarBtn.textContent = firstLetter;
-        if (dropdownAvatar) dropdownAvatar.textContent = firstLetter;
-
-        const sidebarName = document.getElementById("sidebar-name");
-        if (sidebarName) sidebarName.textContent = user.name;
-
-        const completionBar = document.getElementById("profile-completion-bar");
-        if (completionBar) {
-          completionBar.textContent = `${user.profileCompletion || 0}%`;
-        }
-      } catch (e) {
-        console.error("Error parsing user data from localStorage", e);
-      }
-    }
-    // Async sync with backend details
-    syncUserProfile();
-  } else {
-    // Not logged in: Show signup, hide avatar
-    if (signUpBtn) {
-      const parentA = signUpBtn.closest("a");
-      if (parentA) parentA.style.display = "block";
-      else signUpBtn.style.display = "block";
-    }
-    if (avatarWrap) avatarWrap.style.display = "none";
-  }
-});
+// Duplicate DOMContentLoaded event listener removed to prevent duplicate profile/saved fetches.
 
 // Logout function
 function logout(event) {

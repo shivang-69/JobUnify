@@ -48,6 +48,18 @@ def main():
         removed = deduplicator.deduplicate()
     except Exception as e:
         print(f"ERROR: Deduplication failed: {e}\n")
+
+    print("\n========================================")
+    print("Running Link Verification Phase...")
+    print("========================================\n")
+
+    verified_count = 0
+    broken_count = 0
+    try:
+        import verify_links
+        verified_count, broken_count = verify_links.verify()
+    except Exception as e:
+        print(f"ERROR: Link verification failed: {e}\n")
         
     total_scraped = sum(results.values())
     total_saved = total_scraped - removed
@@ -61,6 +73,7 @@ def main():
     print(f"Total Scraped: {total_scraped} jobs")
     print(f"Duplicates Removed: {removed} jobs")
     print(f"Total Unique in Database: {total_saved} jobs")
+    print(f"Verified Links: {verified_count} checked, {broken_count} marked broken")
     print("========================================\n")
 
 if __name__ == "__main__":

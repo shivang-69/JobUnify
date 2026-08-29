@@ -72,6 +72,7 @@ app.get("/api/stats", async (req, res) => {
     const filter = {
       $and: [
         { source: { $nin: ['Unstop', 'LinkedIn'] } },
+        { is_broken: { $ne: true } },
         buildFreshnessFilter(),
         {
           title: { $regex: csWhitelist },
@@ -143,7 +144,8 @@ app.get("/sitemap.xml", async (req, res) => {
       $and: [
         buildFreshnessFilter(),
         csFilter,
-        { source: { $nin: ['Unstop', 'LinkedIn'] } }
+        { source: { $nin: ['Unstop', 'LinkedIn'] } },
+        { is_broken: { $ne: true } }
       ]
     };
 
