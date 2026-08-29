@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://job-unify.vercel.app/sitemap.xml
+Sitemap: https://jobunify.online/sitemap.xml
