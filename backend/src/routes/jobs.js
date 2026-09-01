@@ -219,7 +219,7 @@ router.get('/', async (req, res) => {
         },
         "employmentType": job.type || (job.track === 'internship' ? 'INTERNSHIP' : 'FULL_TIME'),
         "directApply": true,
-        "url": `https://jobunify.online/api/jobs/detail/${job._id}`
+        "url": `https://www.jobunify.online/api/jobs/detail/${job._id}`
       };
 
       const salaryData = parseSalary(job.stipend || job.salary);
@@ -233,6 +233,7 @@ router.get('/', async (req, res) => {
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>${job.title} - ${job.company} | JobUnify</title>
+  <link rel="canonical" href="https://www.jobunify.online/api/jobs/detail/${job._id}" />
   <script type="application/ld+json">${JSON.stringify(jsonLd)}</script>
   <style>
     :root {
