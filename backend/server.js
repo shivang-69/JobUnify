@@ -41,6 +41,10 @@ app.use("/api/profile", require("./routes/profile"));
 app.use('/api/jobs', require('./src/routes/jobs'));
 app.use("/api/saved", require("./routes/savedJobs"));
 
+// Dynamic role category pages
+const { renderCategoryPage, CATEGORIES } = require("./src/routes/category");
+app.get("/jobs/:role", renderCategoryPage);
+
 // Root Health Check Route
 app.get("/", (req, res) => {
   res.json({ message: "JobUnify API is running ✅" });
@@ -167,6 +171,11 @@ app.get("/sitemap.xml", async (req, res) => {
     
     // Add main home page
     xml += `  <url>\n    <loc>https://www.jobunify.online/</loc>\n    <changefreq>daily</changefreq>\n    <priority>1.0</priority>\n  </url>\n`;
+
+    // Permanent role category pages (never expire)
+    for (const cat of Object.values(CATEGORIES)) {
+      xml += `  <url>\n    <loc>${cat.canonical}</loc>\n    <changefreq>daily</changefreq>\n    <priority>0.9</priority>\n  </url>\n`;
+    }
 
     for (const job of visibleJobs) {
       xml += `  <url>\n    <loc>https://www.jobunify.online/api/jobs/detail/${job._id}</loc>\n    <changefreq>weekly</changefreq>\n    <priority>0.7</priority>\n  </url>\n`;

@@ -9,6 +9,10 @@
     {
       "source": "/api/jobs/detail/:id",
       "destination": "https://jobunify.onrender.com/api/jobs/detail/:id"
+    },
+    {
+      "source": "/jobs/:role",
+      "destination": "https://jobunify.onrender.com/jobs/:role"
     }
   ]
 }

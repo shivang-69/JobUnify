@@ -10,6 +10,49 @@ let activeTrack = '';
 let activeRole = '';
 let savedJobIds = [];
 
+const ROLE_TO_SLUG = {
+  '': '',
+  'software': 'software-developer',
+  'qa': 'qa-testing',
+  'data': 'data-analytics',
+  'design': 'ui-ux-design'
+};
+
+const SLUG_TO_ROLE = {
+  'software-developer': 'software',
+  'qa-testing': 'qa',
+  'data-analytics': 'data',
+  'ui-ux-design': 'design'
+};
+
+const ROLE_METADATA = {
+  '': {
+    title: 'JobUnify — All Jobs, One Place',
+    description: 'JobUnify aggregates fresh entry-level tech jobs from Internshala, Naukri, and Google Jobs in one place — filtered for freshers and recent graduates. No duplicates, no senior roles.',
+    canonical: 'https://www.jobunify.online/'
+  },
+  'software': {
+    title: '0 Experience Software Developer Jobs — JobUnify',
+    description: 'Find fresh entry-level Software Developer jobs and paid internships with 0-2 years experience. Filtered for freshers from Internshala, Naukri, and Google Jobs with no senior roles.',
+    canonical: 'https://www.jobunify.online/jobs/software-developer'
+  },
+  'qa': {
+    title: '0 Experience QA & Software Testing Jobs — JobUnify',
+    description: 'Browse entry-level QA engineer, SDET, and software testing jobs and internships for freshers. Verified 0-2 years experience listings with zero spam.',
+    canonical: 'https://www.jobunify.online/jobs/qa-testing'
+  },
+  'data': {
+    title: '0 Experience Data Analyst & Science Jobs — JobUnify',
+    description: 'Discover fresh entry-level Data Analyst, Data Science, and BI jobs and internships. Curated for graduates with 0-2 years experience across top platforms.',
+    canonical: 'https://www.jobunify.online/jobs/data-analytics'
+  },
+  'design': {
+    title: '0 Experience UI/UX & Product Design Jobs — JobUnify',
+    description: 'Explore entry-level UI/UX designer and product design jobs and internships for freshers and early career talent. No senior roles, no duplicates.',
+    canonical: 'https://www.jobunify.online/jobs/ui-ux-design'
+  }
+};
+
 async function fetchJobs(page = 1, append = false) {
   const grid = document.getElementById('jobGrid');
   if (!grid) return; // Skip fetching if not on job list page
@@ -17,7 +60,11 @@ async function fetchJobs(page = 1, append = false) {
   isLoading = true;
 
   if (!append) {
-    grid.innerHTML = '<div class="loader-container"><div class="spinner"></div><div>Fetching latest jobs...</div></div>';
+    if (grid.getAttribute('data-prerendered') === 'true') {
+      grid.removeAttribute('data-prerendered');
+    } else {
+      grid.innerHTML = '<div class="loader-container"><div class="spinner"></div><div>Fetching latest jobs...</div></div>';
+    }
   } else {
     const loadMoreBtn = document.getElementById('loadMoreBtn');
     if (loadMoreBtn) loadMoreBtn.innerText = 'Loading...';
@@ -270,11 +317,31 @@ function setTrack(track, btn) {
   fetchJobs(1);
 }
 
-function setRoleFilter(role, btn) {
+function setRoleFilter(role, btn, pushState = true) {
   showListingsView();
   activeRole = role;
   document.querySelectorAll('.filters .filter-btn').forEach(b => b.classList.remove('active'));
-  if (btn) btn.classList.add('active');
+  if (btn) {
+    btn.classList.add('active');
+  } else {
+    const targetBtn = document.querySelector(`.filters .filter-btn[onclick*="'${role}'"]`);
+    if (targetBtn) targetBtn.classList.add('active');
+  }
+
+  const slug = ROLE_TO_SLUG[role] || '';
+  const targetPath = slug ? `/jobs/${slug}` : '/';
+
+  if (pushState && window.location.pathname !== targetPath) {
+    window.history.pushState({ role }, '', targetPath);
+  }
+
+  const meta = ROLE_METADATA[role] || ROLE_METADATA[''];
+  document.title = meta.title;
+  const metaDesc = document.querySelector('meta[name="description"]');
+  if (metaDesc) metaDesc.setAttribute('content', meta.description);
+  const canonical = document.querySelector('link[rel="canonical"]');
+  if (canonical) canonical.setAttribute('href', meta.canonical);
+
   currentPage = 1;
   fetchJobs(1);
 }
@@ -503,10 +570,27 @@ async function toggleSaveJob(event, jobId) {
         console.error('Error parsing user data from localStorage', e);
       }
     }
+    // Initialize activeRole from URL path if loading on a category page
+    const currentPath = window.location.pathname;
+    const catMatch = currentPath.match(/^\/jobs\/([a-z-]+)$/);
+    if (catMatch && SLUG_TO_ROLE[catMatch[1]]) {
+      activeRole = SLUG_TO_ROLE[catMatch[1]];
+      document.querySelectorAll('.filters .filter-btn').forEach(b => b.classList.remove('active'));
+      const targetBtn = document.querySelector(`.filters .filter-btn[onclick*="'${activeRole}'"]`);
+      if (targetBtn) targetBtn.classList.add('active');
+    }
+
     // Async sync with backend details
     fetchSavedJobs();
     fetchJobs(1);
     syncUserProfile();
+  });
+
+  window.addEventListener('popstate', () => {
+    const currentPath = window.location.pathname;
+    const catMatch = currentPath.match(/^\/jobs\/([a-z-]+)$/);
+    const role = (catMatch && SLUG_TO_ROLE[catMatch[1]]) ? SLUG_TO_ROLE[catMatch[1]] : '';
+    setRoleFilter(role, null, false);
   });
 
 
