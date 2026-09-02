@@ -253,13 +253,13 @@ async function renderCategoryPage(req, res) {
     </div>
   </nav>
 
-  <!-- HERO -->
+  <!-- DEDICATED CATEGORY HERO -->
   <section class="hero" id="heroSection">
-    <div class="hero-badge">✦ 0 experience. Guaranteed.</div>
-    <h1>Fresher jobs.<br/><span>Nothing else.</span></h1>
-    <p>We only list roles that need zero experience — verified, not just filtered. Search once, apply with confidence.</p>
+    <div class="hero-badge">✦ 0 Experience · Freshers Only</div>
+    <h1>${cat.heading}</h1>
+    <p>${cat.description}</p>
 
-    <div class="trust-pills" style="display:flex; justify-content:center; gap:12px; margin-bottom:32px;">
+    <div class="trust-pills" style="display:flex; justify-content:center; gap:12px; margin-bottom:32px; flex-wrap:wrap;">
       <div class="trust-pill" style="display:flex; align-items:center; gap:6px; background:rgba(34, 197, 94, 0.08); border:1px solid rgba(34, 197, 94, 0.2); padding:6px 14px; border-radius:999px; font-size:13px; color:#22c55e; font-weight:500;">
         <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;"><polyline points="20 6 9 17 4 12"></polyline></svg>
         0 exp only
@@ -268,10 +268,14 @@ async function renderCategoryPage(req, res) {
         <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;"><polyline points="20 6 9 17 4 12"></polyline></svg>
         updated daily
       </div>
+      <div class="trust-pill" style="display:flex; align-items:center; gap:6px; background:rgba(108, 99, 255, 0.12); border:1px solid rgba(108, 99, 255, 0.3); padding:6px 14px; border-radius:999px; font-size:13px; color:#a5b4fc; font-weight:600;">
+        <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+        ${cat.buttonText} Verified
+      </div>
     </div>
 
     <div class="search-wrapper">
-      <input type="text" id="searchInput" placeholder="Search by role, skill, or company..." />
+      <input type="text" id="searchInput" placeholder="Search ${cat.heading.toLowerCase()} by skill, company, or tech..." />
       <button class="search-btn" onclick="heroSearch()">Search</button>
     </div>
 
@@ -281,29 +285,6 @@ async function renderCategoryPage(req, res) {
       <div class="platform-pill" onclick="handlePlatformClick('GoogleJobs')"><div class="dot" style="background:#6c63ff"></div>Google Jobs</div>
     </div>
   </section>
-
-  <!-- STATS -->
-   <div class="stats" id="statsSection">
-    <div class="stat">
-      <div class="stat-num" id="stat-jobs-today">...</div>
-      <div class="stat-label">Jobs Today</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num" id="stat-platforms">...</div>
-      <div class="stat-label">Platforms</div>
-    </div>
-    <div class="stat" style="padding-top: 6px;">
-      <div class="stat-num" style="font-size: 20px; color: var(--green); display: flex; align-items: center; justify-content: center; gap: 6px;">
-        <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;"><polyline points="20 6 9 17 4 12"></polyline></svg>
-        Fresher-only
-      </div>
-      <div class="stat-label">listings</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num" id="stat-updated">...</div>
-      <div class="stat-label">Last updated</div>
-    </div>
-  </div>
 
   <!-- MAIN CONTENT -->
   <main class="main">

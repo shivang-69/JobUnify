@@ -28,26 +28,31 @@ const SLUG_TO_ROLE = {
 const ROLE_METADATA = {
   '': {
     title: 'JobUnify — All Jobs, One Place',
+    heading: 'Fresher jobs.<br/><span>Nothing else.</span>',
     description: 'JobUnify aggregates fresh entry-level tech jobs from Internshala, Naukri, and Google Jobs in one place — filtered for freshers and recent graduates. No duplicates, no senior roles.',
     canonical: 'https://www.jobunify.online/'
   },
   'software': {
     title: '0 Experience Software Developer Jobs — JobUnify',
+    heading: 'Software Developer Jobs',
     description: 'Find fresh entry-level Software Developer jobs and paid internships with 0-2 years experience. Filtered for freshers from Internshala, Naukri, and Google Jobs with no senior roles.',
     canonical: 'https://www.jobunify.online/jobs/software-developer'
   },
   'qa': {
     title: '0 Experience QA & Software Testing Jobs — JobUnify',
+    heading: 'QA & Testing Jobs',
     description: 'Browse entry-level QA engineer, SDET, and software testing jobs and internships for freshers. Verified 0-2 years experience listings with zero spam.',
     canonical: 'https://www.jobunify.online/jobs/qa-testing'
   },
   'data': {
     title: '0 Experience Data Analyst & Science Jobs — JobUnify',
+    heading: 'Data & Analytics Jobs',
     description: 'Discover fresh entry-level Data Analyst, Data Science, and BI jobs and internships. Curated for graduates with 0-2 years experience across top platforms.',
     canonical: 'https://www.jobunify.online/jobs/data-analytics'
   },
   'design': {
     title: '0 Experience UI/UX & Product Design Jobs — JobUnify',
+    heading: 'Design & UI/UX Jobs',
     description: 'Explore entry-level UI/UX designer and product design jobs and internships for freshers and early career talent. No senior roles, no duplicates.',
     canonical: 'https://www.jobunify.online/jobs/ui-ux-design'
   }
@@ -342,6 +347,24 @@ function setRoleFilter(role, btn, pushState = true) {
   const canonical = document.querySelector('link[rel="canonical"]');
   if (canonical) canonical.setAttribute('href', meta.canonical);
 
+  const heroH1 = document.querySelector('#heroSection h1');
+  const heroP = document.querySelector('#heroSection p');
+  const statsSec = document.getElementById('statsSection');
+  const sectionTitle = document.getElementById('sectionTitle');
+
+  if (role) {
+    if (heroH1) heroH1.innerHTML = meta.heading;
+    if (heroP) heroP.textContent = meta.description;
+    if (statsSec) statsSec.classList.add('hidden');
+    if (sectionTitle) sectionTitle.textContent = meta.heading;
+  } else {
+    if (heroH1) heroH1.innerHTML = meta.heading;
+    if (heroP) heroP.textContent = meta.description;
+    const token = localStorage.getItem('jobunify_token');
+    if (!token && statsSec) statsSec.classList.remove('hidden');
+    if (sectionTitle) sectionTitle.textContent = 'Latest Opportunities';
+  }
+
   currentPage = 1;
   fetchJobs(1);
 }
@@ -549,7 +572,7 @@ async function toggleSaveJob(event, jobId) {
       }
       if (avatarWrap) avatarWrap.style.display = 'none';
       if (heroSection) heroSection.classList.remove('hidden');
-      if (statsSection) statsSection.classList.remove('hidden');
+      if (statsSection && !activeRole) statsSection.classList.remove('hidden');
     }
 
     // Existing user info population
@@ -578,6 +601,22 @@ async function toggleSaveJob(event, jobId) {
       document.querySelectorAll('.filters .filter-btn').forEach(b => b.classList.remove('active'));
       const targetBtn = document.querySelector(`.filters .filter-btn[onclick*="'${activeRole}'"]`);
       if (targetBtn) targetBtn.classList.add('active');
+
+      const meta = ROLE_METADATA[activeRole] || ROLE_METADATA[''];
+      document.title = meta.title;
+      const metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc) metaDesc.setAttribute('content', meta.description);
+      const canonical = document.querySelector('link[rel="canonical"]');
+      if (canonical) canonical.setAttribute('href', meta.canonical);
+
+      const heroH1 = document.querySelector('#heroSection h1');
+      const heroP = document.querySelector('#heroSection p');
+      const statsSec = document.getElementById('statsSection');
+      const sectionTitle = document.getElementById('sectionTitle');
+      if (heroH1) heroH1.innerHTML = meta.heading;
+      if (heroP) heroP.textContent = meta.description;
+      if (statsSec) statsSec.classList.add('hidden');
+      if (sectionTitle) sectionTitle.textContent = meta.heading;
     }
 
     // Async sync with backend details
