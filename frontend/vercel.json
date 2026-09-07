@@ -1,14 +1,21 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/api/jobs/detail/:id",
+      "destination": "/jobs/detail/:id",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/sitemap.xml",
       "destination": "https://jobunify.onrender.com/sitemap.xml"
     },
     {
-      "source": "/api/jobs/detail/:id",
-      "destination": "https://jobunify.onrender.com/api/jobs/detail/:id"
+      "source": "/jobs/detail/:id",
+      "destination": "https://jobunify.onrender.com/jobs/detail/:id"
     },
     {
       "source": "/jobs/:role",

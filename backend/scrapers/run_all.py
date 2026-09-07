@@ -61,6 +61,17 @@ def main():
     except Exception as e:
         print(f"ERROR: Link verification failed: {e}\n")
         
+    print("\n========================================")
+    print("Triggering Sitemap Regeneration...")
+    print("========================================\n")
+    try:
+        import requests
+        backend_url = os.getenv("BACKEND_URL", "https://jobunify.onrender.com")
+        resp = requests.post(f"{backend_url}/api/sitemap/regenerate", timeout=30)
+        print(f"Sitemap regeneration response: {resp.status_code}")
+    except Exception as e:
+        print(f"Note: Sitemap regeneration ping: {e}")
+
     total_scraped = sum(results.values())
     total_saved = total_scraped - removed
     

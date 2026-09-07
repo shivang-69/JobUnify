@@ -41,6 +41,10 @@ app.use("/api/profile", require("./routes/profile"));
 app.use('/api/jobs', require('./src/routes/jobs'));
 app.use("/api/saved", require("./routes/savedJobs"));
 
+// Job Detail SSR & Expired Fallback (HTTP 410) Route
+const { renderJobDetailPage } = require("./src/routes/jobDetail");
+app.get("/jobs/detail/:id", renderJobDetailPage);
+
 // Dynamic role category pages
 const { renderCategoryPage, CATEGORIES } = require("./src/routes/category");
 app.get("/jobs/:role", renderCategoryPage);
@@ -126,67 +130,30 @@ app.get("/api/stats", async (req, res) => {
   }
 });
 
-// Sitemap.xml endpoint for Google Jobs indexing
-const mongoose = require("mongoose");
-const { buildFreshnessFilter } = require("./src/utils/freshnessFilter");
-const { isEntryLevel } = require("./src/utils/experienceFilter");
-const { isPaidInternship } = require("./src/utils/stipendFilter");
+// ─── Sitemap.xml Service (Cached & Automated Daily Regeneration) ───────
+const { getSitemapXml, generateSitemapXml, getSitemapStats, startSitemapScheduler } = require("./src/utils/sitemapService");
 
 app.get("/sitemap.xml", async (req, res) => {
   try {
-    const csWhitelist = /software|developer|programmer|engineer|frontend|backend|full\s*stack|data\s*scientist|data\s*analyst|data\s*science|devops|qa|sdet|ai|ml|machine\s*learning|cyber|security|cloud|sysadmin|system\s*admin|it\s*support|tech\s*support|android|ios|web|coder|react|node|python|java|javascript|c\+\+|golang|php|laravel|angular|vue|django|flask|spring\s*boot|flutter|swift|kotlin|aws|azure|infrastructure|network|systems\s*administrator|it\s*admin/i;
-    const csBlacklist = /mechanical|civil|electrical|electronics|chemical|structural|sales|marketing|hr|human\s*resources|finance|accountant|content\s*writer|copywriter|social\s*media|graphic|telecaller|tele-caller|adviser|advisor|customer\s*care|relationship\s*manager|sales\s*exec|business\s*development|bde|recruiter/i;
-
-    const csFilter = {
-      title: { $regex: csWhitelist },
-      $and: [
-        { title: { $not: { $regex: csBlacklist } } }
-      ]
-    };
-
-    const filter = {
-      $and: [
-        buildFreshnessFilter(),
-        csFilter,
-        { source: { $nin: ['Unstop', 'LinkedIn'] } },
-        { is_broken: { $ne: true } }
-      ]
-    };
-
-    const candidateJobs = await mongoose.connection.db
-      .collection('jobs')
-      .find(filter)
-      .toArray();
-
-    // Filter to only visible (entry-level + paid internship)
-    const visibleJobs = candidateJobs.filter(job => {
-      const { include, track } = isEntryLevel(job);
-      if (!include) return false;
-      if (track === 'internship') return isPaidInternship(job).paid;
-      return true;
-    });
-
-    // Build the XML sitemap
-    let xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`;
-    
-    // Add main home page
-    xml += `  <url>\n    <loc>https://www.jobunify.online/</loc>\n    <changefreq>daily</changefreq>\n    <priority>1.0</priority>\n  </url>\n`;
-
-    // Permanent role category pages (never expire)
-    for (const cat of Object.values(CATEGORIES)) {
-      xml += `  <url>\n    <loc>${cat.canonical}</loc>\n    <changefreq>daily</changefreq>\n    <priority>0.9</priority>\n  </url>\n`;
-    }
-
-    for (const job of visibleJobs) {
-      xml += `  <url>\n    <loc>https://www.jobunify.online/api/jobs/detail/${job._id}</loc>\n    <changefreq>weekly</changefreq>\n    <priority>0.7</priority>\n  </url>\n`;
-    }
-
-    xml += `</urlset>`;
-
-    res.header('Content-Type', 'application/xml');
+    const xml = await getSitemapXml();
+    res.header("Content-Type", "application/xml");
     res.send(xml);
   } catch (error) {
     res.status(500).send(error.message);
+  }
+});
+
+// Endpoint to trigger manual or webhook sitemap regeneration
+app.all("/api/sitemap/regenerate", async (req, res) => {
+  try {
+    await generateSitemapXml();
+    res.json({
+      success: true,
+      message: "Sitemap regenerated successfully",
+      stats: getSitemapStats()
+    });
+  } catch (error) {
+    res.status(500).json({ success: false, message: error.message });
   }
 });
 
@@ -197,4 +164,5 @@ app.use(errorHandler);
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
+  startSitemapScheduler();
 });

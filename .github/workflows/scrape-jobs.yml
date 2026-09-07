@@ -30,4 +30,5 @@ jobs:
           ADZUNA_APP_KEY: ${{ secrets.ADZUNA_APP_KEY }}
           RAPIDAPI_KEY: ${{ secrets.RAPIDAPI_KEY }}
           SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
+          BACKEND_URL: https://jobunify.onrender.com
         run: python backend/scrapers/run_all.py

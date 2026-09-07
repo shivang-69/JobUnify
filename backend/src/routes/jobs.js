@@ -190,164 +190,32 @@ router.get('/', async (req, res) => {
 });
 
   // ---------------------------------------------------
-  // New: Job Detail page (HTML with JobPosting schema)
+  // API Route: /api/jobs/detail/:id
+  // Programmatic requests get JSON; browsers/crawlers 301 redirect to canonical /jobs/detail/:id
   // ---------------------------------------------------
   router.get('/detail/:id', async (req, res) => {
     try {
-      const job = await mongoose.connection.db.collection('jobs').findOne({ _id: new mongoose.Types.ObjectId(req.params.id) });
+      const { id } = req.params;
+      const isJsonRequest = req.xhr || 
+        req.query.format === 'json' || 
+        (req.headers.accept && req.headers.accept.includes('application/json') && !req.headers.accept.includes('text/html'));
+
+      if (!isJsonRequest) {
+        return res.redirect(301, `https://www.jobunify.online/jobs/detail/${id}`);
+      }
+
+      if (!id || !mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(404).json({ success: false, message: 'Invalid Job ID' });
+      }
+
+      const job = await mongoose.connection.db.collection('jobs').findOne({ _id: new mongoose.Types.ObjectId(id) });
       if (!job) {
-        return res.status(404).send('Job not found');
-      }
-      // Build JSON-LD schema
-      const jsonLd = {
-        "@context": "https://schema.org",
-        "@type": "JobPosting",
-        "title": job.title || 'Job',
-        "description": job.description || `${job.title} at ${job.company}`,
-        "datePosted": job.date_posted || job.scrapedAt,
-        "hiringOrganization": {
-          "@type": "Organization",
-          "name": job.company || 'Company'
-        },
-        "jobLocation": {
-          "@type": "Place",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": job.location || 'Location',
-            "addressCountry": "India"
-          }
-        },
-        "employmentType": job.type || (job.track === 'internship' ? 'INTERNSHIP' : 'FULL_TIME'),
-        "directApply": true,
-        "url": `https://www.jobunify.online/api/jobs/detail/${job._id}`
-      };
-
-      const salaryData = parseSalary(job.stipend || job.salary);
-      if (salaryData) {
-        jsonLd.baseSalary = salaryData;
+        return res.status(404).json({ success: false, message: 'Job not found' });
       }
 
-      const html = `<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>${job.title} - ${job.company} | JobUnify</title>
-  <link rel="canonical" href="https://www.jobunify.online/api/jobs/detail/${job._id}" />
-  <script type="application/ld+json">${JSON.stringify(jsonLd)}</script>
-  <style>
-    :root {
-      --primary: #6c63ff;
-      --bg: #0f172a;
-      --card-bg: #1e293b;
-      --text: #f8fafc;
-      --text-muted: #94a3b8;
-      --border: #334155;
-    }
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      margin: 0;
-      padding: 2rem 1rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-    }
-    .container {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 2rem;
-      max-width: 650px;
-      width: 100%;
-      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
-    }
-    h1 {
-      font-size: 1.8rem;
-      margin-top: 0;
-      color: #fff;
-    }
-    .company {
-      font-size: 1.1rem;
-      color: var(--primary);
-      font-weight: 600;
-      margin-bottom: 1.5rem;
-    }
-    .meta-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 1rem;
-      margin-bottom: 1.5rem;
-      padding: 1rem 0;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-    .meta-item {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-    }
-    .meta-item strong {
-      display: block;
-      color: var(--text);
-      font-size: 0.95rem;
-      margin-bottom: 0.2rem;
-    }
-    .description {
-      line-height: 1.6;
-      color: #cbd5e1;
-      font-size: 0.95rem;
-      margin-bottom: 2rem;
-      white-space: pre-line;
-    }
-    .apply-btn {
-      display: inline-block;
-      background: var(--primary);
-      color: #fff;
-      text-decoration: none;
-      padding: 0.75rem 1.5rem;
-      border-radius: 8px;
-      font-weight: 600;
-      text-align: center;
-      transition: opacity 0.2s;
-    }
-    .apply-btn:hover {
-      opacity: 0.9;
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <h1>${job.title}</h1>
-    <div class="company">${job.company}</div>
-    
-    <div class="meta-grid">
-      <div class="meta-item">
-        <strong>Location</strong>
-        ${job.location || 'N/A'}
-      </div>
-      <div class="meta-item">
-        <strong>Posted</strong>
-        ${formatPostedDate(job.date_posted || job.scrapedAt)}
-      </div>
-      <div class="meta-item">
-        <strong>Source</strong>
-        ${job.source || 'N/A'}
-      </div>
-    </div>
-
-    <div class="description">
-      ${job.description || 'No description provided.'}
-    </div>
-
-    ${job.job_url ? `<a href="${job.job_url}" class="apply-btn" target="_blank" rel="noopener">Apply Now →</a>` : '<button class="apply-btn" disabled style="opacity: 0.5; cursor: not-allowed;">Apply Not Available</button>'}
-  </div>
-</body>
-</html>`;
-      res.send(html);
+      return res.json({ success: true, job });
     } catch (err) {
-      res.status(500).send(err.message);
+      res.status(500).json({ success: false, message: err.message });
     }
   });
 
