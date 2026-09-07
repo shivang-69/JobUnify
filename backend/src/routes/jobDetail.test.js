@@ -3,9 +3,9 @@ const { renderJobDetailPage, parseSalary, detectCategory } = require('./jobDetai
 
 describe('jobDetail module tests', () => {
   describe('detectCategory', () => {
-    test('detects qa-testing category', () => {
-      expect(detectCategory({ title: 'Junior QA Tester' })).toBe('qa-testing');
-      expect(detectCategory({ title: 'SDET Intern' })).toBe('qa-testing');
+    test('detects software-testing category', () => {
+      expect(detectCategory({ title: 'Junior QA Tester' })).toBe('software-testing');
+      expect(detectCategory({ title: 'SDET Intern' })).toBe('software-testing');
     });
 
     test('detects data-analytics category', () => {
@@ -13,9 +13,9 @@ describe('jobDetail module tests', () => {
       expect(detectCategory({ title: 'Data Science Intern' })).toBe('data-analytics');
     });
 
-    test('detects ui-ux-design category', () => {
-      expect(detectCategory({ title: 'UI/UX Designer' })).toBe('ui-ux-design');
-      expect(detectCategory({ title: 'Product Design Intern' })).toBe('ui-ux-design');
+    test('detects design-ui-ux category', () => {
+      expect(detectCategory({ title: 'UI/UX Designer' })).toBe('design-ui-ux');
+      expect(detectCategory({ title: 'Product Design Intern' })).toBe('design-ui-ux');
     });
 
     test('defaults to software-developer for tech roles', () => {

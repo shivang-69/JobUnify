@@ -3,45 +3,112 @@ const { buildFreshnessFilter } = require('../utils/freshnessFilter');
 const { isEntryLevel } = require('../utils/experienceFilter');
 const { isPaidInternship } = require('../utils/stipendFilter');
 const { formatPostedDate } = require('../utils/dateFormatter');
+const { parseSalary } = require('./jobDetail');
 
 const CATEGORIES = {
   'software-developer': {
     slug: 'software-developer',
     roleKey: 'software',
+    roleRegex: /software|developer|programmer|engineer|frontend|backend|full\s*stack|web|react|node|python|java/i,
     buttonText: 'Software Dev',
     title: '0 Experience Software Developer Jobs — JobUnify',
-    heading: 'Software Developer Jobs',
+    heading: '0 Experience Software Developer Jobs',
     description: 'Find fresh entry-level Software Developer jobs and paid internships with 0-2 years experience. Filtered for freshers from Internshala, Naukri, and Google Jobs with no senior roles.',
     canonical: 'https://www.jobunify.online/jobs/software-developer'
   },
-  'qa-testing': {
-    slug: 'qa-testing',
+  'software-testing': {
+    slug: 'software-testing',
     roleKey: 'qa',
-    buttonText: 'QA & Testing',
-    title: '0 Experience QA & Software Testing Jobs — JobUnify',
-    heading: 'QA & Testing Jobs',
-    description: 'Browse entry-level QA engineer, SDET, and software testing jobs and internships for freshers. Verified 0-2 years experience listings with zero spam.',
-    canonical: 'https://www.jobunify.online/jobs/qa-testing'
+    roleRegex: /qa|testing|test|sdet|quality\s*assurance/i,
+    buttonText: 'Software Testing',
+    title: '0 Experience Software Testing Jobs — JobUnify',
+    heading: '0 Experience Software Testing Jobs',
+    description: 'Browse verified 0 experience software testing jobs, QA engineer, and SDET internships for freshers. Filtered for 0-2 years experience with zero spam.',
+    canonical: 'https://www.jobunify.online/jobs/software-testing'
   },
   'data-analytics': {
     slug: 'data-analytics',
     roleKey: 'data',
+    roleRegex: /data|analyst|analytics|science|database|\bbi\b/i,
     buttonText: 'Data & Analytics',
-    title: '0 Experience Data Analyst & Science Jobs — JobUnify',
-    heading: 'Data & Analytics Jobs',
-    description: 'Discover fresh entry-level Data Analyst, Data Science, and BI jobs and internships. Curated for graduates with 0-2 years experience across top platforms.',
+    title: 'Data Analyst Fresher Jobs 0 Experience — JobUnify',
+    heading: 'Data Analyst Fresher Jobs (0 Experience)',
+    description: 'Discover entry-level data analyst fresher jobs and paid data science internships requiring 0 experience. Handpicked for fresh graduates and early talent.',
     canonical: 'https://www.jobunify.online/jobs/data-analytics'
   },
-  'ui-ux-design': {
-    slug: 'ui-ux-design',
+  'design-ui-ux': {
+    slug: 'design-ui-ux',
     roleKey: 'design',
-    buttonText: 'Design / UI-UX',
-    title: '0 Experience UI/UX & Product Design Jobs — JobUnify',
-    heading: 'Design & UI/UX Jobs',
-    description: 'Explore entry-level UI/UX designer and product design jobs and internships for freshers and early career talent. No senior roles, no duplicates.',
-    canonical: 'https://www.jobunify.online/jobs/ui-ux-design'
+    roleRegex: /ui\s*\/\s*ux|ui|ux|user\s*interface|user\s*experience|product\s*design|figma|web\s*design/i,
+    buttonText: 'UI/UX Design',
+    title: 'UI UX Design Fresher Jobs — JobUnify',
+    heading: 'UI UX Design Fresher Jobs',
+    description: 'Explore entry-level UI UX design fresher jobs and product design internships with 0 experience required. Curated from top platforms with no senior roles.',
+    canonical: 'https://www.jobunify.online/jobs/design-ui-ux'
+  },
+  'remote': {
+    slug: 'remote',
+    isRemote: true,
+    buttonText: 'Remote Jobs',
+    title: 'Fresher Jobs Remote Work From Home — JobUnify',
+    heading: 'Fresher Jobs Remote (Work From Home)',
+    description: 'Find fresher jobs remote work from home across software development, QA testing, data analytics, and UI/UX design. Verified entry-level listings with 0 experience.',
+    canonical: 'https://www.jobunify.online/jobs/remote'
   }
 };
+
+function escapeHtml(str) {
+  if (!str) return '';
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
+function buildJobPostingSchema(job) {
+  const isRemote = (job.location && /remote|work from home|wfh/i.test(job.location)) || (job.type && /remote/i.test(job.type));
+  const dateStr = job.date_posted || (job.scrapedAt instanceof Date ? job.scrapedAt.toISOString() : (job.scrapedAt || new Date().toISOString()));
+  
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'JobPosting',
+    'title': job.title || 'Job Opening',
+    'description': job.description || `${job.title || 'Technology Role'} at ${job.company || 'Company'} — 0 experience fresher job opportunity.`,
+    'datePosted': dateStr,
+    'hiringOrganization': {
+      '@type': 'Organization',
+      'name': job.company || 'Company'
+    },
+    'jobLocation': {
+      '@type': 'Place',
+      'address': {
+        '@type': 'PostalAddress',
+        'addressLocality': job.location || 'India',
+        'addressCountry': 'IN'
+      }
+    },
+    'employmentType': job.type || (job.track === 'internship' ? 'INTERNSHIP' : 'FULL_TIME'),
+    'directApply': true,
+    'url': `https://www.jobunify.online/jobs/detail/${job._id}`
+  };
+
+  if (isRemote) {
+    schema.jobLocationType = 'TELECOMMUTE';
+    schema.applicantLocationRequirements = {
+      '@type': 'Country',
+      'name': 'India'
+    };
+  }
+
+  const salaryData = parseSalary(job.stipend || job.salary);
+  if (salaryData) {
+    schema.baseSalary = salaryData;
+  }
+
+  return schema;
+}
 
 function buildServerJobCard(job) {
   const source = job.source || 'Unknown';
@@ -58,7 +125,7 @@ function buildServerJobCard(job) {
   const tags = [];
   if (job.type) tags.push(job.type);
   if (job.duration) tags.push(job.duration);
-  const tagsHtml = tags.length ? `<div class="job-tags">${tags.map(t => `<div class="tag">💼 ${t}</div>`).join('')}</div>` : '';
+  const tagsHtml = tags.length ? `<div class="job-tags">${tags.map(t => `<div class="tag">💼 ${escapeHtml(t)}</div>`).join('')}</div>` : '';
 
   return `
     <div class="job-card">
@@ -68,7 +135,7 @@ function buildServerJobCard(job) {
         </div>
         <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
           <span class="source-badge source-${sourceClass}">
-            ${source}
+            ${escapeHtml(source)}
           </span>
           <span class="fresher-badge" style="background:rgba(108, 99, 255, 0.12); border:1px solid rgba(108, 99, 255, 0.3); color:var(--accent2); font-size:11px; font-weight:600; padding:4px 8px; border-radius:6px; display:inline-flex; align-items:center; gap:4px; letter-spacing:0.2px;">
             <svg viewBox="0 0 24 24" width="10" height="10" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
@@ -82,16 +149,16 @@ function buildServerJobCard(job) {
         </button>
       </div>
       <div class="job-title">
-        ${job.title || 'N/A'}
+        ${escapeHtml(job.title || 'N/A')}
       </div>
       <div class="company-name">
-        ${job.company || 'N/A'} · ${job.location || 'N/A'}
-        ${dateStr ? ` · <span class="posted-date">${dateStr}</span>` : ''}
+        ${escapeHtml(job.company || 'N/A')} · ${escapeHtml(job.location || 'N/A')}
+        ${dateStr ? ` · <span class="posted-date">${escapeHtml(dateStr)}</span>` : ''}
       </div>
       ${tagsHtml}
       <div class="card-footer">
         <div class="stipend">
-          ${job.stipend || job.salary || 'Not disclosed'}
+          ${escapeHtml(job.stipend || job.salary || 'Not disclosed')}
         </div>
         <div style="display:flex; gap:8px;">
           ${job.job_url ? `<a href="#" onclick="handleApply(event, '${job.job_url}')" class="apply-btn">Apply →</a>` : `<button class="apply-btn" disabled>Not Available</button>`}
@@ -104,6 +171,15 @@ function buildServerJobCard(job) {
 
 async function renderCategoryPage(req, res) {
   const { role } = req.params;
+
+  // Handle legacy redirects
+  if (role === 'qa-testing') {
+    return res.redirect(301, '/jobs/software-testing');
+  }
+  if (role === 'ui-ux-design') {
+    return res.redirect(301, '/jobs/design-ui-ux');
+  }
+
   const cat = CATEGORIES[role];
 
   if (!cat) {
@@ -135,18 +211,37 @@ async function renderCategoryPage(req, res) {
       ]
     };
 
+    let categoryMatch;
+    if (cat.isRemote) {
+      categoryMatch = {
+        $or: [
+          { location: { $regex: /remote|work from home|wfh/i } },
+          { title: { $regex: /\b(remote|wfh)\b/i } }
+        ]
+      };
+    } else if (cat.roleRegex) {
+      categoryMatch = {
+        $or: [
+          { title: cat.roleRegex },
+          { company: cat.roleRegex }
+        ]
+      };
+    } else {
+      categoryMatch = {
+        $or: [
+          { title: new RegExp(cat.roleKey, 'i') },
+          { company: new RegExp(cat.roleKey, 'i') }
+        ]
+      };
+    }
+
     const filter = {
       $and: [
         buildFreshnessFilter(),
         csFilter,
         { source: { $nin: ['Unstop', 'LinkedIn'] } },
         { is_broken: { $ne: true } },
-        {
-          $or: [
-            { title: new RegExp(cat.roleKey, 'i') },
-            { company: new RegExp(cat.roleKey, 'i') }
-          ]
-        }
+        categoryMatch
       ]
     };
 
@@ -176,36 +271,99 @@ async function renderCategoryPage(req, res) {
       ? visibleJobs.map(buildServerJobCard).join('\n')
       : '<div class="empty" style="grid-column:1/-1"><div class="empty-icon">🔍</div><div>No jobs found in this category right now. Check back soon!</div></div>';
 
+    // Build JSON-LD JobPosting schemas for visible jobs
+    const schemaGraph = visibleJobs.length > 0
+      ? {
+          '@context': 'https://schema.org',
+          '@graph': visibleJobs.map(buildJobPostingSchema)
+        }
+      : null;
+
+    const schemaTag = schemaGraph
+      ? `\n  <script type="application/ld+json">${JSON.stringify(schemaGraph).replace(/</g, '\\u003c')}</script>`
+      : '';
+
     const html = `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>${cat.title}</title>
-  <meta name="description" content="${cat.description}" />
+  <title>${escapeHtml(cat.title)}</title>
+  <meta name="description" content="${escapeHtml(cat.description)}" />
   <link rel="canonical" href="${cat.canonical}" />
-  <meta property="og:title" content="${cat.title}" />
-  <meta property="og:description" content="${cat.description}" />
+  <meta property="og:title" content="${escapeHtml(cat.title)}" />
+  <meta property="og:description" content="${escapeHtml(cat.description)}" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="${cat.canonical}" />
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="${cat.title}" />
-  <meta name="twitter:description" content="${cat.description}" />
+  <meta name="twitter:title" content="${escapeHtml(cat.title)}" />
+  <meta name="twitter:description" content="${escapeHtml(cat.description)}" />
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="icon" href="/jobunify-logo.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/jobunify-logo-192.png" />
   <meta name="google-site-verification" content="IMZ4GejbI-8GCc5BQ5-m-gE4GJG-8KCEqS_wFHvxYfI" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="/style.css"/>
+  <link rel="stylesheet" href="/style.css"/>${schemaTag}
+  <style>
+    .browse-categories-section {
+      max-width: 1200px;
+      margin: 48px auto 24px;
+      padding: 32px 24px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 16px;
+    }
+    .browse-categories-title {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: #f1f5f9;
+      margin-bottom: 8px;
+    }
+    .browse-categories-sub {
+      font-size: 0.875rem;
+      color: #94a3b8;
+      margin-bottom: 20px;
+    }
+    .browse-categories-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .browse-cat-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      color: #cbd5e1;
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+    .browse-cat-link:hover {
+      background: rgba(108, 99, 255, 0.15);
+      border-color: rgba(108, 99, 255, 0.4);
+      color: #fff;
+      transform: translateY(-1px);
+    }
+    .browse-cat-link.active {
+      background: rgba(108, 99, 255, 0.2);
+      border-color: #6c63ff;
+      color: #fff;
+    }
+  </style>
 </head>
 <body>
 
   <!-- NAVBAR -->
   <nav>
-    <div class="logo">
+    <a href="/" class="logo" style="text-decoration:none; color:inherit;">
       <img src="/jobunify-logo.svg" alt="JobUnify logo" width="24" height="24" style="vertical-align:middle; margin-right:6px;" />
       Job<span>Unify</span>
-    </div>
+    </a>
     <div class="nav-links">
       <a href="/signup.html"><button class="nav-btn">Sign Up Free</button></a>
       <div class="avatar-wrap">
@@ -256,8 +414,8 @@ async function renderCategoryPage(req, res) {
   <!-- DEDICATED CATEGORY HERO -->
   <section class="hero" id="heroSection">
     <div class="hero-badge">✦ 0 Experience · Freshers Only</div>
-    <h1>${cat.heading}</h1>
-    <p>${cat.description}</p>
+    <h1>${escapeHtml(cat.heading)}</h1>
+    <p>${escapeHtml(cat.description)}</p>
 
     <div class="trust-pills" style="display:flex; justify-content:center; gap:12px; margin-bottom:32px; flex-wrap:wrap;">
       <div class="trust-pill" style="display:flex; align-items:center; gap:6px; background:rgba(34, 197, 94, 0.08); border:1px solid rgba(34, 197, 94, 0.2); padding:6px 14px; border-radius:999px; font-size:13px; color:#22c55e; font-weight:500;">
@@ -270,12 +428,12 @@ async function renderCategoryPage(req, res) {
       </div>
       <div class="trust-pill" style="display:flex; align-items:center; gap:6px; background:rgba(108, 99, 255, 0.12); border:1px solid rgba(108, 99, 255, 0.3); padding:6px 14px; border-radius:999px; font-size:13px; color:#a5b4fc; font-weight:600;">
         <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
-        ${cat.buttonText} Verified
+        ${escapeHtml(cat.buttonText)} Verified
       </div>
     </div>
 
     <div class="search-wrapper">
-      <input type="text" id="searchInput" placeholder="Search ${cat.heading.toLowerCase()} by skill, company, or tech..." />
+      <input type="text" id="searchInput" placeholder="Search ${escapeHtml(cat.heading.toLowerCase())} by skill, company, or tech..." />
       <button class="search-btn" onclick="heroSearch()">Search</button>
     </div>
 
@@ -305,17 +463,19 @@ async function renderCategoryPage(req, res) {
       </button>
     </div>
 
+    <!-- CRAWLABLE CATEGORY / ROLE FILTERS -->
     <div class="filters">
-      <span class="filter-label">Roles:</span>
-      <button class="filter-btn" onclick="setRoleFilter('', this)">All Roles</button>
-      <button class="filter-btn ${role === 'software-developer' ? 'active' : ''}" onclick="setRoleFilter('software', this)">Software Dev</button>
-      <button class="filter-btn ${role === 'qa-testing' ? 'active' : ''}" onclick="setRoleFilter('qa', this)">QA & Testing</button>
-      <button class="filter-btn ${role === 'data-analytics' ? 'active' : ''}" onclick="setRoleFilter('data', this)">Data & Analytics</button>
-      <button class="filter-btn ${role === 'ui-ux-design' ? 'active' : ''}" onclick="setRoleFilter('design', this)">Design / UI-UX</button>
+      <span class="filter-label">Categories:</span>
+      <a href="/" class="filter-btn" style="text-decoration:none;">All Roles</a>
+      <a href="/jobs/software-developer" class="filter-btn ${role === 'software-developer' ? 'active' : ''}" style="text-decoration:none;">Software Dev</a>
+      <a href="/jobs/software-testing" class="filter-btn ${role === 'software-testing' ? 'active' : ''}" style="text-decoration:none;">Software Testing</a>
+      <a href="/jobs/data-analytics" class="filter-btn ${role === 'data-analytics' ? 'active' : ''}" style="text-decoration:none;">Data & Analytics</a>
+      <a href="/jobs/design-ui-ux" class="filter-btn ${role === 'design-ui-ux' ? 'active' : ''}" style="text-decoration:none;">Design / UI-UX</a>
+      <a href="/jobs/remote" class="filter-btn ${role === 'remote' ? 'active' : ''}" style="text-decoration:none;">Remote Jobs</a>
 
       <select class="filter-select" id="locationFilter" onchange="filterJobs()">
-        <option value="">All Locations</option>
-        <option>Remote</option>
+        <option value="" ${cat.isRemote ? '' : 'selected'}>All Locations</option>
+        <option value="Remote" ${cat.isRemote ? 'selected' : ''}>Remote</option>
         <option>Delhi</option>
         <option>Bangalore</option>
         <option>Mumbai</option>
@@ -342,7 +502,7 @@ async function renderCategoryPage(req, res) {
     </div>
 
     <div class="section-header">
-      <div class="section-title">${cat.heading}</div>
+      <div class="section-title">${escapeHtml(cat.heading)}</div>
       <div class="job-count" id="jobCount">${visibleJobs.length} opportunities available</div>
     </div>
 
@@ -359,7 +519,43 @@ async function renderCategoryPage(req, res) {
       </button>
     </div>
 
+    <!-- BROWSE BY CATEGORY INTERNAL LINKS -->
+    <section class="browse-categories-section">
+      <div class="browse-categories-title">Browse Fresher Jobs by Category</div>
+      <div class="browse-categories-sub">Explore verified 0 experience fresher tech jobs and paid internships across major domains.</div>
+      <div class="browse-categories-grid">
+        <a href="/jobs/software-developer" class="browse-cat-link ${role === 'software-developer' ? 'active' : ''}">
+          💻 Software Developer Jobs
+        </a>
+        <a href="/jobs/software-testing" class="browse-cat-link ${role === 'software-testing' ? 'active' : ''}">
+          🔍 Software Testing & QA Jobs
+        </a>
+        <a href="/jobs/data-analytics" class="browse-cat-link ${role === 'data-analytics' ? 'active' : ''}">
+          📊 Data Analyst & Science Jobs
+        </a>
+        <a href="/jobs/design-ui-ux" class="browse-cat-link ${role === 'design-ui-ux' ? 'active' : ''}">
+          🎨 UI/UX & Product Design Jobs
+        </a>
+        <a href="/jobs/remote" class="browse-cat-link ${role === 'remote' ? 'active' : ''}">
+          🏠 Remote Work From Home Jobs
+        </a>
+      </div>
+    </section>
+
   </main>
+
+  <footer style="max-width:1200px; margin:40px auto 20px; padding:20px; text-align:center; color:#64748b; font-size:0.875rem; border-top:1px solid rgba(255,255,255,0.06);">
+    <div style="margin-bottom:12px; display:flex; justify-content:center; gap:16px; flex-wrap:wrap;">
+      <a href="/" style="color:#94a3b8; text-decoration:none;">Home</a>
+      <a href="/jobs/software-developer" style="color:#94a3b8; text-decoration:none;">Software Dev</a>
+      <a href="/jobs/software-testing" style="color:#94a3b8; text-decoration:none;">Software Testing</a>
+      <a href="/jobs/data-analytics" style="color:#94a3b8; text-decoration:none;">Data Analytics</a>
+      <a href="/jobs/design-ui-ux" style="color:#94a3b8; text-decoration:none;">UI/UX Design</a>
+      <a href="/jobs/remote" style="color:#94a3b8; text-decoration:none;">Remote Jobs</a>
+      <a href="/saved-jobs.html" style="color:#94a3b8; text-decoration:none;">Saved Jobs</a>
+    </div>
+    <p>© 2026 JobUnify. Filtered tech jobs for freshers with 0 experience.</p>
+  </footer>
 
   <script src="/config.js"></script>
   <script src="/script.js"></script>
@@ -376,5 +572,6 @@ async function renderCategoryPage(req, res) {
 
 module.exports = {
   CATEGORIES,
-  renderCategoryPage
+  renderCategoryPage,
+  buildJobPostingSchema
 };

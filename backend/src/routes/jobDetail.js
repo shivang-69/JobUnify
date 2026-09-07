@@ -11,11 +11,17 @@ const CATEGORIES = {
     heading: 'Software Developer Jobs',
     canonical: 'https://www.jobunify.online/jobs/software-developer'
   },
-  'qa-testing': {
-    slug: 'qa-testing',
+  'software-testing': {
+    slug: 'software-testing',
     roleKey: 'qa',
-    heading: 'QA & Testing Jobs',
-    canonical: 'https://www.jobunify.online/jobs/qa-testing'
+    heading: 'QA & Software Testing Jobs',
+    canonical: 'https://www.jobunify.online/jobs/software-testing'
+  },
+  'qa-testing': {
+    slug: 'software-testing',
+    roleKey: 'qa',
+    heading: 'QA & Software Testing Jobs',
+    canonical: 'https://www.jobunify.online/jobs/software-testing'
   },
   'data-analytics': {
     slug: 'data-analytics',
@@ -23,11 +29,23 @@ const CATEGORIES = {
     heading: 'Data & Analytics Jobs',
     canonical: 'https://www.jobunify.online/jobs/data-analytics'
   },
-  'ui-ux-design': {
-    slug: 'ui-ux-design',
+  'design-ui-ux': {
+    slug: 'design-ui-ux',
     roleKey: 'design',
     heading: 'Design & UI/UX Jobs',
-    canonical: 'https://www.jobunify.online/jobs/ui-ux-design'
+    canonical: 'https://www.jobunify.online/jobs/design-ui-ux'
+  },
+  'ui-ux-design': {
+    slug: 'design-ui-ux',
+    roleKey: 'design',
+    heading: 'Design & UI/UX Jobs',
+    canonical: 'https://www.jobunify.online/jobs/design-ui-ux'
+  },
+  'remote': {
+    slug: 'remote',
+    isRemote: true,
+    heading: 'Remote Fresher Jobs',
+    canonical: 'https://www.jobunify.online/jobs/remote'
   }
 };
 
@@ -88,13 +106,13 @@ function parseSalary(salaryStr) {
 function detectCategory(job) {
   const text = `${job?.title || ''} ${job?.roleKey || ''} ${job?.description || ''}`.toLowerCase();
   if (text.includes('qa') || text.includes('testing') || text.includes('test') || text.includes('sdet') || text.includes('quality')) {
-    return 'qa-testing';
+    return 'software-testing';
   }
   if (text.includes('data') || text.includes('analyst') || text.includes('analytics') || text.includes('science') || text.includes('bi')) {
     return 'data-analytics';
   }
   if (text.includes('design') || text.includes('ui') || text.includes('ux') || text.includes('product design') || text.includes('figma')) {
-    return 'ui-ux-design';
+    return 'design-ui-ux';
   }
   return 'software-developer';
 }
@@ -640,7 +658,30 @@ function renderActiveJobPage(res, { job, categorySlug }) {
         ${job.job_url ? `<a href="${escapeHtml(job.job_url)}" target="_blank" rel="noopener" class="detail-apply-btn">Apply on ${source} →</a>` : `<button class="detail-apply-btn" disabled style="opacity:0.5; cursor:not-allowed;">Apply Not Available</button>`}
       </div>
     </article>
+
+    <section style="margin-top:40px; padding:24px; background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.06); border-radius:12px;">
+      <h3 style="color:#e2e8f0; font-size:1rem; margin-bottom:12px;">Explore More Fresher Job Categories</h3>
+      <div style="display:flex; flex-wrap:wrap; gap:10px;">
+        <a href="/jobs/software-developer" style="color:#a5b4fc; text-decoration:none; font-size:0.875rem; background:rgba(255,255,255,0.04); padding:6px 12px; border-radius:6px; border:1px solid rgba(255,255,255,0.08);">Software Developer Jobs</a>
+        <a href="/jobs/software-testing" style="color:#a5b4fc; text-decoration:none; font-size:0.875rem; background:rgba(255,255,255,0.04); padding:6px 12px; border-radius:6px; border:1px solid rgba(255,255,255,0.08);">Software Testing Jobs</a>
+        <a href="/jobs/data-analytics" style="color:#a5b4fc; text-decoration:none; font-size:0.875rem; background:rgba(255,255,255,0.04); padding:6px 12px; border-radius:6px; border:1px solid rgba(255,255,255,0.08);">Data Analytics Jobs</a>
+        <a href="/jobs/design-ui-ux" style="color:#a5b4fc; text-decoration:none; font-size:0.875rem; background:rgba(255,255,255,0.04); padding:6px 12px; border-radius:6px; border:1px solid rgba(255,255,255,0.08);">UI/UX Design Jobs</a>
+        <a href="/jobs/remote" style="color:#a5b4fc; text-decoration:none; font-size:0.875rem; background:rgba(255,255,255,0.04); padding:6px 12px; border-radius:6px; border:1px solid rgba(255,255,255,0.08);">Remote Fresher Jobs</a>
+      </div>
+    </section>
   </main>
+
+  <footer style="max-width:840px; margin:40px auto 20px; padding:20px; text-align:center; color:#64748b; font-size:0.875rem; border-top:1px solid rgba(255,255,255,0.06);">
+    <div style="margin-bottom:12px; display:flex; justify-content:center; gap:16px; flex-wrap:wrap;">
+      <a href="/" style="color:#94a3b8; text-decoration:none;">Home</a>
+      <a href="/jobs/software-developer" style="color:#94a3b8; text-decoration:none;">Software Dev</a>
+      <a href="/jobs/software-testing" style="color:#94a3b8; text-decoration:none;">Software Testing</a>
+      <a href="/jobs/data-analytics" style="color:#94a3b8; text-decoration:none;">Data Analytics</a>
+      <a href="/jobs/design-ui-ux" style="color:#94a3b8; text-decoration:none;">UI/UX Design</a>
+      <a href="/jobs/remote" style="color:#94a3b8; text-decoration:none;">Remote Jobs</a>
+    </div>
+    <p>© 2026 JobUnify. 0 experience verified fresher tech jobs.</p>
+  </footer>
 
 </body>
 </html>`;

@@ -7,22 +7,31 @@ const CATEGORIES = {
   'software-developer': {
     slug: 'software-developer',
     roleKey: 'software',
+    roleRegex: /software|developer|programmer|engineer|frontend|backend|full\s*stack|web|react|node|python|java/i,
     canonical: 'https://www.jobunify.online/jobs/software-developer'
   },
-  'qa-testing': {
-    slug: 'qa-testing',
+  'software-testing': {
+    slug: 'software-testing',
     roleKey: 'qa',
-    canonical: 'https://www.jobunify.online/jobs/qa-testing'
+    roleRegex: /qa|testing|test|sdet|quality\s*assurance/i,
+    canonical: 'https://www.jobunify.online/jobs/software-testing'
   },
   'data-analytics': {
     slug: 'data-analytics',
     roleKey: 'data',
+    roleRegex: /data|analyst|analytics|science|database|\bbi\b/i,
     canonical: 'https://www.jobunify.online/jobs/data-analytics'
   },
-  'ui-ux-design': {
-    slug: 'ui-ux-design',
+  'design-ui-ux': {
+    slug: 'design-ui-ux',
     roleKey: 'design',
-    canonical: 'https://www.jobunify.online/jobs/ui-ux-design'
+    roleRegex: /ui\s*\/\s*ux|ui|ux|user\s*interface|user\s*experience|product\s*design|figma|web\s*design/i,
+    canonical: 'https://www.jobunify.online/jobs/design-ui-ux'
+  },
+  'remote': {
+    slug: 'remote',
+    isRemote: true,
+    canonical: 'https://www.jobunify.online/jobs/remote'
   }
 };
 
@@ -93,6 +102,12 @@ async function generateSitemapXml() {
     for (const cat of Object.values(CATEGORIES)) {
       // Find latest date for this category if possible
       const catJobs = visibleJobs.filter(job => {
+        if (cat.isRemote) {
+          return (job.location && /remote|work from home|wfh/i.test(job.location)) || (job.title && /\b(remote|wfh)\b/i.test(job.title));
+        }
+        if (cat.roleRegex) {
+          return (job.title && cat.roleRegex.test(job.title)) || (job.company && cat.roleRegex.test(job.company));
+        }
         const titleMatch = job.title && new RegExp(cat.roleKey, 'i').test(job.title);
         const compMatch = job.company && new RegExp(cat.roleKey, 'i').test(job.company);
         return titleMatch || compMatch;

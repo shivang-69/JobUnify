@@ -147,12 +147,13 @@
     </div>
 
     <div class="filters">
-      <span class="filter-label">Roles:</span>
-      <button class="filter-btn active" onclick="setRoleFilter('', this)">All Roles</button>
-      <button class="filter-btn" onclick="setRoleFilter('software', this)">Software Dev</button>
-      <button class="filter-btn" onclick="setRoleFilter('qa', this)">QA & Testing</button>
-      <button class="filter-btn" onclick="setRoleFilter('data', this)">Data & Analytics</button>
-      <button class="filter-btn" onclick="setRoleFilter('design', this)">Design / UI-UX</button>
+      <span class="filter-label">Categories:</span>
+      <a href="/" class="filter-btn active" onclick="setRoleFilter('', this); return false;" style="text-decoration:none;">All Roles</a>
+      <a href="/jobs/software-developer" class="filter-btn" onclick="setRoleFilter('software', this); return false;" style="text-decoration:none;">Software Dev</a>
+      <a href="/jobs/software-testing" class="filter-btn" onclick="setRoleFilter('qa', this); return false;" style="text-decoration:none;">Software Testing</a>
+      <a href="/jobs/data-analytics" class="filter-btn" onclick="setRoleFilter('data', this); return false;" style="text-decoration:none;">Data & Analytics</a>
+      <a href="/jobs/design-ui-ux" class="filter-btn" onclick="setRoleFilter('design', this); return false;" style="text-decoration:none;">Design / UI-UX</a>
+      <a href="/jobs/remote" class="filter-btn" onclick="setRoleFilter('remote', this); return false;" style="text-decoration:none;">Remote Jobs</a>
 
       <select class="filter-select" id="locationFilter" onchange="filterJobs()">
         <option value="">All Locations</option>
@@ -203,7 +204,43 @@
       </button>
     </div>
 
+    <!-- BROWSE BY CATEGORY INTERNAL LINKS -->
+    <section class="browse-categories-section" style="max-width:1200px; margin:48px auto 24px; padding:32px 24px; background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.06); border-radius:16px;">
+      <div style="font-size:1.125rem; font-weight:600; color:#f1f5f9; margin-bottom:8px;">Browse Fresher Jobs by Category</div>
+      <div style="font-size:0.875rem; color:#94a3b8; margin-bottom:20px;">Explore verified 0 experience fresher tech jobs and paid internships across major domains.</div>
+      <div style="display:flex; flex-wrap:wrap; gap:12px;">
+        <a href="/jobs/software-developer" class="filter-btn" style="text-decoration:none; display:inline-flex; align-items:center; gap:8px;">
+          💻 Software Developer Jobs
+        </a>
+        <a href="/jobs/software-testing" class="filter-btn" style="text-decoration:none; display:inline-flex; align-items:center; gap:8px;">
+          🔍 Software Testing & QA Jobs
+        </a>
+        <a href="/jobs/data-analytics" class="filter-btn" style="text-decoration:none; display:inline-flex; align-items:center; gap:8px;">
+          📊 Data Analyst & Science Jobs
+        </a>
+        <a href="/jobs/design-ui-ux" class="filter-btn" style="text-decoration:none; display:inline-flex; align-items:center; gap:8px;">
+          🎨 UI/UX & Product Design Jobs
+        </a>
+        <a href="/jobs/remote" class="filter-btn" style="text-decoration:none; display:inline-flex; align-items:center; gap:8px;">
+          🏠 Remote Work From Home Jobs
+        </a>
+      </div>
+    </section>
+
   </main>
+
+  <footer style="max-width:1200px; margin:40px auto 20px; padding:20px; text-align:center; color:#64748b; font-size:0.875rem; border-top:1px solid rgba(255,255,255,0.06);">
+    <div style="margin-bottom:12px; display:flex; justify-content:center; gap:16px; flex-wrap:wrap;">
+      <a href="/" style="color:#94a3b8; text-decoration:none;">Home</a>
+      <a href="/jobs/software-developer" style="color:#94a3b8; text-decoration:none;">Software Dev</a>
+      <a href="/jobs/software-testing" style="color:#94a3b8; text-decoration:none;">Software Testing</a>
+      <a href="/jobs/data-analytics" style="color:#94a3b8; text-decoration:none;">Data Analytics</a>
+      <a href="/jobs/design-ui-ux" style="color:#94a3b8; text-decoration:none;">UI/UX Design</a>
+      <a href="/jobs/remote" style="color:#94a3b8; text-decoration:none;">Remote Jobs</a>
+      <a href="/saved-jobs.html" style="color:#94a3b8; text-decoration:none;">Saved Jobs</a>
+    </div>
+    <p>© 2026 JobUnify. Filtered tech jobs for freshers with 0 experience.</p>
+  </footer>
 
   <script src="/config.js"></script>
   <script src="/script.js"></script>

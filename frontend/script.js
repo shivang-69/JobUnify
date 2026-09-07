@@ -13,16 +13,20 @@ let savedJobIds = [];
 const ROLE_TO_SLUG = {
   '': '',
   'software': 'software-developer',
-  'qa': 'qa-testing',
+  'qa': 'software-testing',
   'data': 'data-analytics',
-  'design': 'ui-ux-design'
+  'design': 'design-ui-ux',
+  'remote': 'remote'
 };
 
 const SLUG_TO_ROLE = {
   'software-developer': 'software',
+  'software-testing': 'qa',
   'qa-testing': 'qa',
   'data-analytics': 'data',
-  'ui-ux-design': 'design'
+  'design-ui-ux': 'design',
+  'ui-ux-design': 'design',
+  'remote': 'remote'
 };
 
 const ROLE_METADATA = {
@@ -34,27 +38,33 @@ const ROLE_METADATA = {
   },
   'software': {
     title: '0 Experience Software Developer Jobs — JobUnify',
-    heading: 'Software Developer Jobs',
+    heading: '0 Experience Software Developer Jobs',
     description: 'Find fresh entry-level Software Developer jobs and paid internships with 0-2 years experience. Filtered for freshers from Internshala, Naukri, and Google Jobs with no senior roles.',
     canonical: 'https://www.jobunify.online/jobs/software-developer'
   },
   'qa': {
-    title: '0 Experience QA & Software Testing Jobs — JobUnify',
-    heading: 'QA & Testing Jobs',
-    description: 'Browse entry-level QA engineer, SDET, and software testing jobs and internships for freshers. Verified 0-2 years experience listings with zero spam.',
-    canonical: 'https://www.jobunify.online/jobs/qa-testing'
+    title: '0 Experience Software Testing Jobs — JobUnify',
+    heading: '0 Experience Software Testing Jobs',
+    description: 'Browse verified 0 experience software testing jobs, QA engineer, and SDET internships for freshers. Filtered for 0-2 years experience with zero spam.',
+    canonical: 'https://www.jobunify.online/jobs/software-testing'
   },
   'data': {
-    title: '0 Experience Data Analyst & Science Jobs — JobUnify',
-    heading: 'Data & Analytics Jobs',
-    description: 'Discover fresh entry-level Data Analyst, Data Science, and BI jobs and internships. Curated for graduates with 0-2 years experience across top platforms.',
+    title: 'Data Analyst Fresher Jobs 0 Experience — JobUnify',
+    heading: 'Data Analyst Fresher Jobs (0 Experience)',
+    description: 'Discover entry-level data analyst fresher jobs and paid data science internships requiring 0 experience. Handpicked for fresh graduates and early talent.',
     canonical: 'https://www.jobunify.online/jobs/data-analytics'
   },
   'design': {
-    title: '0 Experience UI/UX & Product Design Jobs — JobUnify',
-    heading: 'Design & UI/UX Jobs',
-    description: 'Explore entry-level UI/UX designer and product design jobs and internships for freshers and early career talent. No senior roles, no duplicates.',
-    canonical: 'https://www.jobunify.online/jobs/ui-ux-design'
+    title: 'UI UX Design Fresher Jobs — JobUnify',
+    heading: 'UI UX Design Fresher Jobs',
+    description: 'Explore entry-level UI UX design fresher jobs and product design internships with 0 experience required. Curated from top platforms with no senior roles.',
+    canonical: 'https://www.jobunify.online/jobs/design-ui-ux'
+  },
+  'remote': {
+    title: 'Fresher Jobs Remote Work From Home — JobUnify',
+    heading: 'Fresher Jobs Remote (Work From Home)',
+    description: 'Find fresher jobs remote work from home across software development, QA testing, data analytics, and UI/UX design. Verified entry-level listings with 0 experience.',
+    canonical: 'https://www.jobunify.online/jobs/remote'
   }
 };
 
@@ -97,7 +107,11 @@ async function fetchJobs(page = 1, append = false) {
   
   let searchQuery = search;
   if (activeRole) {
-    searchQuery = searchQuery ? `${searchQuery} ${activeRole}` : activeRole;
+    if (activeRole === 'remote') {
+      if (!location) url += `&location=Remote`;
+    } else {
+      searchQuery = searchQuery ? `${searchQuery} ${activeRole}` : activeRole;
+    }
   }
   if (searchQuery) url += `&search=${encodeURIComponent(searchQuery)}`;
   if (sort) url += `&sort=${sort}`;
@@ -329,8 +343,17 @@ function setRoleFilter(role, btn, pushState = true) {
   if (btn) {
     btn.classList.add('active');
   } else {
-    const targetBtn = document.querySelector(`.filters .filter-btn[onclick*="'${role}'"]`);
+    const slug = ROLE_TO_SLUG[role] || '';
+    const targetBtn = document.querySelector(`.filters .filter-btn[onclick*="'${role}'"]`) ||
+                      (slug ? document.querySelector(`.filters a[href*="${slug}"]`) : document.querySelector(`.filters a[href="/"]`));
     if (targetBtn) targetBtn.classList.add('active');
+  }
+
+  const locFilter = document.getElementById('locationFilter');
+  if (role === 'remote') {
+    if (locFilter) locFilter.value = 'Remote';
+  } else if (locFilter && locFilter.value === 'Remote') {
+    locFilter.value = '';
   }
 
   const slug = ROLE_TO_SLUG[role] || '';
@@ -599,8 +622,13 @@ async function toggleSaveJob(event, jobId) {
     if (catMatch && SLUG_TO_ROLE[catMatch[1]]) {
       activeRole = SLUG_TO_ROLE[catMatch[1]];
       document.querySelectorAll('.filters .filter-btn').forEach(b => b.classList.remove('active'));
-      const targetBtn = document.querySelector(`.filters .filter-btn[onclick*="'${activeRole}'"]`);
+      const targetBtn = document.querySelector(`.filters .filter-btn[onclick*="'${activeRole}'"]`) ||
+                        document.querySelector(`.filters a[href*="${catMatch[1]}"]`);
       if (targetBtn) targetBtn.classList.add('active');
+      if (activeRole === 'remote') {
+        const locFilter = document.getElementById('locationFilter');
+        if (locFilter) locFilter.value = 'Remote';
+      }
 
       const meta = ROLE_METADATA[activeRole] || ROLE_METADATA[''];
       document.title = meta.title;
