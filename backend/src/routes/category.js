@@ -117,7 +117,8 @@ function buildServerJobCard(job) {
   const colors = {
     'Internshala': '#22c55e',
     'Naukri': '#38bdf8',
-    'GoogleJobs': '#6c63ff'
+    'GoogleJobs': '#6c63ff',
+    'Foundit': '#f59e0b'
   };
   const logoBg = colors[source] || '#6c63ff';
   const dateStr = formatPostedDate(job.posted_at || job.date_posted || job.scrapedAt);
@@ -441,6 +442,7 @@ async function renderCategoryPage(req, res) {
       <div class="platform-pill" onclick="handlePlatformClick('Internshala')"><div class="dot" style="background:#22c55e"></div>Internshala</div>
       <div class="platform-pill" onclick="handlePlatformClick('Naukri')"><div class="dot" style="background:#38bdf8"></div>Naukri</div>
       <div class="platform-pill" onclick="handlePlatformClick('GoogleJobs')"><div class="dot" style="background:#6c63ff"></div>Google Jobs</div>
+      <div class="platform-pill" onclick="handlePlatformClick('Foundit')"><div class="dot" style="background:#f59e0b"></div>Foundit</div>
     </div>
   </section>
 
@@ -488,6 +490,7 @@ async function renderCategoryPage(req, res) {
         <option value="Internshala">Internshala</option>
         <option value="Naukri">Naukri</option>
         <option value="GoogleJobs">Google Jobs</option>
+        <option value="Foundit">Foundit</option>
       </select>
 
       <select class="filter-select" id="sortFilter" onchange="filterJobs()">

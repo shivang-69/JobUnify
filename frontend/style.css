@@ -509,6 +509,12 @@ nav {
   border: 1px solid rgba(108, 99, 255, 0.2);
 }
 
+.source-foundit {
+  background: rgba(245, 158, 11, 0.12);
+  color: #f59e0b;
+  border: 1px solid rgba(245, 158, 11, 0.25);
+}
+
 .job-title {
   font-family: 'Space Grotesk', sans-serif;
   font-size: 16px;

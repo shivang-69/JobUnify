@@ -124,7 +124,8 @@ function buildJobCard(job) {
   const colors = {
     'Internshala': '#22c55e',
     'Naukri': '#38bdf8',
-    'GoogleJobs': '#6c63ff'
+    'GoogleJobs': '#6c63ff',
+    'Foundit': '#f59e0b'
   };
   const logoBg = colors[source] || '#6c63ff';
   const dateStr = formatPostedDate(job.posted_at || job.date_posted || job.scrapedAt);
@@ -396,7 +397,8 @@ function renderActiveJobPage(res, { job, categorySlug }) {
   const colors = {
     'Internshala': '#22c55e',
     'Naukri': '#38bdf8',
-    'GoogleJobs': '#6c63ff'
+    'GoogleJobs': '#6c63ff',
+    'Foundit': '#f59e0b'
   };
   const logoBg = colors[job.source] || '#6c63ff';
 

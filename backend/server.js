@@ -70,7 +70,7 @@ app.get("/api/stats", async (req, res) => {
     const { isEntryLevel } = require("./src/utils/experienceFilter");
     const { isPaidInternship } = require("./src/utils/stipendFilter");
 
-    const ACTIVE_SOURCES = ["Internshala", "Naukri", "GoogleJobs"];
+    const ACTIVE_SOURCES = ["Internshala", "Naukri", "GoogleJobs", "Foundit"];
     const platformCount = ACTIVE_SOURCES.length;
 
     // Apply the exact same serving filters
