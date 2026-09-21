@@ -191,8 +191,11 @@ def scrape():
 
     # Save to JSON file
     output_path = os.path.join(os.path.dirname(__file__), "naukri_jobs.json")
-    with open(output_path, "w", encoding="utf-8") as f:
-        json.dump(all_jobs, f, ensure_ascii=False, indent=2)
+    try:
+        with open(output_path, "w", encoding="utf-8") as f:
+            json.dump(all_jobs, f, ensure_ascii=False, indent=2, default=str)
+    except Exception as json_err:
+        print(f"Warning: Failed to save naukri_jobs.json: {json_err}")
 
     print(f"Total jobs saved: {total_saved}")
     return total_saved
