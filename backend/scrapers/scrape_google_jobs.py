@@ -67,8 +67,9 @@ def scrape():
 
     api_key = os.getenv("SERPAPI_KEY")
     if not api_key:
-        print("ERROR: SERPAPI_KEY is missing from your .env file!")
-        return 0
+        err_msg = "CRITICAL: SERPAPI_KEY environment variable is missing or empty! Scraper cannot run."
+        print(f"::error title=Missing SerpApi Key::{err_msg}")
+        raise RuntimeError(err_msg)
 
     # Strict budget: 6 queries max (6 requests total)
     queries = [
@@ -100,8 +101,16 @@ def scrape():
 
         try:
             resp = requests.get(url, params=params, timeout=20)
-            if resp.status_code != 200:
-                print(f"  SerpApi returned status {resp.status_code}: {resp.text}")
+            if resp.status_code == 429:
+                err_msg = f"SerpApi returned HTTP 429 Quota Exceeded: {resp.text}"
+                print(f"::error title=SerpApi Quota Exceeded::{err_msg}")
+                raise RuntimeError(err_msg)
+            elif resp.status_code in [401, 403]:
+                err_msg = f"SerpApi authentication error HTTP {resp.status_code}: {resp.text}"
+                print(f"::error title=SerpApi Auth Error::{err_msg}")
+                raise RuntimeError(err_msg)
+            elif resp.status_code != 200:
+                print(f"::warning title=SerpApi Query Error::SerpApi returned status {resp.status_code}: {resp.text}")
                 continue
 
             data = resp.json()

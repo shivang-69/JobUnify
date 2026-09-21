@@ -7,10 +7,18 @@ def check_link(job):
     if not url:
         return None
     
-    is_internshala = 'internshala.com' in url
+    # Adzuna / Naukri redirect URLs aggressively block automated crawlers (HTTP 403)
+    # Never mark these as broken since they work for real users in browsers
+    url_lower = url.lower()
+    if 'adzuna.' in url_lower:
+        return job['_id'], 'ok'
+
+    is_internshala = 'internshala.com' in url_lower
     method = 'GET' if is_internshala else 'HEAD'
     headers = {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+        'Accept-Language': 'en-US,en;q=0.5'
     }
     
     try:
@@ -21,7 +29,12 @@ def check_link(job):
             if response.status_code in [403, 405]:
                 response = requests.get(url, headers=headers, allow_redirects=True, timeout=10)
                 
-        if response.status_code >= 400:
+        # 403 Forbidden indicates bot-detection / scraper blocking, NOT a dead link. Fail-open.
+        if response.status_code == 403:
+            return job['_id'], 'ok'
+
+        # Only confirmed dead links (404 Not Found, 410 Gone) are marked broken
+        if response.status_code in [404, 410]:
             return job['_id'], 'broken'
             
         if is_internshala and response.status_code == 200:
@@ -31,7 +44,7 @@ def check_link(job):
                 
         return job['_id'], 'ok'
     except Exception:
-        # Default fail-open: if there is a network error in the crawler/checker, treat as ok
+        # Default fail-open: if there is a network error/timeout in the crawler, treat as ok
         return job['_id'], 'ok'
 
 def verify():

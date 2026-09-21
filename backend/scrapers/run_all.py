@@ -21,23 +21,31 @@ def main():
         "GoogleJobs": 0
     }
     
+    errors = {}
+
     # 1. Internshala
     try:
         results["Internshala"] = scrape_internshala.scrape()
     except Exception as e:
-        print(f"ERROR: Internshala scraper failed: {e}\n")
+        err = f"Internshala scraper failed: {e}"
+        print(f"::error title=Internshala Scraper Failure::{err}\n")
+        errors["Internshala"] = str(e)
         
     # 2. Naukri
     try:
         results["Naukri"] = scrape_naukri.scrape()
     except Exception as e:
-        print(f"ERROR: Naukri scraper failed: {e}\n")
+        err = f"Naukri scraper failed: {e}"
+        print(f"::error title=Naukri Scraper Failure::{err}\n")
+        errors["Naukri"] = str(e)
         
     # 3. GoogleJobs (SerpApi — replaces Indeed/LinkedIn, quota-throttled to once/day)
     try:
         results["GoogleJobs"] = scrape_google_jobs.scrape()
     except Exception as e:
-        print(f"ERROR: GoogleJobs scraper failed: {e}\n")
+        err = f"GoogleJobs scraper failed: {e}"
+        print(f"::error title=GoogleJobs Scraper Failure::{err}\n")
+        errors["GoogleJobs"] = str(e)
         
     print("\n========================================")
     print("Running Deduplication Phase...")
@@ -84,8 +92,17 @@ def main():
     print(f"Total Scraped: {total_scraped} jobs")
     print(f"Duplicates Removed: {removed} jobs")
     print(f"Total Unique in Database: {total_saved} jobs")
-    print(f"Verified Links: {verified_count} checked, {broken_count} marked broken")
     print("========================================\n")
+
+    if errors:
+        print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+        print("ATTENTION - SCRAPER FAILURES OCCURRED:")
+        for src, err in errors.items():
+            print(f"  ❌ {src}: {err}")
+        print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n")
+        # Exit with non-zero code if ALL scrapers failed, or print high-visibility notice
+        if len(errors) == len(results):
+            sys.exit(1)
 
 if __name__ == "__main__":
     main()
