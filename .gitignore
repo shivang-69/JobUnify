@@ -21,3 +21,7 @@ Thumbs.db
 dist/
 build/
 .cache/
+
+# Ignore audit scripts and temporary JSON
+scratch/
+backend/scrapers/*.json

@@ -145,6 +145,51 @@ describe('Freshness Filter Query Tests', () => {
     expect(matches(doc, filter)).toBe(false);
   });
 
+  test('Foundit: document with native Date scrapedAt passes', () => {
+    const doc = {
+      source: 'Foundit',
+      date_posted: null,
+      scrapedAt: new Date(anchorDate.getTime() - 1000 * 60 * 60) // 1 hour ago (Date)
+    };
+    expect(matches(doc, filter)).toBe(true);
+  });
+
+  test('Foundit: document with ISO String scrapedAt passes', () => {
+    const doc = {
+      source: 'Foundit',
+      date_posted: null,
+      scrapedAt: new Date(anchorDate.getTime() - 1000 * 60 * 60).toISOString() // 1 hour ago (String)
+    };
+    expect(matches(doc, filter)).toBe(true);
+  });
+
+  test('Foundit: document with fresh date_posted passes', () => {
+    const doc = {
+      source: 'Foundit',
+      date_posted: '2026-08-25', // 1 day before anchor
+      scrapedAt: new Date(anchorDate)
+    };
+    expect(matches(doc, filter)).toBe(true);
+  });
+
+  test('Foundit: document with stale date_posted (> 7 days) fails', () => {
+    const doc = {
+      source: 'Foundit',
+      date_posted: '2026-08-10', // 16 days before anchor
+      scrapedAt: new Date(anchorDate)
+    };
+    expect(matches(doc, filter)).toBe(false);
+  });
+
+  test('Foundit: document with stale scrapedAt (> 7 days) fails', () => {
+    const doc = {
+      source: 'Foundit',
+      date_posted: null,
+      scrapedAt: new Date(anchorDate.getTime() - 1000 * 60 * 60 * 24 * 10) // 10 days ago (stale)
+    };
+    expect(matches(doc, filter)).toBe(false);
+  });
+
   test('Date-vs-string type mismatch prevention', () => {
     // Test that the interpreter itself catches type mismatches
     // if we did NOT have the string fallback condition

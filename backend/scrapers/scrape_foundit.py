@@ -204,6 +204,13 @@ def parse_job_page(url):
             "intern" in emp_type.lower()
         ) else "full-time"
 
+        posted_at = datetime.utcnow()
+        if date_posted and date_posted != "N/A":
+            try:
+                posted_at = datetime.strptime(date_posted, "%Y-%m-%d")
+            except Exception:
+                posted_at = datetime.utcnow()
+
         record = {
             "title": title.strip(),
             "company": company.strip(),
@@ -213,6 +220,7 @@ def parse_job_page(url):
             "source": "Foundit",
             "scrapedAt": datetime.utcnow(),
             "date_posted": date_posted,
+            "posted_at": posted_at,
             "description": clean_desc,
             "experience_raw": experience_raw,
             "job_track": job_track

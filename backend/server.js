@@ -97,8 +97,9 @@ app.get("/api/stats", async (req, res) => {
       .toArray();
 
     const visibleJobs = candidateJobs.filter(job => {
-      if (!isEntryLevel(job)) return false;
-      if (job.track === 'internship' && !isPaidInternship(job)) return false;
+      const entryRes = isEntryLevel(job);
+      if (!entryRes.include) return false;
+      if (entryRes.track === 'internship' && !isPaidInternship(job).paid) return false;
       return true;
     });
 

@@ -8,6 +8,7 @@ import scrape_internshala
 # import scrape_unstop  # RETIRED — Unstop disabled. Data preserved in MongoDB.
 import scrape_naukri
 import scrape_google_jobs
+import scrape_foundit
 import deduplicator
 
 def main():
@@ -18,7 +19,8 @@ def main():
     results = {
         "Internshala": 0,
         "Naukri": 0,
-        "GoogleJobs": 0
+        "GoogleJobs": 0,
+        "Foundit": 0
     }
     
     errors = {}
@@ -34,6 +36,8 @@ def main():
     # 2. Naukri
     try:
         results["Naukri"] = scrape_naukri.scrape()
+        if results["Naukri"] == 0:
+            print("::warning title=Naukri Zero Jobs::Naukri scraper completed with 0 jobs saved\n")
     except Exception as e:
         err = f"Naukri scraper failed: {e}"
         print(f"::error title=Naukri Scraper Failure::{err}\n")
@@ -46,6 +50,16 @@ def main():
         err = f"GoogleJobs scraper failed: {e}"
         print(f"::error title=GoogleJobs Scraper Failure::{err}\n")
         errors["GoogleJobs"] = str(e)
+        
+    # 4. Foundit
+    try:
+        results["Foundit"] = scrape_foundit.scrape()
+        if results["Foundit"] == 0:
+            print("::warning title=Foundit Zero Jobs::Foundit scraper completed with 0 jobs saved\n")
+    except Exception as e:
+        err = f"Foundit scraper failed: {e}"
+        print(f"::error title=Foundit Scraper Failure::{err}\n")
+        errors["Foundit"] = str(e)
         
     print("\n========================================")
     print("Running Deduplication Phase...")
@@ -89,6 +103,7 @@ def main():
     print(f"Internshala: {results['Internshala']} jobs")
     print(f"Naukri: {results['Naukri']} jobs")
     print(f"GoogleJobs: {results['GoogleJobs']} jobs")
+    print(f"Foundit: {results['Foundit']} jobs")
     print(f"Total Scraped: {total_scraped} jobs")
     print(f"Duplicates Removed: {removed} jobs")
     print(f"Total Unique in Database: {total_saved} jobs")

@@ -434,7 +434,8 @@ router.post('/check-link', async (req, res) => {
         }
       });
       
-      if (response.status >= 400) {
+      // 403 indicates bot-detection / scraper blocking, NOT a dead link. Fail-open.
+      if (response.status >= 400 && response.status !== 403) {
         return res.json({ status: 'broken' });
       }
 
@@ -478,7 +479,8 @@ router.post('/check-links', async (req, res) => {
               'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
             }
           });
-          if (response.status >= 400) {
+          // 403 indicates bot-detection / scraper blocking, NOT a dead link. Fail-open.
+          if (response.status >= 400 && response.status !== 403) {
             results[url] = 'broken';
           } else if (isInternshala && response.status === 200) {
             const text = await response.text();

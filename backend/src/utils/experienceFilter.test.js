@@ -546,5 +546,53 @@ describe('Category 11: Plural Freshers and Batch-Year title/desc signals', () =>
     expect(result.include).toBe(false);
     expect(result.status).toBe('senior');
   });
+
+  describe('Category 12: Foundit Real Job Postings', () => {
+    test('Foundit entry-level ReactJS developer with 0-1 years → should PASS', () => {
+      const result = isEntryLevel({
+        title: 'ReactJS Fullstack Developer',
+        company: 'Infosys Limited',
+        experience_raw: '0 - 1 Years',
+        source: 'Foundit'
+      });
+      expect(result.include).toBe(true);
+      expect(result.status).toBe('entry_level');
+      expect(result.track).toBe('full-time');
+    });
+
+    test('Foundit entry-level Controls Engineer with 0-1 years → should PASS', () => {
+      const result = isEntryLevel({
+        title: 'Controls Engineer, Controls Deployment and Service',
+        company: 'Amazon Music',
+        experience_raw: '0 - 1 Years',
+        source: 'Foundit'
+      });
+      expect(result.include).toBe(true);
+      expect(result.status).toBe('entry_level');
+    });
+
+    test('Foundit senior role with Roman numeral III in title → should FAIL', () => {
+      const result = isEntryLevel({
+        title: 'Software Engineer III - GBS IND',
+        company: 'Bank of America',
+        experience_raw: '0 - 1 Years',
+        description: 'Requirements: 8+ years of experience in Java development',
+        source: 'Foundit'
+      });
+      expect(result.include).toBe(false);
+      expect(result.status).toBe('senior');
+    });
+
+    test('Foundit Lead role → should FAIL due to seniority blacklist', () => {
+      const result = isEntryLevel({
+        title: 'Java - Lead',
+        company: 'IRIS software',
+        experience_raw: '0 - 1 Years',
+        source: 'Foundit'
+      });
+      expect(result.include).toBe(false);
+      expect(result.status).toBe('senior');
+    });
+  });
 });
 

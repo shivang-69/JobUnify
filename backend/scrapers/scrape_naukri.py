@@ -75,6 +75,7 @@ def scrape():
             "app_key": ADZUNA_APP_KEY,
             "what": QUERY,
             "category": "it-jobs",
+            "max_days_old": 4,
             "results_per_page": RESULTS_PER_PAGE,
             "content-type": "application/json"
         }
@@ -165,12 +166,20 @@ def scrape():
                             break  # don't retry on network errors
 
             job_track = "internship" if ("internship" in (job_url or "").lower() or "internship" in (title or "").lower() or "intern" in (title or "").lower()) else "full-time"
+            posted_at = datetime.utcnow()
+            if date_posted and date_posted != "N/A":
+                try:
+                    posted_at = datetime.strptime(date_posted, "%Y-%m-%d")
+                except Exception:
+                    posted_at = datetime.utcnow()
+
             job_data = {
                 "title": title,
                 "company": company,
                 "location": location,
                 "job_url": job_url,
                 "date_posted": date_posted,
+                "posted_at": posted_at,
                 "description": description,
                 "experience_raw": experience_raw,
                 "job_track": job_track,
